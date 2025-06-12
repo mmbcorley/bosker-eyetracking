@@ -245,7 +245,7 @@ const experiment_timeline = {
 	        consent,
 	        welcome,
 	       //check_audio,
-	       fullscreen,
+	       full_screen,
 	       position_head,
 	       candv
 	      ]
