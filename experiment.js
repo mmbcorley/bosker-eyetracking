@@ -167,7 +167,7 @@ const check_audio = {
 //Define head positioning trial
 var position_head = {
     type: jsPsychWebgazerInitCamera,
-    instructions: position_head_instructions
+    instructions: S.position_head_instructions
 };
 
 
