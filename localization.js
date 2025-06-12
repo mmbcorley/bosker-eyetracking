@@ -55,7 +55,7 @@ const translations = {
             <p>Position your head so that the webcam has a good view of your eyes.<br/>Adjust your seating so that it is comfortable to maintain this position.</p>
             <p>Ensure that your face is well-lit (perhaps from above).</p>
             <p>Centre your face in the box and look directly towards the camera.</p>
-            <p>When you can comfortably keep your face is centred in the box and the box is green, you can click to continue.</p>`
+            <p>When you can comfortably keep your face is centred in the box and the box is green, you can click to continue.</p>`,
 
 	
 	// Instructions 1
