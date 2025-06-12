@@ -50,6 +50,14 @@ const translations = {
 	// Volume adjustment
 	volume_adjust_prompt: "please adjust your volume and follow the audio instruction",
 
+	// Head positioning
+	position_head_instructions: `<p>(The video feed may take a few seconds to appear)</p>
+            <p>Position your head so that the webcam has a good view of your eyes.<br/>Adjust your seating so that it is comfortable to maintain this position.</p>
+            <p>Ensure that your face is well-lit (perhaps from above).</p>
+            <p>Centre your face in the box and look directly towards the camera.</p>
+            <p>When you can comfortably keep your face is centred in the box and the box is green, you can click to continue.</p>`
+
+	
 	// Instructions 1
 	instructions1_heading: "Instructions",
 	instructions1_text_1: "This is a very simple experiment:  It involves listening to some words, and telling us what you hear.",

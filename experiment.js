@@ -167,14 +167,75 @@ const check_audio = {
 //Define head positioning trial
 var position_head = {
     type: jsPsychWebgazerInitCamera,
-    instructions:
-    `<p>(The video feed may take a few seconds to appear)</p>
-            <p>Position your head so that the webcam has a good view of your eyes.</p>
-            <p>Center your face in the box and look directly towards the camera.</p>
-            <p>When your face is centered in the box and the box is green, you can click to continue.</p>`
+    instructions: position_head_instructions
 };
 
 
+//INITIAL CALIBRATION AND VALIDATION
+
+//Define component trials to the initial c/v procedure
+var calibration_instructions = {
+    type: jsPsychHtmlButtonResponse,
+    stimulus: `
+            <p>Great! Now the eye tracker will be calibrated to translate the image of your eyes from the webcam to a location on your screen.</p>
+            <p>To do this, you need to click a series of dots.</p>
+            <p>Keep your head still, and click on each dot as it appears. Look at the dot as you click it.</p>
+            `,
+    choices: ['Click to begin'],
+    post_trial_gap: 1000
+};
+timeline.push(calibration_instructions);
+
+var calibration = {
+    type: jsPsychWebgazerCalibrate,
+    calibration_mode: 'click',
+    //calibration_mode: 'view',
+    point_size: 30,
+    calibration_points: [[10, 10], [10, 50], [10, 90], [50, 10], [50, 50],
+			 [50, 90], [90, 10], [90, 50], [90, 90], [30, 70],
+			 [70, 30], [50, 30], [30, 50], [70, 50], [50, 70]],
+    repetitions_per_point: 1,
+    randomize_calibration_order: true,
+};
+
+var validation_instructions = {
+    type: jsPsychHtmlButtonResponse,
+    stimulus: `
+            <p>Now we need to check how accurate the eye tracking is. </p>
+            <p>Keep your head still, and move your eyes to focus on each dot as it appears.</p>
+            <p>You do not need to click on the dots. Just move your eyes to look at the dots.</p>
+            `,
+    choices: ['Click to begin'],
+    post_trial_gap: 500
+};
+
+var validation = {
+    type: jsPsychWebgazerValidate,
+    //validation_points: [[-400,0], [400,0]], //if center-offset-pixels is used to set point coordinates
+    validation_points: [[20, 50], [80, 50]], //if percent of screen w/h is used to set point coordinates
+    point_size: 30,
+    //validation_point_coordinates: 'center-offset-pixels',
+    validation_point_coordinates: 'percent',
+    time_to_saccade: 500, //1000 is the default value; change?
+    validation_duration: 3000,
+    show_validation_data: true, //set false for the actual experiment run?
+    on_finish: function (data) {
+        if (data.samples_per_sec < 5) {
+            data.calibration_quality = "Bad";
+        } else if (data.percent_in_roi[0] < 50 || data.percent_in_roi[1] < 50) {
+            data.calibration_quality = "Bad";
+        } else {
+            data.calibration_quality = "Sufficient";
+        };
+    }
+};
+
+const candv = {
+    timeline: [calibration_instructions,
+	       calibration,
+	       validation_instructions,
+	       validation]
+}
 
 
 // EXPERIMENT TIMELINE
@@ -184,8 +245,15 @@ const experiment_timeline = {
     timeline: [browser_check,
 	        consent,
 	        welcome,
-	 //check_audio,
-    position_head]
+	       //check_audio,
+	       fullscreen,
+	       position_head,
+	       candv
+	      ]
 }
+
+
+
+
 
 jsPsych.run([experiment_timeline]);
