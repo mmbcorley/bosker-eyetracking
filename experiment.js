@@ -181,10 +181,10 @@ var position_head = {
 // ===================
 
 const experiment_timeline = {
-    timeline: [//browser_check,
-	//        consent,
-	//        welcome,
-	// check_audio,
+    timeline: [browser_check,
+	        consent,
+	        welcome,
+	 check_audio,
     position_head]
 }
 
