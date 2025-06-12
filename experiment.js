@@ -184,7 +184,6 @@ var calibration_instructions = {
     choices: ['Click to begin'],
     post_trial_gap: 1000
 };
-timeline.push(calibration_instructions);
 
 var calibration = {
     type: jsPsychWebgazerCalibrate,
