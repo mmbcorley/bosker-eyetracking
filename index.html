@@ -11,6 +11,7 @@
     
     <!-- Load all required plugins -->
     <script src="https://unpkg.com/@jspsych/plugin-instructions@2.1.0"></script>
+    <script src="https://unpkg.com/@jspsych/plugin-browser-check@2.1.0"></script>
     <script src="https://unpkg.com/@jspsych/plugin-audio-button-response@2.1.0"></script>
     <script src="https://unpkg.com/@jspsych/plugin-audio-keyboard-response@2.1.0"></script>
     <script src="https://unpkg.com/@jspsych/plugin-html-button-response@2.1.0"></script>
@@ -20,6 +21,13 @@
     <script src="https://unpkg.com/@jspsych/plugin-preload@2.1.0"></script>
     <script src="https://unpkg.com/@jspsych/plugin-call-function@2.1.0"></script>
     <script src="https://unpkg.com/@jspsych/plugin-fullscreen@2.1.0"></script>
+    <script src="https://unpkg.com/@jspsych/plugin-webgazer-init-camera@2.1.0"></script>
+    <script src="https://unpkg.com/@jspsych/plugin-webgazer-calibrate@2.1.0"></script>
+    <script src="https://unpkg.com/@jspsych/plugin-webgazer-validate@2.1.0"></script>
+    <script src="https://cdn.jsdelivr.net/gh/jspsych/jspsych@jspsych@7.0.0/examples/js/webgazer/webgazer.js"></script>
+    <script src="https://unpkg.com/@jspsych/extension-webgazer@1.2.0"></script>
+
+
     
     <!-- YOUR EXPERIMENT SCRIPTS -->
     <!-- Load the localization strings FIRST -->
@@ -28,7 +36,9 @@
     <script src="experiment.js"></script>
     
     <!-- Load jsPsych stylesheet -->
-    <link href="https://unpkg.com/jspsych@8.2.1/css/jspsych.css" rel="stylesheet" type="text/css" />  
+    <link href="https://unpkg.com/jspsych@8.2.1/css/jspsych.css"
+	  rel="stylesheet" type="text/css" />
+    <link href="css/local_fixes.css" rel="stylesheet" type="text/css" />
   </head>
   <body>
     <!-- Experiment is rendered here -->
