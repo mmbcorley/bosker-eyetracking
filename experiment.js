@@ -244,7 +244,7 @@ const experiment_timeline = {
     timeline: [browser_check,
 	        consent,
 	        welcome,
-	       //check_audio,
+	       check_audio,
 	       full_screen,
 	       position_head,
 	       candv
