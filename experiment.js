@@ -229,12 +229,46 @@ var validation = {
     }
 };
 
-const candv = {
-    timeline: [calibration_instructions,
-	       calibration,
-	       validation_instructions,
-	       validation]
+
+
+
+const check_audio = {
+    timeline: [adjust_volume],
+    loop_function: function(data){
+	if (data.values()[0].response==volumeIndex){
+	    
+	    return false;
+	} else {
+	    return true;
+	}
+    }
 }
+
+var calibration_tries = 0;
+
+const calibrate_loop = {
+    timeline: [calibration,
+	       validation_instructions,
+	       validation],
+    on_timeline_start: function() {
+	calibration_tries++;
+    }
+    loop_function: function(data) {
+	let recalibrate = jsPsych.data.get().last().select('subpar').values[0];
+	if (recalibrate === true && calibration_tries < 2) {
+	    console.log("try recalibration")
+	    jsPsych.extensions.webgazer.resetCalibration();
+	    return true;
+	} else {
+	    calibration_tries = 0;
+	    return false;
+	}
+    }
+}
+
+/////////////////////// NO FEEDBACK ///////////////////
+///////////////////////////////////////////////////////
+
 
 
 // EXPERIMENT TIMELINE
@@ -244,10 +278,11 @@ const experiment_timeline = {
     timeline: [browser_check,
 	        consent,
 	        welcome,
-	       check_audio,
+	       //check_audio,
 	       full_screen,
 	       position_head,
-	       candv
+	       calibration_instructions,
+	       calibrate_loop
 	      ]
 }
 
