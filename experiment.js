@@ -164,28 +164,29 @@ const check_audio = {
 // NB., might be something wrong with looping above.
 
 
+//INITIAL CALIBRATION AND VALIDATION
+
 //Define head positioning trial
-var position_head = {
+const position_head = {
     type: jsPsychWebgazerInitCamera,
     instructions: S.position_head_instructions
 };
 
-
-//INITIAL CALIBRATION AND VALIDATION
+// for repeat camera alignment; not sure if this will work
+const repeat_position_head = {
+    type: jsPsychWebgazerInitCamera,
+    instructions: S.position_head_instructions
+};
 
 //Define component trials to the initial c/v procedure
-var calibration_instructions = {
+const calibration_instructions = {
     type: jsPsychHtmlButtonResponse,
-    stimulus: `
-            <p>Great! Now the eye tracker will be calibrated to translate the image of your eyes from the webcam to a location on your screen.</p>
-            <p>To do this, you need to click a series of dots.</p>
-            <p>Keep your head still, and click on each dot as it appears. Look at the dot as you click it.</p>
-            `,
-    choices: ['Click to begin'],
+    stimulus: S.calibration_instructions,
+    choices: [S.click_begin],
     post_trial_gap: 1000
 };
 
-var calibration = {
+const calibration = {
     type: jsPsychWebgazerCalibrate,
     calibration_mode: 'click',
     //calibration_mode: 'view',
@@ -197,18 +198,14 @@ var calibration = {
     randomize_calibration_order: true,
 };
 
-var validation_instructions = {
+const validation_instructions = {
     type: jsPsychHtmlButtonResponse,
-    stimulus: `
-            <p>Now we need to check how accurate the eye tracking is. </p>
-            <p>Keep your head still, and move your eyes to focus on each dot as it appears.</p>
-            <p>You do not need to click on the dots. Just move your eyes to look at the dots.</p>
-            `,
-    choices: ['Click to begin'],
+    stimulus: S.validation_instructions,
+    choices: [S.click_begin],
     post_trial_gap: 500
 };
 
-var validation = {
+const validation = {
     type: jsPsychWebgazerValidate,
     //validation_points: [[-400,0], [400,0]], //if center-offset-pixels is used to set point coordinates
     validation_points: [[20, 50], [80, 50]], //if percent of screen w/h is used to set point coordinates
@@ -220,43 +217,52 @@ var validation = {
     show_validation_data: true, //set false for the actual experiment run?
     on_finish: function (data) {
         if (data.samples_per_sec < 5) {
-            data.calibration_quality = "Bad";
+            data.calibration_quality = "BADCAL";
         } else if (data.percent_in_roi[0] < 50 || data.percent_in_roi[1] < 50) {
-            data.calibration_quality = "Bad";
+            data.calibration_quality = "BADCAL";
         } else {
-            data.calibration_quality = "Sufficient";
+            data.calibration_quality = "ok";
         };
     }
 };
 
-
-
-
-const check_audio = {
-    timeline: [adjust_volume],
-    loop_function: function(data){
-	if (data.values()[0].response==volumeIndex){
-	    
-	    return false;
-	} else {
-	    return true;
-	}
-    }
-}
-
 var calibration_tries = 0;
 
-const calibrate_loop = {
-    timeline: [calibration,
+const validation_feedback = {
+    type: jsPsychHtmlButtonResponse,
+    stimulus: function() {
+    	var quality = jsPsych.data.get().last().select('calibration_quality').values[0];
+	if (calibration_tries ==  5 && quality == 'BADCAL') {
+	    return S.validation_feedback_badcal;
+	} else if (quality == 'BADCAL') {
+	    return S.repeat_calibration_instructions;
+	} else {
+	    return S.validation_feedback_goodcal;
+	}
+    },
+    choices: [S.continue],
+    on_finish: function(data) {
+	if (data.stimulus == S.validation_feedback_goodcal) {
+	    data.subpar = false;
+	} else {
+	    data.subpar = true;
+	}
+    }
+};
+
+const calibration_loop = {
+    timeline: [repeat_position_head,
+	       calibration,
 	       validation_instructions,
-	       validation],
+	       validation,
+	       validation_feedback],
     on_timeline_start: function() {
 	calibration_tries++;
     }
     loop_function: function(data) {
 	let recalibrate = jsPsych.data.get().last().select('subpar').values[0];
 	if (recalibrate === true && calibration_tries < 2) {
-	    console.log("try recalibration")
+	    console.log("try recalibration");   
 	    jsPsych.extensions.webgazer.resetCalibration();
 	    return true;
 	} else {
@@ -265,6 +271,28 @@ const calibrate_loop = {
 	}
     }
 }
+
+// define a trial for failed calibration
+
+const failed_init = {
+    type: jsPsychHtmlButtonResponse,
+    stimulus: `<p>Calibration Failure</p>`,
+    choices: ['OK']
+};
+
+// conditionally call failed_init if calibration failed
+const check_calibration = {
+    timeline: [failed_init],
+    conditional_function: function () {
+	var data = jsPsych.data.get().last(1).values()[0];
+	if (data.subpar == true) {
+	    return true;
+	} else {
+	    return false;
+	}
+    }
+};
+
 
 /////////////////////// NO FEEDBACK ///////////////////
 ///////////////////////////////////////////////////////
@@ -282,7 +310,8 @@ const experiment_timeline = {
 	       full_screen,
 	       position_head,
 	       calibration_instructions,
-	       calibrate_loop
+	       calibration_loop,
+	       check_calibration
 	      ]
 }
 

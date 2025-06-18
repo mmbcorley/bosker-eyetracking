@@ -11,6 +11,12 @@ const translations = {
 	// Title of the page
 	title: "Recognising Words",
 
+	// generic buttons
+	continue: "continue",
+	click_begin: "click to begin",
+	
+
+	
 	// Browser check messages
 	browser_check_chrome: "<p>You must use Chrome as your browser to complete this experiment.</p>",
 	browser_check_webcam: "<p>You need a webcam to complete this experiment.</p>",
@@ -19,7 +25,7 @@ const translations = {
 	// Consent check message
 	consent_check_alert: "If you wish to participate, you must check the box next to the statement 'I agree to participate in this study.'",
 	consent_button: "start",
-
+	
 	// Preload error message
 	preload_error_heading: "Error",
 	preload_error_message: "Can't find the resources for this experiment.",
@@ -52,11 +58,30 @@ const translations = {
 
 	// Head positioning
 	position_head_instructions: `<p>(The video feed may take a few seconds to appear)</p>
-            <p>Position your head so that the webcam has a good view of your eyes.<br/>Adjust your seating so that it is comfortable to maintain this position.</p>
+            
             <p>Ensure that your face is well-lit (perhaps from above).</p>
             <p>Centre your face in the box and look directly towards the camera.</p>
-            <p>When you can comfortably keep your face centred in the box and the box is green, you can click to continue.</p>`,
+            <p>Position your head so that the webcam has a good view of your eyes.<br/>
+            Adjust your seating so that it is comfortable to maintain this position.</p><p>When you can comfortably keep your face centred in the box and the box is green, you can click to continue.</p>`,
 
+	// First Calibration
+	calibration_instructions: `
+            <p>Great! Now the eye tracker will be calibrated to translate the image of your eyes from the webcam to a location on your screen.</p>
+            <p>To do this, you need to click a series of dots.</p>
+            <p>Keep your head still, and click on each dot as it appears. Look at the dot as you click it.</p>
+            `,
+
+	// Repeat Calibration
+	repeat_calibration_instructions: `
+            <p>Hmmm, the calibration wasn't very accurate.  Let's try again.</p>
+            <p>Keep your head still, and click on each dot as it appears. Look at the dot as you click it.</p>`,
+
+	// Validation
+	validation_instructons: `
+            <p>Now we need to check how accurate the eye tracking is. </p>
+            <p>Keep your head still, and move your eyes to focus on each dot as it appears.</p>
+            <p>You do not need to click on the dots. Just move your eyes to look at the dots.</p>
+            `,
 	
 	// Instructions 1
 	instructions1_heading: "Instructions",
