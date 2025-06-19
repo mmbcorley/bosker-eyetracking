@@ -230,18 +230,16 @@ var calibration_tries = 0;
 
 const validation_feedback = {
     type: jsPsychHtmlButtonResponse,
-    stimulus: `<p>HOORAY</p>`,
-
-    // function() {
-    // 	var quality = jsPsych.data.get().last().select('calibration_quality').values[0];
-    // 	if (calibration_tries ==  5 && quality == 'BADCAL') {
-    // 	    return S.validation_feedback_badcal;
-    // 	} else if (quality == 'BADCAL') {
-    // 	    return S.repeat_calibration_instructions;
-    // 	} else {
-    // 	    return S.validation_feedback_goodcal;
-    // 	}
-    // },
+    stimulus: function() {
+	var quality = jsPsych.data.get().last().select('calibration_quality').values[0];
+	if (calibration_tries ==  5 && quality == 'BADCAL') {
+	    return S.validation_feedback_badcal;
+	} else if (quality == 'BADCAL') {
+	    return S.repeat_calibration_instructions;
+	} else {
+	    return S.validation_feedback_goodcal;
+	}
+    },
     choices: [S.continue],
     on_finish: function(data) {
 	if (data.stimulus == S.validation_feedback_goodcal) {
