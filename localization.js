@@ -82,6 +82,15 @@ const translations = {
             <p>Keep your head still, and move your eyes to focus on each dot as it appears.</p>
             <p>You do not need to click on the dots. Just move your eyes to look at the dots.</p>
             `,
+
+	// Validation_feedback
+	validation_feedback_badcal: `
+<p>Unfortunately we didn't get a good calibration.<br/>Let's press on anyway.</p>`,
+
+	repeat_calibration_instructions: `
+<p>We didn't get a good calibration.  Let's try calibrating again.</p>`,
+
+	validation_feedback_goodcal: `<p>Success!</p>`,
 	
 	// Instructions 1
 	instructions1_heading: "Instructions",
