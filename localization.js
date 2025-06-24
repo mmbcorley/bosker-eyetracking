@@ -67,7 +67,7 @@ const translations = {
             <p>Ensure that your face is well-lit (perhaps from above).</p>
             <p>Centre your face in the box and look directly towards the camera.</p>
             <p>Position your head so that the webcam has a good view of your eyes.<br/>
-            <bold>Adjust your seating so that it is comfortable to maintain this position.</bold></p><p>When you can comfortably keep your face centred in the box and the box is green, you can click to continue.</p>`,
+            <strong>Adjust your seating so that it is comfortable to maintain this position.</strong></p><p>When you can comfortably keep your face centred in the box and the box is green, you can click to continue.</p>`,
 
 	// First Calibration
 	calibration_instructions: `
@@ -79,7 +79,7 @@ const translations = {
 	// Repeat Calibration
 	repeat_calibration_instructions: `
             <p>Hmmm, the calibration wasn't very accurate.  Let's try again.</p>
-            <p>Keep your head still, and click on each dot as it appears. Look at the dot as you click it.</p>`,
+            <p>We'll set up the webcam again first.<br/>Then keep your head still, and click on each dot as it appears. Look at the dot as you click it.</p>`,
 
 	// Validation
 	validation_instructions: `
