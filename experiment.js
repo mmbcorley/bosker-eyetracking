@@ -166,6 +166,15 @@ const check_audio = {
 
 //INITIAL CALIBRATION AND VALIDATION
 
+//Define initial calibration instructions
+const calibration_instructions = {
+    type: jsPsychHtmlButtonResponse,
+    stimulus: S.calibration_first_time,
+    choices: [S.click_begin],
+    post_trial_gap: 1000
+};
+
+
 //Define head positioning trial
 const position_head = {
     type: jsPsychWebgazerInitCamera,
@@ -304,7 +313,7 @@ const experiment_timeline = {
 	       //check_audio,
 	       full_screen,
 	       //position_head,
-	       calibration_instructions,
+	       calibration_first_time,
 	       calibration_loop,
 	       check_calibration
 	      ]

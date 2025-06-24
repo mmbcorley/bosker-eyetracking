@@ -56,13 +56,18 @@ const translations = {
 	// Volume adjustment
 	volume_adjust_prompt: "please adjust your volume and follow the audio instruction",
 
+	calibration_first_time: `<p>Now we will calibrate your eye movements, using your webcam.</p>
+                                 <p>First we will set up the webcam and help you get your head into a good position.</p>
+                                 <p>Once we have done that, we will ask you to look at and click on a series of dots on the screen.</p>
+                                 Insofar as it is comfortable for you, you should try and keep your head fairly still during calibration, validation, and the experiment.</p>`,
+
 	// Head positioning
 	position_head_instructions: `<p>(The video feed may take a few seconds to appear)</p>
             
             <p>Ensure that your face is well-lit (perhaps from above).</p>
             <p>Centre your face in the box and look directly towards the camera.</p>
             <p>Position your head so that the webcam has a good view of your eyes.<br/>
-            Adjust your seating so that it is comfortable to maintain this position.</p><p>When you can comfortably keep your face centred in the box and the box is green, you can click to continue.</p>`,
+            <bold>Adjust your seating so that it is comfortable to maintain this position.</bold></p><p>When you can comfortably keep your face centred in the box and the box is green, you can click to continue.</p>`,
 
 	// First Calibration
 	calibration_instructions: `
