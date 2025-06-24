@@ -167,7 +167,7 @@ const check_audio = {
 //INITIAL CALIBRATION AND VALIDATION
 
 //Define initial calibration instructions
-const calibration_instructions = {
+const calibration_first_time = {
     type: jsPsychHtmlButtonResponse,
     stimulus: S.calibration_first_time,
     choices: [S.click_begin],
