@@ -172,12 +172,6 @@ const position_head = {
     instructions: S.position_head_instructions
 };
 
-// for repeat camera alignment; not sure if this will work
-const repeat_position_head = {
-    type: jsPsychWebgazerInitCamera,
-    instructions: S.position_head_instructions
-};
-
 //Define component trials to the initial c/v procedure
 const calibration_instructions = {
     type: jsPsychHtmlButtonResponse,
@@ -212,6 +206,7 @@ const validation = {
     point_size: 30,
     //validation_point_coordinates: 'center-offset-pixels',
     validation_point_coordinates: 'percent',
+    roi_radius: 250,
     time_to_saccade: 500, //1000 is the default value; change?
     validation_duration: 3000,
     show_validation_data: true, //set false for the actual experiment run?
@@ -251,7 +246,7 @@ const validation_feedback = {
 };
 
 const calibration_loop = {
-    timeline: [repeat_position_head,
+    timeline: [position_head,
 	       calibration,
 	       validation_instructions,
 	       validation,
@@ -308,7 +303,7 @@ const experiment_timeline = {
 	        welcome,
 	       //check_audio,
 	       full_screen,
-	       position_head,
+	       //position_head,
 	       calibration_instructions,
 	       calibration_loop,
 	       check_calibration
