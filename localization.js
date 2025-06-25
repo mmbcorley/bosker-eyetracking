@@ -99,7 +99,7 @@ const translations = {
 	
 	// Instructions
 	instructions: `<p style="text-align: center;"><b>INSTRUCTIONS</b></p>
-            <p>In each trial in this experiment, you will first see a dot in the center of the screen. <br/>Click on the dot to continue.<br/>You will see two pictures, and hear sentence.<br><b>Click on the picture that best matches that sentence.</b><br> (Note: while the sentence is playing, your mouse cursor will not be visible.)</p>
+            <p>In each trial in this experiment, you will first see a dot in the center of the screen. <br/>Click on the dot to continue.<br/>You will see two pictures, and hear a sentence.<br><b>Click on the picture that best matches that sentence.</b><br> (Note: while the sentence is playing, your mouse cursor will not be visible.)</p>
             <p>You can blink normally, but try not to move your head! <br>You will occasionally be asked to re-calibrate before continuing.</p>
             <p>&nbsp;</p>
             <p><b>Ready?</b></p>`,
