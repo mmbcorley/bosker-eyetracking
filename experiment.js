@@ -267,7 +267,7 @@ const calibration_loop = {
 	       validation_instructions,
 	       validation,
 	       validation_feedback],
-    on_timeline_start: function() {
+    on_timeline_start: () => {
 	calibration_tries++;
     },
     loop_function: function(data) {
