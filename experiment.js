@@ -1,5 +1,6 @@
 // TEMPORARY
 const exp_length = 100;
+var num_trials = 0;
 
 const jsPsych = initJsPsych({
     show_progress_bar: true,
@@ -179,6 +180,17 @@ const calibration_first_time = {
     }
 };
 
+// for recalibrations
+const calibration_recalibrate = {
+    type: jsPsychHtmlButtonResponse,
+    stimulus: S.calibration_recalibrate,
+    choices: [S.click_begin],
+    post_trial_gap: 1000,
+    on_finish: () => {
+	CALIBRATION_MAX=2;
+    }
+};
+
 
 //Define head positioning trial
 const position_head = {
@@ -307,9 +319,20 @@ const check_calibration = {
     }
 };
 
+const recalibration = {
+    timeline: [calibration_recalibrate,calibration_loop],
+    conditional_function: function () {
+	if (num_trials % 13 == 12) {
+	    return true;
+	} else {
+	    return false;
+	}
+    }
+};
 
-/////////////////////// NO FEEDBACK ///////////////////
-///////////////////////////////////////////////////////
+
+// EXPERIMENT PROPER
+// =================
 
 
 
