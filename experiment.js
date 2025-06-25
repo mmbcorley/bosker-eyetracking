@@ -269,7 +269,7 @@ const calibration_loop = {
 	       validation_feedback],
     on_timeline_start: () => {
 	calibration_tries=0;
-    }
+    },
     loop_function: function(data) {
 	calibration_tries++;
 	let recalibrate = jsPsych.data.get().last().select('subpar').values[0];
