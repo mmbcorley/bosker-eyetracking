@@ -166,12 +166,17 @@ const check_audio = {
 
 //INITIAL CALIBRATION AND VALIDATION
 
+var CALIBRATION_MAX;
+
 //Define initial calibration instructions
 const calibration_first_time = {
     type: jsPsychHtmlButtonResponse,
     stimulus: S.calibration_first_time,
     choices: [S.click_begin],
     post_trial_gap: 1000
+    on_finish: function() {
+	CALIBRATION_MAX=2;
+    }
 };
 
 
@@ -236,7 +241,7 @@ const validation_feedback = {
     type: jsPsychHtmlButtonResponse,
     stimulus: function() {
 	var quality = jsPsych.data.get().last().select('calibration_quality').values[0];
-	if (calibration_tries ==  5 && quality == 'BADCAL') {
+	if (calibration_tries ==  CALIBRATION_MAX && quality == 'BADCAL') {
 	    return S.validation_feedback_badcal;
 	} else if (quality == 'BADCAL') {
 	    return S.repeat_calibration_instructions;
@@ -265,7 +270,7 @@ const calibration_loop = {
     },
     loop_function: function(data) {
 	let recalibrate = jsPsych.data.get().last().select('subpar').values[0];
-	if (recalibrate === true && calibration_tries < 2) {
+	if (recalibrate === true && calibration_tries < CALIBRATION_MAX) {
 	    console.log("try recalibration");   
 	    jsPsych.extensions.webgazer.resetCalibration();
 	    return true;
