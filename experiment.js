@@ -253,6 +253,7 @@ const validation_feedback = {
     type: jsPsychHtmlButtonResponse,
     stimulus: function() {
 	var quality = jsPsych.data.get().last().select('calibration_quality').values[0];
+	calibration_tries++;
 	console.log(quality);
 	if (calibration_tries ==  CALIBRATION_MAX && quality == 'BADCAL') {
 	    return S.validation_feedback_badcal;
@@ -270,9 +271,6 @@ const validation_feedback = {
 	} else {
 	    data.subpar = true;
 	}
-    },
-    on_start: () => {
-	calibration_tries++;
     }
 };
 
