@@ -176,7 +176,7 @@ const calibration_first_time = {
     choices: [S.click_begin],
     post_trial_gap: 1000,
     on_finish: () => {
-	CALIBRATION_MAX=2;
+	CALIBRATION_MAX=1;
     }
 };
 
@@ -298,7 +298,7 @@ const calibration_loop = {
     }
 }
 
-// define a trial for failed calibration
+//// --- NOT USED define a trial for failed calibration
 
 const failed_init = {
     type: jsPsychHtmlButtonResponse,
@@ -319,6 +319,8 @@ const check_calibration = {
     }
 };
 
+//// --- NOT USED above here
+
 const recalibration = {
     timeline: [calibration_recalibrate,calibration_loop],
     conditional_function: function () {
@@ -334,7 +336,12 @@ const recalibration = {
 // EXPERIMENT PROPER
 // =================
 
-
+var instructions = {
+        type: jsPsychHtmlButtonResponse,
+        css_classes: ['instructions'],
+        stimulus: S.instructions,
+        choices: [S.click_begin]
+    };
 
 // EXPERIMENT TIMELINE
 // ===================
@@ -348,7 +355,7 @@ const experiment_timeline = {
 	       //position_head,
 	       calibration_first_time,
 	       calibration_loop,
-	       check_calibration
+	       instructions
 	      ]
 }
 

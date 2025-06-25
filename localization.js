@@ -61,6 +61,10 @@ const translations = {
                                  <p>Once we have done that, we will ask you to look at and click on a series of dots on the screen.</p>
                                  Insofar as it is comfortable for you, you should try and keep your head fairly still during calibration, validation, and the experiment.</p>`,
 
+
+	calibration_recalibrate: `<p>We need to recalibrate your eye movements now.</p>
+                                  <p>As before, we will set up the webcam before you click on a series of dots.</p>`,
+
 	// Head positioning
 	position_head_instructions: `<p>(The video feed may take a few seconds to appear)</p>
             
@@ -90,30 +94,15 @@ const translations = {
 
 	// Validation_feedback
 	validation_feedback_badcal: `
-<p>Unfortunately we didn't get a good calibration.<br/>Let's press on anyway.</p>`,
+<p>Unfortunately we didn't get a great calibration.<br/>Let's press on anyway.</p>`,
 	validation_feedback_goodcal: `<p>Success!</p>`,
 	
-	// Instructions 1
-	instructions1_heading: "Instructions",
-	instructions1_text_1: "This is a very simple experiment:  It involves listening to some words, and telling us what you hear.",
-	instructions1_text_2: "You might hear something like",
-	instructions1_example: "the next word is dest",
-	instructions1_text_3: "and then get asked whether you heard 'DEST' or 'TEST'",
-	instructions1_text_4: "You'll see two buttons; just click on what you think you heard.",
-	instructions1_text_5: "We're not trying to trick you, so if you're not sure, give it your best guess.",
-	instructions1_text_6: "We'll start with a practice just so you know how everything works.",
-	instructions1_text_7: "Click 'Next' when you're ready to listen to your first word.",
-	
-	// Instructions 2 (End of Practice)
-	instructions2_heading: "End of Practice",
-	instructions2_text_1: "Simple, eh? Now you know how everything works, we'll rattle through the experiment.",
-	instructions2_text_2: "Remember: We're not trying to trick you!",
-	instructions2_text_3: "There are quite a few words to listen to (we need them for the data analysis) so please stick with it.",
-
-	// Instructions 3 (Nearly Finished)
-	instructions3_heading: "Nearly Finished",
-	instructions3_text_1: "That's the main part of the experiment finished.",
-	instructions3_text_2: "Next, we'd like you to answer a couple of questions about yourself.",
+	// Instructions
+	instructions: `<p style="text-align: center;"><b>INSTRUCTIONS</b></p>
+            <p>In each trial in this experiment, you will first see a dot in the center of the screen. <br/>Click on the dot to continue.<br/>You will see two pictures, and hear sentence.<br><b>Click on the picture that best matches that sentence.</b><br> (Note: while the sentence is playing, your mouse cursor will not be visible.)</p>
+            <p>You can blink normally, but try not to move your head! <br>You will occasionally be asked to re-calibrate before continuing.</p>
+            <p>&nbsp;</p>
+            <p><b>Ready?</b></p>`,
 
 	// Questionnaire
 	questionnaire_preamble: "<h2>About You</h2>",
