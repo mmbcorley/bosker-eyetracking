@@ -173,7 +173,7 @@ const calibration_first_time = {
     type: jsPsychHtmlButtonResponse,
     stimulus: S.calibration_first_time,
     choices: [S.click_begin],
-    post_trial_gap: 1000
+    post_trial_gap: 1000,
     on_finish: => () {
 	CALIBRATION_MAX=2;
     }
