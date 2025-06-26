@@ -121,7 +121,7 @@ var _globalName_ = (function (jspsych) {
    *
    * @author Kristin Diep, Myrte Vos
    */
-  class AudioBettyResponsePlugin {
+  class AudioBettyResponse {
     constructor(jsPsych) {
       this.jsPsych = jsPsych;
     }
@@ -361,8 +361,8 @@ var _globalName_ = (function (jspsych) {
         });
     }
   }
-  AudioBettyResponsePlugin.info = info;
+  AudioBettyResponse.info = info;
 
-  return AudioBettyResponsePlugin;
+  return AudioBettyResponse;
 
 })(jsPsychModule);
