@@ -349,8 +349,8 @@ const fixation = {
 };
 
 const stimulus = {
-    type: jsPsychAudioBettyResponse;
-    stimulus: 'audio/sound_check.ogg';
+    type: jsPsychAudioBettyResponse,
+    stimulus: 'audio/sound_check.ogg',
     trial_ends_after_audio: false,
     css_classes: ['trial_content'],
     choices: ['img/bench.jpg', 'img/toothbrush.jpg'],
