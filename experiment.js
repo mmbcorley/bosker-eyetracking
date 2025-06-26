@@ -341,6 +341,42 @@ var instructions = {
         choices: [S.click_begin]
     };
 
+const fixation = {
+  type: jsPsychHtmlKeyboardResponse,
+  stimulus: '<div style="font-size:60px;">+</div>',
+  choices: "NO_KEYS",
+  trial_duration: 1000,
+};
+
+const stimulus = {
+    type: jsPsychAudioBettyResponse;
+    stimulus: 'audio/sound_check.ogg';
+    trial_ends_after_audio: false,
+    css_classes: ['trial_content'],
+    choices: ['img/bench.jpg', 'img/toothbrush.jpg'],
+    button_html: [
+	'<img id="button-left" src="%choice%" class="img-fluid selection-disabled"/>',
+        '<img id="button-right" src="%choice%" class="img-fluid selection-disabled"/>'
+    ],
+    margin_vertical: '0px',
+    margin_horizontal: '0px',
+    hide_mouse_during_audio: false,
+    response_allowed_while_playing: true,
+    extensions: [
+	{ type: 'webgazer', params: {targets: [] } }
+    ],
+    post_trial_gap: 500,
+    on_finish: function (data) {
+	num_trials++;
+    }
+};
+
+const stimulus_timeline = {
+    timeline: [fixation,stimulus],
+};
+
+
+
 // EXPERIMENT TIMELINE
 // ===================
 
@@ -353,9 +389,10 @@ const experiment_timeline = {
 	       //position_head,
 	       calibration_first_time,
 	       calibration_loop,
-	       instructions
+	       instructions,
+	       stimulus_timeline
 	      ]
-}
+};
 
 
 
