@@ -98,7 +98,7 @@ var jsPsychWebGazerTwoItem = (function (jspsych) {
     static {
       this.info = info;
     }
- // PASTE THIS ENTIRE METHOD INTO YOUR PLUGIN'S CLASS
+// PASTE THIS ENTIRE METHOD INTO YOUR PLUGIN'S CLASS
 trial(display_element, trial) {
   // --- A FEW DEFINITIONS --- //
 
@@ -139,12 +139,7 @@ trial(display_element, trial) {
 
     // Kill any remaining audio
     if (audio) {
-      audio.pause();
-      // Remove all event listeners
-      audio.removeEventListener("ended", end_trial);
-      audio.removeEventListener("ended", enable_buttons);
-      audio.removeEventListener("ended", on_audio_ended);
-      audio.removeEventListener("ended", reveal_mouse);
+      audio.stop();
     }
 
     // Gather data
@@ -211,11 +206,23 @@ trial(display_element, trial) {
   };
 
   const on_audio_ended = () => {
+    // This function will be called when the audio finishes
     audioEndTime = round(performance.now() - startTime, 3);
     left_bbox = document.querySelector("#button-left").getBoundingClientRect();
     right_bbox = document
       .querySelector("#button-right")
       .getBoundingClientRect();
+      
+    // Now that the main audio callback has run, run the other callbacks
+    if (trial.hide_mouse_during_audio) {
+        reveal_mouse();
+    }
+    if (!trial.response_allowed_while_playing && !trial.trial_ends_after_audio) {
+        enable_buttons();
+    }
+    if (trial.trial_ends_after_audio) {
+        end_trial();
+    }
   };
 
   const reveal_mouse = () => {
@@ -223,22 +230,6 @@ trial(display_element, trial) {
   };
 
   const setupTrial = () => {
-    // Attach event listeners to audio object
-    audio.addEventListener("ended", on_audio_ended);
-    if (trial.trial_ends_after_audio) {
-      audio.addEventListener("ended", end_trial);
-    }
-    if (
-      !trial.response_allowed_while_playing &&
-      !trial.trial_ends_after_audio
-    ) {
-      audio.addEventListener("ended", enable_buttons);
-    }
-    if (trial.hide_mouse_during_audio) {
-      document.documentElement.style.cursor = "none";
-      audio.addEventListener("ended", reveal_mouse);
-    }
-
     // --- DISPLAY HTML --- //
     let buttons = [];
     if (
@@ -283,7 +274,11 @@ trial(display_element, trial) {
     startTime = performance.now();
     audioStartTime = round(performance.now() - startTime, 3);
     
-    // Play the audio
+    if (trial.hide_mouse_during_audio) {
+      document.documentElement.style.cursor = "none";
+    }
+
+    // Play the audio. The on_audio_ended function will be called automatically when it finishes.
     audio.play();
 
     // Set up end-of-trial timeout if one is defined
@@ -298,10 +293,13 @@ trial(display_element, trial) {
   // Use the v8 API to get the audio player
   audio = this.jsPsych.pluginAPI.getAudioPlayer(trial.stimulus);
 
-  // Once the audio is ready, set up the trial
+  // Set the onended callback for the audio player.
+  // This is the correct way to handle audio finishing in jsPsych v8.
+  audio.onended = on_audio_ended;
+
+  // Now that the callback is set, set up the trial
   setupTrial();
-}   
-      
+}      
   }
 
   return WebGazerTwoItemPlugin;
