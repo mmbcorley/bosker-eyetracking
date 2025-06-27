@@ -348,34 +348,31 @@ const fixation = {
   trial_duration: 1000,
 };
 
+// Define the images array outside the trial object
+const choice_images = [
+    'img/toothbrush.jpg',
+    'img/bench.jpg'
+];
+
 const stimulus = {
     type: jsPsychAudioButtonResponse,
     stimulus: 'audio/sound_check.ogg',
     
     // Use simple string identifiers for choices
-    choices: ['option1', 'option2'],
-    
-    // Define your images separately
-    choice_images: [
-        'img/toothbrush.jpg',
-        'img/bench.jpg'
-    ],
+    choices: ['toothbrush', 'bench'],
     
     button_layout: 'flex',
     
     button_html: function(choice, choice_index) {
-        // Get the corresponding image for this choice index
-        const image_src = this.choice_images[choice_index];
+        // Access the images array from the outer scope
+        const image_src = choice_images[choice_index];
         
         let button_style = `
             position: absolute;
-            top: 50%; /* Position the top of the button at the vertical midline */
-            width: 30vw; /* Set the width to 30% of the viewport width */
-            height: auto; /* Let the height scale automatically to maintain aspect ratio */
-            /* These next two lines work together to perfectly center the button */
-            /* on the (left, top) coordinates. */
+            top: 50%;
+            width: 30vw;
+            height: auto;
             transform: translate(-50%, -50%); 
-            /* Optional: remove default button appearance */
             background: transparent;
             border: none;
             padding: 0;
@@ -383,27 +380,19 @@ const stimulus = {
 
         // Apply different horizontal positions based on the button index
         if (choice_index === 0) {
-            // Left button: centered at 20% from the left edge
             button_style += 'left: 20%;';
         } else {
-            // Right button: centered at 80% from the left edge
             button_style += 'left: 80%;';
         }
 
-        // Return the HTML for the button. It contains an image.
-        // The image has 'width: 100%' so it fills the button container we've sized.
         return `
             <button class="jspsych-btn" style="${button_style}">
-                <img src="${image_src}" style="width: 100%; height: auto;" alt="Choice ${choice_index + 1}">
+                <img src="${image_src}" style="width: 100%; height: auto;" alt="${choice}">
             </button>
         `;
     },
 
-    response_ends_trial: true,
-    
-    // on_finish: function (data) {
-    //     num_trials++;
-    // }
+    response_ends_trial: true
 };
 
 const stimulus_timeline = {
