@@ -349,7 +349,7 @@ const fixation = {
 };
 
 // Define the images array outside the trial object
-const choice_images = [
+const images = [
     'img/toothbrush.jpg',
     'img/bench.jpg'
 ];
@@ -359,39 +359,13 @@ const stimulus = {
     stimulus: 'audio/sound_check.ogg',
     
     // Use simple string identifiers for choices
-    choices: choice_images,
-    
-    button_layout: 'flex',
-    
-    button_html: (choice, choice_index) => {
-        // Access the images array from the outer scope
-        
-        let button_style = `
-            position: absolute;
-            top: 50%;
-            width: 30vw;
-            height: auto;
-            transform: translate(-50%, -50%); 
-            background: transparent;
-            border: none;
-            padding: 0;
-        `;
+    choices: images,
 
-        // Apply different horizontal positions based on the button index
-        if (choice_index === 0) {
-            button_style += 'left: 20%;';
-        } else {
-            button_style += 'left: 80%;';
-        }
-
-        return `
-    <button class="jspsych-btn" data-choice="${choice_index}" style="${button_style}">
-        <img src="${choice}" style="width: 100%; height: auto;">
-    </button>
-`;
-    },
-
-    response_ends_trial: true
+   	type: jsPsychAudioButtonResponse,
+    	stimulus: 'sound/roar.mp3',
+    	choices: images,
+    	prompt: "<p>Which animal made the sound?</p>",
+    	button_html: (choice)=>`<img style="cursor: pointer; margin: 10px;" src="${choice}" />`
 };
 
 const stimulus_timeline = {
