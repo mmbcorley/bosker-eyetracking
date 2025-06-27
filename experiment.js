@@ -363,7 +363,7 @@ const stimulus = {
     hide_mouse_during_audio: false,
     response_allowed_while_playing: true,
     extensions: [
-	{ type: 'webgazer', params: {targets: [] } }
+	{ type: jsPsychExtensionWebgazer, params: {targets: [] } }
     ],
     post_trial_gap: 500,
     on_finish: function (data) {
