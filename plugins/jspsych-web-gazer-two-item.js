@@ -4,12 +4,12 @@ var jsPsychWebGazerTwoItem = (function (jspsych) {
   var version = "0.0.1";
 
   const info = {
-    name: "web-gazer-two-item",
-    version,
-    parameters: {
-      stimulus: {
-        type: jspsych.ParameterType.AUDIO,
-        default: void 0
+      name: "web-gazer-two-item",
+      version: version,
+      parameters: {
+	  stimulus: {
+              type: jspsych.ParameterType.AUDIO,
+              default: void 0
       },
       choices: {
         type: jspsych.ParameterType.IMAGE,
