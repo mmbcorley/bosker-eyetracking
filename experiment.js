@@ -359,13 +359,12 @@ const stimulus = {
     stimulus: 'audio/sound_check.ogg',
     
     // Use simple string identifiers for choices
-    choices: ['toothbrush', 'bench'],
+    choices: choice_images,
     
     button_layout: 'flex',
     
     button_html: function(choice, choice_index) {
         // Access the images array from the outer scope
-        const image_src = choice_images[choice_index];
         
         let button_style = `
             position: absolute;
