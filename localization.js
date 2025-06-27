@@ -5,11 +5,14 @@
  * To add a new language, copy the 'en' object, change its key to the new language code (e.g., 'es' for Spanish),
  * and translate all the string values.
  */
+
+/* The experiment can be tested at https://www.corleylab.ppls.ed.ac.uk/bosker-eyetracking/ */
+
 const translations = {
     // English translations
     en: {
 	// Title of the page
-	title: "Recognising Words",
+	title: "Image Clicking",
 
 	// generic buttons
 	continue: "continue",

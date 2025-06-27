@@ -349,23 +349,49 @@ const fixation = {
 };
 
 const stimulus = {
-    type: jsPsychWebGazerTwoItem,
+    type: jsPsychAudioButtonResponse
     stimulus: 'audio/sound_check.ogg',
-    trial_ends_after_audio: false,
-    css_classes: ['trial_content'],
-    choices: ['img/bench.jpg', 'img/toothbrush.jpg'],
-    button_html: [
-	'<img id="button-left" src="%choice%" class="img-fluid selection-disabled"/>',
-        '<img id="button-right" src="%choice%" class="img-fluid selection-disabled"/>'
+    choices: [
+	'img/toothbrush.jpg',
+	'img/bench.jpg',
     ],
-    margin_vertical: '0px',
-    margin_horizontal: '0px',
-    hide_mouse_during_audio: false,
-    response_allowed_while_playing: true,
-    extensions: [
-	{ type: jsPsychExtensionWebgazer, params: {targets: [] } }
-    ],
-    post_trial_gap: 500,
+    button_layout: 'flex',
+    button_html: function(choice, choice_index) {
+	let button_style = `
+            position: absolute;
+            top: 50%; /* Position the top of the button at the vertical midline */
+            width: 30vw; /* Set the width to 30% of the viewport width */
+            height: auto; /* Let the height scale automatically to maintain aspect ratio */
+
+            /* These next two lines work together to perfectly center the button */
+            /* on the (left, top) coordinates. */
+            transform: translate(-50%, -50%); 
+
+            /* Optional: remove default button appearance */
+            background: transparent;
+            border: none;
+            padding: 0;
+        `;
+	// Apply different horizontal positions based on the button index
+        if (choice_index === 0) {
+            // Left button: centered at 20% from the left edge
+            button_style += 'left: 20%;';
+        } else {
+            // Right button: centered at 80% from the left edge
+            button_style += 'left: 80%;';
+        }
+
+        // Return the HTML for the button. It contains an image.
+        // The image has 'width: 100%' so it fills the button container we've sized.
+        return `
+            <button class="jspsych-btn" style="${button_style}">
+                <img src="${choice}" style="width: 100%; height: auto;">
+            </button>
+        `;
+    },
+    // Other parameters as needed...
+    response_ends_trial: true
+    }
     on_finish: function (data) {
 	num_trials++;
     }
