@@ -360,11 +360,7 @@ const stimulus = {
     
     // Use simple string identifiers for choices
     choices: images,
-
-   	type: jsPsychAudioButtonResponse,
-    	stimulus: 'sound/roar.mp3',
-    	choices: images,
-    	prompt: "<p>Which animal made the sound?</p>",
+  	prompt: "<p>Which animal made the sound?</p>",
     	button_html: (choice)=>`<img style="cursor: pointer; margin: 10px;" src="${choice}" />`
 };
 
