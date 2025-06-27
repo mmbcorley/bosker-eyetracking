@@ -360,8 +360,26 @@ const stimulus = {
     
     // Use simple string identifiers for choices
     choices: images,
-  	prompt: "<p>Which animal made the sound?</p>",
-    	button_html: (choice)=>`<img style="cursor: pointer; margin: 10px;" src="${choice}" />`
+    prompt: "",
+    button_html: (choice, choice_index) => {
+	let button_style=`
+          position: absolute;
+          width: 30vw;
+          height: auto;
+          top: 50%;
+          transform: translate(-50%, -50%);
+          background: transparent;
+          border: none;
+          padding: 0;
+          `;
+	if (choice_index === 0) {
+	    button_style += 'left: 20%;';
+	} else {
+	    button_style += 'left: 80%;';
+	}
+	return <img style ="${buttton_style}" src="${choice}" />`;
+     }
+//	`<img style="cursor: pointer; margin: 10px;" src="${choice}" />`
 };
 
 const stimulus_timeline = {
