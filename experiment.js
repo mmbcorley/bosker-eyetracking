@@ -349,7 +349,7 @@ const fixation = {
 };
 
 const stimulus = {
-    type: jsPsychWebGazerTwoItem,
+    type: jsPsychWebGazerTwoItemPlugin,
     stimulus: 'audio/sound_check.ogg',
     trial_ends_after_audio: false,
     css_classes: ['trial_content'],

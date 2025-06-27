@@ -35,7 +35,7 @@ var jsPsychWebGazerTwoItem = (function (jspsych) {
       },
       margin_horizontal: {
         type: jspsych.ParameterType.STRING,
-        default: "8px"
+        default: "0px"
       },
       response_ends_trial: {
         type: jspsych.ParameterType.BOOL,
