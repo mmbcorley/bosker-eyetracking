@@ -104,6 +104,9 @@ trial(display_element, trial) {
 
   // The audio object will be stored here
   let audio;
+  // The audio context from jsPsych
+  const audio_context = this.jsPsych.pluginAPI.audioContext();
+
 
   // Bounding box data
   let left_bbox = null;
@@ -137,7 +140,7 @@ trial(display_element, trial) {
   const end_trial = () => {
     this.jsPsych.pluginAPI.clearAllTimeouts();
 
-    // Kill any remaining audio
+    // Kill any remaining audio - using the correct stop method
     if (audio) {
       audio.stop();
     }
@@ -212,7 +215,7 @@ trial(display_element, trial) {
     right_bbox = document
       .querySelector("#button-right")
       .getBoundingClientRect();
-      
+
     // Now that the main audio callback has run, run the other callbacks
     if (trial.hide_mouse_during_audio) {
         reveal_mouse();
@@ -269,17 +272,21 @@ trial(display_element, trial) {
     } else {
       disable_buttons();
     }
-    
+
     // --- START TIMING AND AUDIO --- //
     startTime = performance.now();
     audioStartTime = round(performance.now() - startTime, 3);
-    
+
     if (trial.hide_mouse_during_audio) {
       document.documentElement.style.cursor = "none";
     }
 
-    // Play the audio. The on_audio_ended function will be called automatically when it finishes.
-    audio.play();
+    // Play the audio using the correct .start() method.
+    // The .start() method returns a promise, which resolves when the audio finishes.
+    audio.start(audio_context).then(() => {
+        on_audio_ended();
+    });
+
 
     // Set up end-of-trial timeout if one is defined
     if (trial.trial_duration !== null) {
@@ -293,13 +300,9 @@ trial(display_element, trial) {
   // Use the v8 API to get the audio player
   audio = this.jsPsych.pluginAPI.getAudioPlayer(trial.stimulus);
 
-  // Set the onended callback for the audio player.
-  // This is the correct way to handle audio finishing in jsPsych v8.
-  audio.onended = on_audio_ended;
-
-  // Now that the callback is set, set up the trial
+  // Now that the audio object is retrieved, set up the trial
   setupTrial();
-}      
+}
   }
 
   return WebGazerTwoItemPlugin;
