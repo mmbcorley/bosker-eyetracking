@@ -386,10 +386,10 @@ const stimulus = {
         }
 
         return `
-            <button class="jspsych-btn" style="${button_style}">
-                <img src="${image_src}" style="width: 100%; height: auto;" alt="${choice}">
-            </button>
-        `;
+    <button class="jspsych-btn" data-choice="${choice_index}" style="${button_style}">
+        <img src="${choice}" style="width: 100%; height: auto;">
+    </button>
+`;
     },
 
     response_ends_trial: true
