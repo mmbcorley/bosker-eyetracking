@@ -377,7 +377,7 @@ const stimulus = {
 	} else {
 	    button_style += 'left: 80%;';
 	}
-	return <img style ="${buttton_style}" src="${choice}" />`;
+	return `<img style ="${buttton_style}" src="${choice}" />`;
      }
 //	`<img style="cursor: pointer; margin: 10px;" src="${choice}" />`
 };
