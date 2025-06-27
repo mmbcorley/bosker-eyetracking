@@ -363,7 +363,7 @@ const stimulus = {
     
     button_layout: 'flex',
     
-    button_html: function(choice, choice_index) {
+    button_html: (choice, choice_index) => {
         // Access the images array from the outer scope
         
         let button_style = `
