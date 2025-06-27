@@ -349,7 +349,7 @@ const fixation = {
 };
 
 const stimulus = {
-    type: jsPsychAudioButtonResponse
+    type: jsPsychAudioButtonResponse,
     stimulus: 'audio/sound_check.ogg',
     choices: [
 	'img/toothbrush.jpg',
