@@ -390,8 +390,7 @@ const stimulus = {
         `;
     },
     // Other parameters as needed...
-    response_ends_trial: true
-    }
+    response_ends_trial: true,
     on_finish: function (data) {
 	num_trials++;
     }
