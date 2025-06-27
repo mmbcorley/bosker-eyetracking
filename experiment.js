@@ -384,10 +384,10 @@ const stimulus = {
         // Return the HTML for the button. It contains an image.
         // The image has 'width: 100%' so it fills the button container we've sized.
         return `
-            <button class="jspsych-btn" style="${button_style}">
-                <img src="${choice}" style="width: 100%; height: auto;">
-            </button>
-        `;
+    <button class="jspsych-btn" data-choice="${choice_index}" style="${button_style}">
+        <img src="${choice}" style="width: 100%; height: auto;">
+    </button>
+`;
     },
     // Other parameters as needed...
     response_ends_trial: true,
