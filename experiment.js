@@ -351,28 +351,37 @@ const fixation = {
 const stimulus = {
     type: jsPsychAudioButtonResponse,
     stimulus: 'audio/sound_check.ogg',
-    choices: [
-	'img/toothbrush.jpg',
-	'img/bench.jpg',
+    
+    // Use simple string identifiers for choices
+    choices: ['option1', 'option2'],
+    
+    // Define your images separately
+    choice_images: [
+        'img/toothbrush.jpg',
+        'img/bench.jpg'
     ],
+    
     button_layout: 'flex',
+    
     button_html: function(choice, choice_index) {
-	let button_style = `
+        // Get the corresponding image for this choice index
+        const image_src = this.choice_images[choice_index];
+        
+        let button_style = `
             position: absolute;
             top: 50%; /* Position the top of the button at the vertical midline */
             width: 30vw; /* Set the width to 30% of the viewport width */
             height: auto; /* Let the height scale automatically to maintain aspect ratio */
-
             /* These next two lines work together to perfectly center the button */
             /* on the (left, top) coordinates. */
             transform: translate(-50%, -50%); 
-
             /* Optional: remove default button appearance */
             background: transparent;
             border: none;
             padding: 0;
         `;
-	// Apply different horizontal positions based on the button index
+
+        // Apply different horizontal positions based on the button index
         if (choice_index === 0) {
             // Left button: centered at 20% from the left edge
             button_style += 'left: 20%;';
@@ -385,14 +394,15 @@ const stimulus = {
         // The image has 'width: 100%' so it fills the button container we've sized.
         return `
             <button class="jspsych-btn" style="${button_style}">
-                <img src="${choice}" style="width: 100%; height: auto;">
+                <img src="${image_src}" style="width: 100%; height: auto;" alt="Choice ${choice_index + 1}">
             </button>
         `;
     },
-    // Other parameters as needed...
+
     response_ends_trial: true,
+    
     // on_finish: function (data) {
-    // 	num_trials++;
+    //     num_trials++;
     // }
 };
 
