@@ -448,7 +448,7 @@ const stimulus = {
     stimulus: jsPsych.timelineVariable('audio'),
     
     // Use simple string identifiers for choices
-    choices: [jsPsych.evaluateTimelineVariable('left'),jsPsych.evaluateTimelineVariable('right')],
+    choices: () => { return [jsPsych.evaluateTimelineVariable('left'),jsPsych.evaluateTimelineVariable('right')]; },
     prompt: "",
     button_html: (choice, choice_index) => {
 	console.log(choice,choice_index);
