@@ -143,9 +143,9 @@ const full_screen =  {
     type: jsPsychFullscreen,
     message: S.fullscreen_message,
     fullscreen_mode: true,
-    on_finish: () => {
-	jsPsych.progressBar.progress = 2/exp_length;
-    }
+    // on_finish: () => {
+    // 	jsPsych.progressBar.progress = 2/exp_length;
+    // }
 };
 
 // switch fullscreen off
@@ -215,9 +215,9 @@ const welcome = {
         `<p>${S.welcome_text_4}</p>`
 	   ],
     show_clickable_nav: true,
-    on_start: () => {
-	jsPsych.progressBar.progress = 0;
-    }
+    // on_start: () => {
+    // 	jsPsych.progressBar.progress = 0;
+    // }
 }
 
 
