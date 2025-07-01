@@ -1,9 +1,8 @@
 /* style.css */
 
-#im_left.clicked-style,
-#im_right.clicked-style {
-  background-color: pink;
-  /* You could add other styles here too, like a border */
-  /* border: 3px solid #ff0099; */
+/* Alternative using outline */
+#img_left.clicked-style,
+#img_right.clicked-style {
+  outline: 5px solid pink;
+  outline-offset: -5px; /* Draws the outline inside the image bounds */
 }
-
