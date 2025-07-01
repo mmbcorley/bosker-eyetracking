@@ -391,15 +391,16 @@ const stimulus_timeline = {
 // EXPERIMENT TIMELINE
 // ===================
 
+/* NB commented out for testing */
+
 const experiment_timeline = {
     timeline: [browser_check,
-	        consent,
-	        welcome,
+	       consent,
+	       //welcome,
 	       //check_audio,
 	       full_screen,
-	       //position_head,
-	       calibration_first_time,
-	       calibration_loop,
+	       //calibration_first_time,
+	       //calibration_loop,
 	       instructions,
 	       stimulus_timeline
 	      ]
