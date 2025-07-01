@@ -433,7 +433,7 @@ var instructions = {
 const fixation = {
     type: jsPsychHtmlButtonResponse,
     stimulus: '',
-    choices: "start",
+    choices: ["start_trial"],
     button_html: () => `<div style="font-size:60px;">+</div>`
 };
 
