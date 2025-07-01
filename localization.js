@@ -18,7 +18,8 @@ const translations = {
 	continue: "continue",
 	click_begin: "click to begin",
 	
-
+	loading: `<p>the experiment is loading...</p>`,
+	
 	
 	// Browser check messages
 	browser_check_chrome: "<p>You must use Chrome as your browser to complete this experiment.</p>",

@@ -3,8 +3,7 @@ const exp_length = 100;
 var num_trials = 0;
 
 const jsPsych = initJsPsych({
-    show_progress_bar: true,
-    auto_update_progress_bar: false,
+    show_progress_bar: false,
     extensions: [
           {type: jsPsychExtensionWebgazer}
     ],
@@ -114,7 +113,7 @@ var preload = {
     audio: audio_files,
     images: image_files,
     show_progress_bar: true,
-    message: '<p>the experiment is loading...</p>'
+    message: S.loading
 }
 
 
@@ -446,10 +445,10 @@ const images = [
 
 const stimulus = {
     type: jsPsychAudioButtonResponse,
-    stimulus: 'audio/sound_check.ogg',
+    stimulus: jsPsych.timelineVariable('audio'),
     
     // Use simple string identifiers for choices
-    choices: images,
+    choices: [jsPsych.timelineVariable('left'),jsPsych.timelineVariable('right')],
     prompt: "",
     button_html: (choice, choice_index) => {
 	let button_style=`
@@ -474,6 +473,11 @@ const stimulus = {
 
 const stimulus_timeline = {
     timeline: [fixation,stimulus],
+    timeline_variables: all_trials,
+    sample: {
+	type: 'without-replacement',
+	size: 3
+    }
 };
 
 
