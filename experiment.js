@@ -34,7 +34,6 @@ var all_data=[];
 
 function parseData(data,language,group) {
     var parsed_data = [];
-    var line_data = {};
     var lines = data.split(/\r\n|\n/);
      var headings = lines[0].split(',');
 
@@ -44,7 +43,7 @@ function parseData(data,language,group) {
 	    console.log('mismatch',line_pieces.length,headings.length,line.pieces,jeadings);
             break;
 	}
-        line_data = {};
+        var line_data = {};
         for (var j = 0; j < headings.length; j++) {
             var line_col_data = line_pieces[j];
 	    //console.log(line_col_data);
@@ -53,13 +52,11 @@ function parseData(data,language,group) {
                 line_col_data = parseInt(line_col_data);
             line_data[headings[j]] = line_col_data;
         }
-	//line_data.target_posn = jsPsych.sampleWithoutReplacement(['L','R'],1);
 
 	const dashlang='_' + language;
 	console.log(line_data.group,dashlang);
         if (line_data.group == group &&
 	    line_data.audio.includes(dashlang)) {
-	    line_data['target_posn'] = jsPsych.sampleWithoutReplacement(['L','R'],1);
             all_data.push(line_data);
 	    console.log('thisone');
 	}
