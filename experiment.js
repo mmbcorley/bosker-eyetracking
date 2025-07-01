@@ -67,7 +67,7 @@ function parseData(data,language,group) {
 	var target_side = jsPsych.randomization.sampleWithoutReplacement(['R','L'],1);
 	all_data.push({
 	    "left": 'img/stimuli/' + ( target_side == 'L' ? trial.target_image : trial.pair_image),
-	    "right": 'img/stimuli/' + ( target_side == 'R' ? trial.target_image : trial_pair_image),
+	    "right": 'img/stimuli/' + ( target_side == 'R' ? trial.target_image : trial.pair_image),
 	    "target_side": target_side,
 	    "audio": 'audio/stimuli/' + trial.audio.replace(".wav",".ogg"),
 	    "stimulus_type": trial.stimulus_type,
