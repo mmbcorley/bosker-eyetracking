@@ -82,6 +82,7 @@ function parseData(data,language,group) {
     
 }
 
+
 //Fetch the stimuli data from the randomly selected csv file
 $.ajax({
     type: "GET",
@@ -95,9 +96,26 @@ $.ajax({
 });
 console.log(all_data);
 
+// CREATE PRELOAD LIST
 
+var image_files = new Set();
+for (var i = 0; i < all_trials.length; i++) {
+    images.add(all_trials[i].left);
+    images.add(all_trials[i].right);
+}
 
+var audio_files = new Set();
+for (var i = 0; i < all_trials.length; i++) {
+        audio_files.add(all_trials[i].audio);
+}
 
+var preload = {
+    type: jsPsychPreload,
+    audio: audio_files,
+    images: image_files,
+    show_progress_bar: true,
+    message: '<p>the experiment is loading...</p>'
+}
 
 
 // function to save data (works in conjunction with write_data.php)
@@ -468,6 +486,7 @@ const stimulus_timeline = {
 const experiment_timeline = {
     timeline: [browser_check,
 	       consent,
+	       preload,
 	       //welcome,
 	       //check_audio,
 	       full_screen,
