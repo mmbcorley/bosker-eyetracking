@@ -473,27 +473,7 @@ const stimulus = {
 	    button_style += ' left: 80%;';
 	    image_id='img_right';
 	}
-	return `<img id="${image_id}" style ="${button_style}" src="${choice}" />`;
-    },
-    on_load: function() {
-	// Get the two images by their IDs
-	const leftImage = document.getElementById('img_left');
-	const rightImage = document.getElementById('img_right');
-
-	// A function to handle the click
-	function onImageClick(event) {
-	    // event.currentTarget refers to the image that was clicked
-	    event.currentTarget.classList.toggle('clicked-style');
-	}
-
-	// Add the click listener to both images
-	if (leftImage) {
-	    leftImage.addEventListener('click', onImageClick);
-	}
-
-	if (rightImage) {
-	    rightImage.addEventListener('click', onImageClick);
-	}
+	return `<img id="${image_id}" style ="${button_style}" src="${choice}" class-"img-fluid selection-disabled"/>`;
     }
 	
 };

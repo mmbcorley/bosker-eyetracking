@@ -7,3 +7,14 @@
   /* border: 3px solid #ff0099; */
 }
 
+.img-fluid.selection-enabled:hover {
+    box-shadow: 0px 0px 15px #666666;
+    -moz-box-shadow: 0px 0px 15px #666666;
+    -webkit-box-shadow: 0px 0px 15px #666666;
+}
+
+.img-fluid.selected {
+    box-shadow: 0px 0px 25px #224488;
+    -moz-box-shadow: 0px 0px 25px #224488;
+    -webkit-box-shadow: 0px 0px 25px #224488;
+}
