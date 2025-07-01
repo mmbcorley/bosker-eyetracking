@@ -30,7 +30,7 @@ document.title = S.title;
 
 // function to parse experimental design
 
-all_data=[];
+var all_data=[];
 
 function parseData(data,language,group) {
     var parsed_data = [];
@@ -68,7 +68,7 @@ console.log(all_data);
 
 
 
-exit(1);
+return(false);
 
 
 
