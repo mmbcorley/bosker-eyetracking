@@ -28,6 +28,48 @@ document.title = S.title;
 // EARLY SETUP AND UTILITY FUNCTIONS
 // =================================
 
+// function to parse experimental design
+
+function parseData(data,language,group) {
+    var parsed_data = [];
+    var lines = data.split(/\r\n|\n/);
+    var headings = lines[0].split(',');
+
+    for (var i = 1; i < lines.length; i++) {
+        var line_pieces = lines[i].split(';');
+        if (line_pieces.length != headings.length)
+            break;
+        var line_data = {};
+        for (var j = 0; j < headings.length; j++) {
+            var line_col_data = line_pieces[j];
+            //Convert the column data to integer or boolean (if possible)
+            if (line_col_data != '' && !isNaN(line_col_data))
+                line_col_data = parseInt(line_col_data);
+            line_data[headings[j]] = line_col_data
+        }
+        parsed_data.push(line_data);
+    }
+
+}
+
+//Fetch the stimuli data from the randomly selected csv file
+$.ajax({
+    type: "GET",
+    url: './experimental_trials.csv',
+    dataType: "text",
+    success: function (data) {
+        parseData(data, 'sk', 'GroupA');
+    },
+    async: false
+});
+console.log(parsed_data);
+
+
+
+exit(1);
+
+
+
 // function to save data (works in conjunction with write_data.php)
 function saveData(name, data){
     let xhr = new XMLHttpRequest();
