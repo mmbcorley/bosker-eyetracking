@@ -98,13 +98,13 @@ console.log(all_data);
 
 // CREATE PRELOAD LIST
 
-var image_files = new Set();
+var image_files = [];
 for (var i = 0; i < all_data.length; i++) {
     image_files.add(all_data[i].left);
     image_files.add(all_data[i].right);
 }
 
-var audio_files = new Set();
+var audio_files = [];
 for (var i = 0; i < all_data.length; i++) {
         audio_files.add(all_data[i].audio);
 }
