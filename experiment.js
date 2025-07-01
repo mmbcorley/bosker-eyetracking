@@ -64,7 +64,7 @@ function parseData(data,language,group) {
     
     for (var i = 0; i < parsed_data.length; i++) {
 	var trial=parsed_data[i];
-	var target_side = jsPsych.randomization.sampleWithoutReplacement(['R','L'],1);
+	var target_side = (jsPsych.randomization.sampleBernoulli(0.5) ? 'R' : 'L');
 	all_data.push({
 	    "left": 'img/stimuli/' + ( target_side == 'L' ? trial.target_image : trial.pair_image),
 	    "right": 'img/stimuli/' + ( target_side == 'R' ? trial.target_image : trial.pair_image),
