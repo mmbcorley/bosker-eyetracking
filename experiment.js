@@ -54,7 +54,8 @@ function parseData(data,language,group) {
         }
 	const dashlang='_' + language;
 	console.log(line_data.group,dashlang);
-        if (line_data.group == group) {
+        if (line_data.group == group &&
+	    line.data.audio.includes(dashlang)) {
             parsed_data.push(line_data);
 	    console.log('thisone');
 	}
