@@ -452,6 +452,7 @@ const stimulus = {
     // Use simple string identifiers for choices
     choices: () => { return [jsPsych.evaluateTimelineVariable('left'),jsPsych.evaluateTimelineVariable('right')]; },
     prompt: "",
+    response_ends_trial: false,
     button_html: (choice, choice_index) => {
 	console.log(choice,choice_index);
 	let button_style=`
