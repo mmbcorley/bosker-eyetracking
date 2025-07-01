@@ -51,13 +51,13 @@ function parseData(data,language,group) {
             if (line_col_data != '' && !isNaN(line_col_data))
                 line_col_data = parseInt(line_col_data);
             line_data[headings[j]] = line_col_data;
+	    // add left or right target at random
+	    line_data.target_posn = ['L','R'][jsPsych.sampleBernoulli(0.5)];
         }
 	const dashlang='_' + language;
-	console.log(line_data.group,dashlang);
         if (line_data.group == group &&
 	    line_data.audio.includes(dashlang)) {
             all_data.push(line_data);
-	    console.log('thisone');
 	}
     }
 
