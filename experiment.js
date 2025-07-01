@@ -51,9 +51,8 @@ function parseData(data,language,group) {
             if (line_col_data != '' && !isNaN(line_col_data))
                 line_col_data = parseInt(line_col_data);
             line_data[headings[j]] = line_col_data;
-	    // add left or right target at random
         }
-	line_data['target_posn'] = jsPsych.sampleBernoulli(0.5);
+	//line_data['target_posn'] = jsPsych.sampleBernoulli(0.5);
 
 	const dashlang='_' + language;
 	console.log(line_data.group,dashlang);
