@@ -451,6 +451,7 @@ const stimulus = {
     choices: [jsPsych.evaluateTimelineVariable('left'),jsPsych.evaluateTimelineVariable('right')],
     prompt: "",
     button_html: (choice, choice_index) => {
+	console.log(choice,choice_index);
 	let button_style=`
           position: absolute;
           width: 30vw;
