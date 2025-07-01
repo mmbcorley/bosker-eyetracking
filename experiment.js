@@ -52,7 +52,7 @@ function parseData(data,language,group) {
                 line_col_data = parseInt(line_col_data);
             line_data[headings[j]] = line_col_data;
         }
-	const dashlang='_' + lang;
+	const dashlang='_' + language;
 	console.log(line_data.group,dashlang);
         if (line_data.group == group &&
 	    line_data.audio.includes(dashlang)) {
