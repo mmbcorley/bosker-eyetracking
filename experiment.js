@@ -40,11 +40,14 @@ function parseData(data,language,group) {
 
     for (var i = 1; i < lines.length; i++) {
         var line_pieces = lines[i].split(';');
-        if (line_pieces.length != headings.length)
+        if (line_pieces.length != headings.length) {
+	    console.log('mismatch');
             break;
+	}
         var line_data = {};
         for (var j = 0; j < headings.length; j++) {
             var line_col_data = line_pieces[j];
+	    console.log(line_col_data);
             //Convert the column data to integer or boolean (if possible)
             if (line_col_data != '' && !isNaN(line_col_data))
                 line_col_data = parseInt(line_col_data);
