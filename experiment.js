@@ -75,7 +75,6 @@ console.log(all_data);
 
 
 
-return(false);
 
 
 
