@@ -54,11 +54,11 @@ function parseData(data,language,group) {
         }
 
 	const dashlang='_' + language;
-	console.log(line_data.group,dashlang);
+//	console.log(line_data.group,dashlang);
         if (line_data.group == group &&
 	    line_data.audio.includes(dashlang)) {
             all_data.push(line_data);
-	    console.log('thisone');
+//	    console.log('thisone');
 	}
     }
 
