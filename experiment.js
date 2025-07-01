@@ -35,19 +35,18 @@ var all_data=[];
 function parseData(data,language,group) {
     var parsed_data = [];
     var lines = data.split(/\r\n|\n/);
-    console.log(lines[0]);
-    var headings = lines[0].split(',');
+     var headings = lines[0].split(',');
 
     for (var i = 1; i < lines.length; i++) {
         var line_pieces = lines[i].split(',');
         if (line_pieces.length != headings.length) {
-	    console.log('mismatch',line_pieces.length,headings.length);
+	    console.log('mismatch',line_pieces.length,headings.length,line.pieces,jeadings);
             break;
 	}
         var line_data = {};
         for (var j = 0; j < headings.length; j++) {
             var line_col_data = line_pieces[j];
-	    console.log(line_col_data);
+	    //console.log(line_col_data);
             //Convert the column data to integer or boolean (if possible)
             if (line_col_data != '' && !isNaN(line_col_data))
                 line_col_data = parseInt(line_col_data);
