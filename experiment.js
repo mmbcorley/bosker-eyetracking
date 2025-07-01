@@ -58,8 +58,8 @@ function parseData(data,language,group) {
 	console.log(line_data.group,dashlang);
         if (line_data.group == group &&
 	    line_data.audio.includes(dashlang)) {
+	    line_data.target_posn = jsPsych.sampleWithoutReplacement(['L','R'],1);
             all_data.push(line_data);
-	    all_data.target_posn = jsPsych.sampleWithoutReplacement(['L','R'],1);
 	    console.log('thisone');
 	}
     }
