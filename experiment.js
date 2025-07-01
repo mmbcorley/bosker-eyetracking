@@ -52,13 +52,14 @@ function parseData(data,language,group) {
                 line_col_data = parseInt(line_col_data);
             line_data[headings[j]] = line_col_data;
         }
-	line_data.target_posn = jsPsych.sampleWithoutReplacement(['L','R'],1);
+	//line_data.target_posn = jsPsych.sampleWithoutReplacement(['L','R'],1);
 
 	const dashlang='_' + language;
 	console.log(line_data.group,dashlang);
         if (line_data.group == group &&
 	    line_data.audio.includes(dashlang)) {
             all_data.push(line_data);
+	    all_data.target_posn = jsPsych.sampleWithoutReplacement(['L','R'],1);
 	    console.log('thisone');
 	}
     }
