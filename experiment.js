@@ -431,10 +431,10 @@ var instructions = {
     };
 
 const fixation = {
-  type: jsPsychHtmlKeyboardResponse,
-  stimulus: '<div style="font-size:60px;">+</div>',
-  choices: "NO_KEYS",
-  trial_duration: 1000,
+    type: jsPsychHtmlButtonResponse,
+    stimulus: '',
+    choices: "start",
+    button_html: () => `<div style="font-size:60px;">+</div>`
 };
 
 // Define the images array outside the trial object
@@ -463,9 +463,9 @@ const stimulus = {
           padding: 0;
           `;
 	if (choice_index === 0) {
-	    button_style += 'left: 20%;';
+	    button_style += 'id="im_left"; left: 20%;';
 	} else {
-	    button_style += 'left: 80%;';
+	    button_style += 'id="im_right"; left: 80%;';
 	}
 	return `<img style ="${button_style}" src="${choice}" />`;
      }
