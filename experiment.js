@@ -62,7 +62,7 @@ function parseData(data,language,group) {
 	}
     }
     
-    for var (i = 0; i < parsed_data.length; i++) {
+    for (var i = 0; i < parsed_data.length; i++) {
 	var trial=parsed_data[i];
 	var target_side = jsPsych.randomization.sampleWithoutReplacement(['R','L'],1);
 	all_data.push({
