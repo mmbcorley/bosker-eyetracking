@@ -100,8 +100,8 @@ console.log(all_data);
 
 var image_files = new Set();
 for (var i = 0; i < all_data.length; i++) {
-    images.add(all_trials[i].left);
-    images.add(all_trials[i].right);
+    image_files.add(all_trials[i].left);
+    image_files.add(all_trials[i].right);
 }
 
 var audio_files = new Set();
