@@ -100,13 +100,13 @@ console.log(all_data);
 
 var image_files = [];
 for (var i = 0; i < all_data.length; i++) {
-    image_files.add(all_data[i].left);
-    image_files.add(all_data[i].right);
+    image_files.push(all_data[i].left);
+    image_files.push(all_data[i].right);
 }
 
 var audio_files = [];
 for (var i = 0; i < all_data.length; i++) {
-        audio_files.add(all_data[i].audio);
+        audio_files.push(all_data[i].audio);
 }
 
 var preload = {
