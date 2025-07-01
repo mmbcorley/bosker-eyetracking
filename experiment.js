@@ -39,7 +39,7 @@ function parseData(data,language,group) {
     var headings = lines[0].split(',');
 
     for (var i = 1; i < lines.length; i++) {
-        var line_pieces = lines[i].split(';');
+        var line_pieces = lines[i].split(',');
         if (line_pieces.length != headings.length) {
 	    console.log('mismatch',line_pieces.length,headings.length);
             break;
