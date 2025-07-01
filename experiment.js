@@ -473,8 +473,28 @@ const stimulus = {
 	    image_id='img_right';
 	}
 	return `<img id="${image_id}" style ="${button_style}" src="${choice}" />`;
-     }
-//	`<img style="cursor: pointer; margin: 10px;" src="${choice}" />`
+    },
+    on_load: function() {
+	// Get the two images by their IDs
+	const leftImage = document.getElementById('img_left');
+	const rightImage = document.getElementById('img_right');
+
+	// A function to handle the click
+	function onImageClick(event) {
+	    // event.currentTarget refers to the image that was clicked
+	    event.currentTarget.classList.toggle('clicked-style');
+	}
+
+	// Add the click listener to both images
+	if (leftImage) {
+	    leftImage.addEventListener('click', onImageClick);
+	}
+
+	if (rightImage) {
+	    rightImage.addEventListener('click', onImageClick);
+	}
+    }
+	
 };
 
 const stimulus_timeline = {
