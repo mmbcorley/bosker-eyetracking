@@ -473,7 +473,12 @@ const stimulus = {
 	    button_style += ' left: 80%;';
 	    image_id='img_right';
 	}
-	return `<img id="${image_id}" style ="${button_style}" src="${choice}" class-"img-fluid selection-disabled"/>`;
+	return `<img 
+                id="${image_id}" 
+                style="${button_style}" 
+                src="${choice}" 
+                onclick="this.classList.toggle('clicked-style')"
+            />`;
     }
 	
 };
