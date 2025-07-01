@@ -434,7 +434,9 @@ const fixation = {
     type: jsPsychHtmlButtonResponse,
     stimulus: '',
     choices: ["start_trial"],
-    button_html: () => `<div style="font-size:60px;">+</div>`
+    button_html: () => `<div style="font-size:60px;">+</div>`,
+    button_layout: 'flex',
+    response_ends_trial: true    
 };
 
 // Define the images array outside the trial object
