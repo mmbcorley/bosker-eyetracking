@@ -464,12 +464,15 @@ const stimulus = {
           border: none;
           padding: 0;
           `;
+	let image_id='';
 	if (choice_index === 0) {
 	    button_style += ' left: 20%;';
+	    image_id='img_left';
 	} else {
 	    button_style += ' left: 80%;';
+	    image_id='img_right';
 	}
-	return `<img style ="${button_style}" src="${choice}" />`;
+	return `<img id="${image_id}" style ="${button_style}" src="${choice}" />`;
      }
 //	`<img style="cursor: pointer; margin: 10px;" src="${choice}" />`
 };
