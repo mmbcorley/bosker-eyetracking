@@ -35,6 +35,7 @@ var all_data=[];
 function parseData(data,language,group) {
     var parsed_data = [];
     var lines = data.split(/\r\n|\n/);
+    console.log(lines[0]);
     var headings = lines[0].split(',');
 
     for (var i = 1; i < lines.length; i++) {
