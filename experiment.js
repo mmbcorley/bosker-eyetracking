@@ -61,7 +61,7 @@ function parseData(data,language,group) {
 	}
     }
 
-    
+    all_data=parsed_data;
     
 }
 
