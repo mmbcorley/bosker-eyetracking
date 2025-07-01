@@ -473,7 +473,7 @@ const stimulus = {
 
 const stimulus_timeline = {
     timeline: [fixation,stimulus],
-    timeline_variables: all_trials,
+    timeline_variables: all_data,
     sample: {
 	type: 'without-replacement',
 	size: 3
