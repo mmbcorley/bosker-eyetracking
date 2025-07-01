@@ -56,12 +56,11 @@ function parseData(data,language,group) {
 	console.log(line_data.group,dashlang);
         if (line_data.group == group &&
 	    line_data.audio.includes(dashlang)) {
-            parsed_data.push(line_data);
+            all_data.push(line_data);
 	    console.log('thisone');
 	}
     }
 
-    all_data=parsed_data;
     
 }
 
