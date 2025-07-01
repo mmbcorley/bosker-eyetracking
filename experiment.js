@@ -30,6 +30,8 @@ document.title = S.title;
 
 // function to parse experimental design
 
+all_data=[];
+
 function parseData(data,language,group) {
     var parsed_data = [];
     var lines = data.split(/\r\n|\n/);
@@ -49,7 +51,7 @@ function parseData(data,language,group) {
         }
         parsed_data.push(line_data);
     }
-
+    all_data=parsed_data;
 }
 
 //Fetch the stimuli data from the randomly selected csv file
@@ -62,7 +64,7 @@ $.ajax({
     },
     async: false
 });
-console.log(parsed_data);
+console.log(all_data);
 
 
 
