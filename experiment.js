@@ -475,7 +475,7 @@ const stimulus = {
 };
 
 const stimulus_timeline = {
-    timeline: [stimulus],
+    timeline: [fixation,stimulus],
     timeline_variables: all_data,
     sample: {
 	type: 'without-replacement',
