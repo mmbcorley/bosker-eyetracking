@@ -68,6 +68,7 @@ $.ajax({
     url: './experimental_trials.csv',
     dataType: "text",
     success: function (data) {
+	console.log('SUCCESS');
         parseData(data, 'sk', 'GroupA');
     },
     async: false
