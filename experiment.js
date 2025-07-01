@@ -52,7 +52,7 @@ function parseData(data,language,group) {
                 line_col_data = parseInt(line_col_data);
             line_data[headings[j]] = line_col_data;
         }
-	//line_data['target_posn'] = jsPsych.sampleBernoulli(0.5);
+	line_data.target_posn = jsPsych.sampleWithoutReplacement(['L','R'],1);
 
 	const dashlang='_' + language;
 	console.log(line_data.group,dashlang);
