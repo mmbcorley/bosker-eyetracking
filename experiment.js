@@ -490,7 +490,7 @@ const stimulus_timeline = {
 const experiment_timeline = {
     timeline: [browser_check,
 	       consent,
-	       preload,
+	       //preload,
 	       //welcome,
 	       //check_audio,
 	       full_screen,
