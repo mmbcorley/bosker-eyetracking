@@ -57,11 +57,28 @@ function parseData(data,language,group) {
 //	console.log(line_data.group,dashlang);
         if (line_data.group == group &&
 	    line_data.audio.includes(dashlang)) {
-            all_data.push(line_data);
+            parsed_data.push(line_data);
 //	    console.log('thisone');
 	}
     }
-
+    
+    for var (i = 0; i < parsed_data.length; i++) {
+	var trial=parsed_data[i];
+	var target_side = jsPsych.randomization.sampleWithoutReplacement(['R','L'],1);
+	all_data.push({
+	    "left": 'img/stimuli/' + ( target_side == 'L' ? trial.target_image : trial.pair_image),
+	    "right": 'img/stimuli/' + ( target_side == 'R' ? trial.target_image : trial_pair_image),
+	    "target_side": target_side,
+	    "audio": 'audio/stimuli/' + trial.audio.replace(".wav",".ogg"),
+	    "stimulus_type": trial.stimulus_type,
+	    "condition": trial.condition,
+	    "sentence_template": trial.sentence_template,
+	    "target_onset": trial.target_onset,
+	    "group": trial.group,
+	    "speaker": trial.speaker,
+	    "language": lang
+	});
+    }
     
 }
 
