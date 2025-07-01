@@ -47,11 +47,18 @@ function parseData(data,language,group) {
             //Convert the column data to integer or boolean (if possible)
             if (line_col_data != '' && !isNaN(line_col_data))
                 line_col_data = parseInt(line_col_data);
-            line_data[headings[j]] = line_col_data
+            line_data[headings[j]] = line_col_data;
         }
-        parsed_data.push(line_data);
+	const dashlang='_' + lang;
+        if (line_data.group == group &&
+	    line_data.audio.includes(dashlang)) {
+            parsed_data.push(line_data);
+	    console.log('thisone');
+	}
     }
-    all_data=parsed_data;
+
+    
+    
 }
 
 //Fetch the stimuli data from the randomly selected csv file

@@ -1,4 +1,4 @@
-﻿target_image,pair_image,audio,stimulus_type,condition,sentence_template,target word onset (ms),group,speaker,expt practice
+﻿target_image,pair_image,audio,stimulus_type,condition,sentence_template,target_onset,group,speaker,expt_practice
 rollerskate.jpg,cow.jpg,practice1_N_sk.wav,practice,practice,NA,NA,practice,native,yes
 glasses.jpg,bird2.jpg,practice2_N_sk.wav,practice,practice,NA,NA,practice,native,yes
 rollerskate.jpg,cow.jpg,practice1_NN_sk.wav,practice,practice,NA,NA,practice,non-native,yes
