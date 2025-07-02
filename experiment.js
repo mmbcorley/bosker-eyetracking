@@ -439,52 +439,132 @@ const fixation = {
     response_ends_trial: true    
 };
 
-// Define the images array outside the trial object
-const images = [
-    'img/toothbrush.jpg',
-    'img/bench.jpg'
-];
 
-const stimulus = {
-    type: jsPsychAudioButtonResponse,
-    stimulus: jsPsych.timelineVariable('audio'),
-    
-    // Use simple string identifiers for choices
-    choices: () => { return [jsPsych.evaluateTimelineVariable('left'),jsPsych.evaluateTimelineVariable('right')]; },
-    prompt: "",
-    response_ends_trial: false,
-    button_html: (choice, choice_index) => {
-	console.log(choice,choice_index);
-	let button_style=`
-          position: absolute;
-          width: 30vw;
-          height: auto;
-          top: 50%;
-          transform: translate(-50%, -50%);
-          background: transparent;
-          border: none;
-          padding: 0;
-          `;
-	let image_id='';
-	if (choice_index === 0) {
-	    button_style += ' left: 20%;';
-	    image_id='img_left';
-	} else {
-	    button_style += ' left: 80%;';
-	    image_id='img_right';
-	}
-	return `<img 
-                id="${image_id}" 
-                style="${button_style}" 
-                src="${choice}" 
-                onclick="this.classList.toggle('clicked-style')"
-            />`;
-    }
-	
+// A function to get the choices for the current trial
+const getChoices = () => {
+    return [jsPsych.evaluateTimelineVariable('left'), jsPsych.evaluateTimelineVariable('right')];
 };
 
+// Your custom function to generate the HTML for each button
+const createButtonHtml = (choice, choice_index) => {
+    let button_style = `
+        position: absolute;
+        width: 30vw;
+        height: auto;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        background: transparent;
+        border: none;
+        padding: 0;
+    `;
+    let image_id = '';
+    if (choice_index === 0) {
+        button_style += ' left: 20%;';
+        image_id = 'img_left';
+    } else {
+        button_style += ' left: 80%;';
+        image_id = 'img_right';
+    }
+    // Note: We return a simple <img> tag. The plugin wraps it in a <button>.
+    return `<img id="${image_id}" style="${button_style}" src="${choice}" />`;
+};
+
+// Set your desired minimum duration in milliseconds
+const MINIMUM_DURATION = 4000; // e.g., 4 seconds
+
+// --- TRIAL A: Enforces the minimum viewing time ---
+const part_a = {
+    type: jsPsychAudioButtonResponse,
+    stimulus: jsPsych.timelineVariable('audio'),
+    choices: getChoices,
+    button_html: createButtonHtml,
+    prompt: "",
+    
+    // --- Key Logic ---
+    // The trial runs for a fixed duration
+    trial_duration: jsPsych.timelineVariable('audio_duration'),
+    // A response does NOT end the trial early
+    response_ends_trial: false,
+
+    // Add data to identify this part of the trial
+    data: {
+        trial_part: 'part_a'
+    }
+};
+
+// --- TRIAL B: Waits for a late response (if needed) ---
+const part_b = {
+    type: jsPsychHtmlButtonResponse, // Audio has finished, so we just need buttons
+    stimulus: '', // No new stimulus needed
+    choices: getChoices,
+    button_html: createButtonHtml, // Re-use the same button style
+
+    // Add data to identify this part of the trial
+    data: {
+        trial_part: 'part_b'
+    }
+};
+
+// --- Conditional Logic for Trial B ---
+// This timeline object will only run if the condition is met
+const conditional_part_b = {
+    timeline: [part_b],
+    conditional_function: () => {
+        // Get the data from the immediately preceding trial (part_a)
+        const last_trial_data = jsPsych.data.get().last(1).values()[0];
+        
+        // If the response from part_a is null, it means the user didn't respond in time.
+        // In that case, we need to run part_b to wait for their response.
+        if (last_trial_data.response === null) {
+            return true; // Run the part_b timeline
+        } else {
+            return false; // Skip the part_b timeline
+        }
+    }
+};
+
+////////////////////////
+
+// const stimulus = {
+//     type: jsPsychAudioButtonResponse,
+//     stimulus: jsPsych.timelineVariable('audio'),
+    
+//     // Use simple string identifiers for choices
+//     choices: () => { return [jsPsych.evaluateTimelineVariable('left'),jsPsych.evaluateTimelineVariable('right')]; },
+//     prompt: "",
+//     response_ends_trial: false,
+//     button_html: (choice, choice_index) => {
+// 	console.log(choice,choice_index);
+// 	let button_style=`
+//           position: absolute;
+//           width: 30vw;
+//           height: auto;
+//           top: 50%;
+//           transform: translate(-50%, -50%);
+//           background: transparent;
+//           border: none;
+//           padding: 0;
+//           `;
+// 	let image_id='';
+// 	if (choice_index === 0) {
+// 	    button_style += ' left: 20%;';
+// 	    image_id='img_left';
+// 	} else {
+// 	    button_style += ' left: 80%;';
+// 	    image_id='img_right';
+// 	}
+// 	return `<img 
+//                 id="${image_id}" 
+//                 style="${button_style}" 
+//                 src="${choice}" 
+//                 onclick="this.classList.toggle('clicked-style')"
+//             />`;
+//     }
+	
+// };
+
 const stimulus_timeline = {
-    timeline: [fixation,stimulus],
+    timeline: [fixation,part_a,conditional_part_b],
     timeline_variables: all_data,
     sample: {
 	type: 'without-replacement',
