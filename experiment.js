@@ -31,7 +31,7 @@ document.title = S.title;
 
 var all_data=[];
 
-function parseData(data,language,group) {
+function parseData(data,language,speaker,group) {
     var parsed_data = [];
     var lines = data.split(/\r\n|\n/);
      var headings = lines[0].split(',');
@@ -55,6 +55,7 @@ function parseData(data,language,group) {
 	const dashlang='_' + language;
 //	console.log(line_data.group,dashlang);
         if (line_data.group == group &&
+	    line_data.speaker == speaker &&
 	    line_data.audio.includes(dashlang)) {
             parsed_data.push(line_data);
 //	    console.log('thisone');
@@ -75,21 +76,21 @@ function parseData(data,language,group) {
 	    "target_onset": trial.target_onset,
 	    "group": trial.group,
 	    "speaker": trial.speaker,
-	    "language": lang
+	    "language": lang,
+	    "audio_duration": trial.audio_duration
 	});
     }
     
 }
 
 
-//Fetch the stimuli data from the randomly selected csv file
 $.ajax({
     type: "GET",
-    url: './experimental_trials.csv',
+    url: './experimental_trials2.csv',
     dataType: "text",
     success: function (data) {
 	console.log('SUCCESS');
-        parseData(data, 'sk', 'groupA');
+        parseData(data, 'de', 'native', 'groupA');
     },
     async: false
 });
