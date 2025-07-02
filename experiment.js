@@ -574,7 +574,7 @@ const stimulus_timeline = {
     timeline_variables: all_data,
     sample: {
 	type: 'without-replacement',
-	size: 3
+	size: 5
     }
 };
 
