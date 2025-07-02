@@ -1,5 +1,3 @@
-// TEMPORARY
-const exp_length = 100;
 var num_trials = 0;
 
 const jsPsych = initJsPsych({
@@ -470,9 +468,6 @@ const createButtonHtml = (choice, choice_index) => {
     return `<img id="${image_id}" style="${button_style}" src="${choice}"  onclick="this.classList.toggle('clicked-style')"/>`;
 };
 
-// Set your desired minimum duration in milliseconds
-const MINIMUM_DURATION = 4000; // e.g., 4 seconds
-
 // --- TRIAL A: Enforces the minimum viewing time ---
 const part_a = {
     type: jsPsychAudioButtonResponse,
@@ -489,7 +484,17 @@ const part_a = {
 
     // Add data to identify this part of the trial
     data: {
-        trial_part: 'part_a'
+        trial_part: 'part_a',
+	stimulus_type: jsPsych.timelineVariable('stimulus_type'),
+	target_side: jsPsych.timelineVariable('target_side'),
+	audio: jsPsych.timelineVariable('audio'),
+	condition: jsPsych.timelineVariable('condition'),
+	speaker: jsPsych.timelineVariable('speaker'),
+	language: lang,
+	target_onset: jsPsych.timelineVariable('target_onset')
+    },
+    on_finish: function(data) {
+	num_trials++;
     }
 };
 
@@ -583,14 +588,15 @@ const stimulus_timeline = {
 const experiment_timeline = {
     timeline: [browser_check,
 	       consent,
-	       //preload,
+	       preload,
 	       //welcome,
 	       //check_audio,
 	       full_screen,
 	       //calibration_first_time,
 	       //calibration_loop,
 	       instructions,
-	       stimulus_timeline
+	       stimulus_timeline,
+	       off_screen
 	      ]
 };
 
