@@ -467,7 +467,7 @@ const createButtonHtml = (choice, choice_index) => {
         image_id = 'img_right';
     }
     // Note: We return a simple <img> tag. The plugin wraps it in a <button>.
-    return `<img id="${image_id}" style="${button_style}" src="${choice}" />`;
+    return `<img id="${image_id}" style="${button_style}" src="${choice}"  onclick="this.classList.toggle('clicked-style')"/>`;
 };
 
 // Set your desired minimum duration in milliseconds
