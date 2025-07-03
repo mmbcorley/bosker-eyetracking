@@ -283,7 +283,7 @@ var CALIBRATION_MAX;
 
 const pre_calibration = {
     type: jsPsychInstructions,
-    stimulus: `${S.pre_calibration.replace('{img}', cal_img)}`,
+    pages: `${S.pre_calibration.replace('{img}', cal_img)}`,
     show_clickable_nav: true,
     allow_backward: false,
     button_label_next: S.continue,
