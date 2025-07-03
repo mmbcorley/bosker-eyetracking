@@ -625,13 +625,13 @@ const stimulus_timeline = {
 
 const experiment_timeline = {
     timeline: [browser_check,
-	       consent,
-	       preload,
-	       welcome,
+//	       consent,
+//	       preload,
+//	       welcome,
 //	       check_audio,
 	       full_screen,
-	       instructions,
-	       practice_timeline,
+//	       instructions,
+//	       practice_timeline,
 	       pre_calibration,
 	       calibration_first_time,
 	       calibration_loop,
