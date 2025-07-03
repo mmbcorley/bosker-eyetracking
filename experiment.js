@@ -282,13 +282,9 @@ var cal_img;
 var CALIBRATION_MAX;
 
 const pre_calibration = {
-    type: jsPsychInstructions,
-    pages: `${S.pre_calibration.replace('{img}', cal_img)}`,
-    show_clickable_nav: true,
-    allow_backward: false,
-    button_label_next: S.continue,
-    allow_keys: false,
-    on_start: () => { cal_img = (lang == 'sk' ? 'img/eye-tracking instructions sk.jpg' : 'img/eye-tracking instructions de.jpg' )}
+    type: jsPsychHtmlButtonResponse,
+    stimulus: `${S.pre_calibration.replace('{img}', lang == 'sk' ? 'img/eye-tracking instructions sk.jpg' : 'img/eye-tracking instructions de.jpg')}`,
+    choices: [S.continue]
 };
 
 //Define initial calibration instructions
