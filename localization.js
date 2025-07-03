@@ -30,30 +30,21 @@ const translations = {
 	consent_check_alert: "If you wish to participate, you must check the box next to the statement 'I agree to participate in this study.'",
 	consent_button: "start",
 	
-	// Preload error message
-	preload_error_heading: "Error",
-	preload_error_message: "Can't find the resources for this experiment.",
-	preload_error_contact: "Please report this error to",
-
 	// Audio device question
 	audio_device_preamble: `<p>Thanks for pressing "Q".</p><p>One quick question which may help us analyse the data:</p>`,
 	audio_device_prompt: "How are you listening to audio?",
 	audio_device_options: ['Headphones', 'Earbuds', 'Speakers'],
 
 	// Fullscreen message
-	fullscreen_message: `<p>Thank you.</p><p>We will now switch to fullscreen mode, after which you will be able to read detailed instructions for the experiment.</p>`,
+	fullscreen_message: `<p>We will now switch to fullscreen mode, after which you will be able to read detailed instructions for the experiment.</p>`,
 
 	// Welcome instructions
 	welcome_heading_1: "Important",
-	welcome_text_1: "To claim credit for this experiment, click on the <span style=\"color:orange\">orange button</span> on the final screen.",
 	welcome_text_2: "Please note down the ID <strong>{short_id}</strong> which you can use to correspond with us about the experiment",
 	welcome_heading_2: "Welcome",
 	welcome_text_3: `<p>This is an eye tracking experiment.</p>
-                         <p>To help us get good quality data, we'd appreciate it if you could ensure that you are free from distractions for the next 15 minutes, that you are sitting comfortably, and that your face is brightly and evenly lit (for example, by an overhead light).</p>
-                        <p>&nbsp;</p>
-                        <img height="180px" width="1000px" src="img/instruct1.png"><br/>
-                        <p>&nbsp;</p>
-                        <p>First, we will ask you a few short questions, and set up your audio and webcam.</p>
+                         <p>To help us get good quality data, we'd appreciate it if you could ensure that you are free from distractions for the next 15 minutes.</p>
+                        <p>First, we will check your audio, and show you how the experiment works..</p>
                         <p>Then we will <em>calibrate</em> your eye movements, teaching our software to predict where on the screen you are looking.</p>`,
 	welcome_text_4: "<p>On the following page we will check that you can hear the audio for this experiment clearly.</p><p>Please follow the spoken instructions that you will hear to continue.</p>",
 
