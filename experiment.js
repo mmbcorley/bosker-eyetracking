@@ -622,7 +622,7 @@ const experiment_timeline = {
 	       consent,
 	       preload,
 	       welcome,
-	       check_audio,
+//	       check_audio,
 	       full_screen,
 	       instructions,
 	       practice_timeline,
