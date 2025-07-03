@@ -300,6 +300,25 @@ var likert_qs = {
     preamble: S.q_preamble
 };
 
+const qp1 = {
+	type: jsPsychSurveyText,
+	preamble: '<h2>About You</h2>',
+	questions: [
+	    {prompt: S.qp1,
+	     columns: 3,
+	     name: 'subject_age',
+	    },
+	    {prompt: S.qp3,
+	     name: 'subject_native_lang',
+	    },
+	    {prompt: S.qp4,
+	     name: 'subject_other_lang',
+	    },
+	    {prompt: S.qp2,
+	     name: 'subject_gender',
+	    }
+	]
+};
 
 
 //INITIAL CALIBRATION AND VALIDATION
@@ -658,12 +677,13 @@ const experiment_timeline = {
 	       full_screen,
 //	       instructions,
 //	       practice_timeline,
-	       pre_calibration,
-	       calibration_first_time,
-	       calibration_loop,
-	       stimulus_timeline,
+//	       pre_calibration,
+//	       calibration_first_time,
+//	       calibration_loop,
+//	       stimulus_timeline,
 	       after_instructions,
 	       likert_qs,
+	       qp1,
 	       off_screen
 	      ]
 };
