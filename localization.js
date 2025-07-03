@@ -96,8 +96,9 @@ const translations = {
 
 	// Validation_feedback
 	validation_feedback_badcal: `
-<p>Unfortunately we didn't get a great calibration.<br/>Let's press on anyway.</p>`,
-	validation_feedback_goodcal: `<p>Success!</p>`,
+<p>OK, that's the best we can do. The experiment will now continue as before.<br/>Click on the plus to start each trial.</p>`,
+	validation_feedback_goodcal: `<p>Success! The experiment will now continue as before.</p>
+                                      <p>Click on the plus to start each trial.</p>`,
 	
 	// Instructions
 	instructions: `<p style="text-align: center;"><b>INSTRUCTIONS</b></p>
