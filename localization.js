@@ -84,7 +84,7 @@ const translations = {
 	validation_instructions: `
             <p>Now we need to check how accurate the eye tracking is. </p>
             <p>Keep your head still, and move your eyes to focus on each dot as it appears.</p>
-            <p>You do not need to click on the dots. Just move your eyes to look at the dots.</p>
+            <p><b>You do not need to click on the dots.</b> Just move your eyes to look at the dots.</p>
             `,
 
 	// Validation_feedback
@@ -94,8 +94,8 @@ const translations = {
 	
 	// Instructions
 	instructions: `<p style="text-align: center;"><b>INSTRUCTIONS</b></p>
-            <p>In each trial in this experiment, you will first see a dot in the center of the screen. <br/>Click on the dot to continue.<br/>You will see two pictures, and hear a sentence.<br><b>Click on the picture that best matches that sentence.</b><br> (Note: while the sentence is playing, your mouse cursor will not be visible.)</p>
-            <p>You can blink normally, but try not to move your head! <br>You will occasionally be asked to re-calibrate before continuing.</p>
+            <p>In each trial in this experiment, you will first see a plus in the center of the screen. <br/><b>Click on the plus to continue.</b><br/>You will see two pictures, and hear a sentence.<br><b>Click on the picture that best matches that sentence.</b></p>
+            <p>You can blink normally, but try not to move your head!</p>
             <p>&nbsp;</p>
             <p><b>Ready?</b></p>`,
 
