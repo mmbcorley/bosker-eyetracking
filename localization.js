@@ -70,7 +70,7 @@ const translations = {
 
 	pre_calibration: `
             <p>Great! Now we need to set the eytracker up.  Throughout the experiment:</p>
-            <img src="{img}" align="center">
+            <img src="{img}" align="center" width="90vw">
         `,
             
 
