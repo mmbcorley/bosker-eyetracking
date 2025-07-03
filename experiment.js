@@ -1,4 +1,4 @@
-var num_trials = 0;
+var num_trials = -2;
 
 const jsPsych = initJsPsych({
     show_progress_bar: false,
@@ -484,7 +484,7 @@ const check_calibration = {
 const recalibration = {
     timeline: [calibration_recalibrate,calibration_loop],
     conditional_function: function () {
-	if (num_trials % 13 == 12) {
+	if (num_trials % 3 == 2) {
 	    return true;
 	} else {
 	    return false;
@@ -650,10 +650,12 @@ const practice_timeline = {
 
 const one_stimulus = {
     timeline: [part_a,conditional_part_b]
+///// EYETRACKING GOES HERE
+
 }
 
 const stimulus_timeline = {
-    timeline: [fixation,one_stimulus],
+    timeline: [fixation,one_stimulus,recalibration],
     timeline_variables: all_data,
     sample: {
 	type: 'without-replacement',
