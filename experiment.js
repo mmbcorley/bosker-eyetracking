@@ -289,7 +289,7 @@ const pre_calibration = {
     button_label_next: S.continue,
     allow_keys: false,
     on_start: () => { cal_img = (lang == 'sk' ? 'img/eye-tracking instructions sk.jpg' : 'img/eye-tracking instructions de.jpg' )}
-}
+};
 
 //Define initial calibration instructions
 const calibration_first_time = {
