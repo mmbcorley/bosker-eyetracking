@@ -617,14 +617,13 @@ const experiment_timeline = {
     timeline: [browser_check,
 	       consent,
 	       preload,
-	       //welcome,
+	       welcome,
 	       //check_audio,
 	       full_screen,
-	       //calibration_first_time,
-	       //calibration_loop,
 	       instructions,
 	       practice_timeline,
-	       welcome,
+	       calibration_first_time,
+	       calibration_loop,
 	       stimulus_timeline,
 	       off_screen
 	      ]
