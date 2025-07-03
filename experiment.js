@@ -28,6 +28,7 @@ document.title = S.title;
 // function to parse experimental design
 
 var all_data=[];
+var prac_data=[];
 
 function parseData(data,language,speaker,group) {
     var parsed_data = [];
@@ -52,7 +53,7 @@ function parseData(data,language,speaker,group) {
 
 	const dashlang='_' + language;
 //	console.log(line_data.group,dashlang);
-        if (line_data.group == group &&
+        if ((line_data.group == group || line_data.group == 'practice') &&
 	    line_data.speaker == speaker &&
 	    line_data.audio.includes(dashlang)) {
             parsed_data.push(line_data);
@@ -63,20 +64,37 @@ function parseData(data,language,speaker,group) {
     for (var i = 0; i < parsed_data.length; i++) {
 	var trial=parsed_data[i];
 	var target_side = (jsPsych.randomization.sampleBernoulli(0.5) ? 'R' : 'L');
-	all_data.push({
-	    "left": 'img/stimuli/' + ( target_side == 'L' ? trial.target_image : trial.pair_image),
-	    "right": 'img/stimuli/' + ( target_side == 'R' ? trial.target_image : trial.pair_image),
-	    "target_side": target_side,
-	    "audio": 'audio/stimuli/' + trial.audio.replace(".wav",".ogg"),
-	    "stimulus_type": trial.stimulus_type,
-	    "condition": trial.condition,
-	    "sentence_template": trial.sentence_template,
-	    "target_onset": trial.target_onset,
-	    "group": trial.group,
-	    "speaker": trial.speaker,
-	    "language": lang,
-	    "audio_duration": trial.audio_duration
-	});
+	if (trial.group == 'practice') {
+	    prac_data.push({
+		"left": 'img/stimuli/' + ( target_side == 'L' ? trial.target_image : trial.pair_image),
+		"right": 'img/stimuli/' + ( target_side == 'R' ? trial.target_image : trial.pair_image),
+		"target_side": target_side,
+		"audio": 'audio/stimuli/' + trial.audio.replace(".wav",".ogg"),
+		"stimulus_type": trial.stimulus_type,
+		"condition": trial.condition,
+		"sentence_template": trial.sentence_template,
+		"target_onset": trial.target_onset,
+		"group": trial.group,
+		"speaker": trial.speaker,
+		"language": lang,
+		"audio_duration": trial.audio_duration
+	    });
+	} else {
+	    all_data.push({
+		"left": 'img/stimuli/' + ( target_side == 'L' ? trial.target_image : trial.pair_image),
+		"right": 'img/stimuli/' + ( target_side == 'R' ? trial.target_image : trial.pair_image),
+		"target_side": target_side,
+		"audio": 'audio/stimuli/' + trial.audio.replace(".wav",".ogg"),
+		"stimulus_type": trial.stimulus_type,
+		"condition": trial.condition,
+		"sentence_template": trial.sentence_template,
+		"target_onset": trial.target_onset,
+		"group": trial.group,
+		"speaker": trial.speaker,
+		"language": lang,
+		"audio_duration": trial.audio_duration
+	    });
+	}
     }
     
 }
@@ -92,6 +110,7 @@ $.ajax({
     },
     async: false
 });
+console.log(prac_data);
 console.log(all_data);
 
 // CREATE PRELOAD LIST
@@ -569,8 +588,17 @@ const conditional_part_b = {
 	
 // };
 
-const stimulus_timeline = {
+const practice_timeline = {
     timeline: [fixation,part_a,conditional_part_b],
+    timeline_variables: prac_data
+}
+
+const one_stimulus = {
+    timeline: [part_a,conditional_part_b]
+}
+
+const stimulus_timeline = {
+    timeline: [fixation,one_stimulus],
     timeline_variables: all_data,
     sample: {
 	type: 'without-replacement',
@@ -595,6 +623,8 @@ const experiment_timeline = {
 	       //calibration_first_time,
 	       //calibration_loop,
 	       instructions,
+	       practice_timeline,
+	       welcome,
 	       stimulus_timeline,
 	       off_screen
 	      ]
