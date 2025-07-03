@@ -131,7 +131,7 @@ var preload = {
     audio: audio_files,
     images: image_files,
     show_progress_bar: true,
-    message: S.loading
+    message: S.loading,
     show_detailed_errors: true
 }
 
