@@ -275,6 +275,32 @@ const check_audio = {
 
 // NB., might be something wrong with looping above.
 
+const after_instructions = {
+    type: jsPsychHtmlButtonResponse,
+    stimulus: S.after_instructions,
+    choices: [S.continue]
+};
+
+///QUESTIONNAIRE
+
+const likert_scale = [
+    S.strongly_disagree,
+    '','','','','','','',
+    S.strongly_agree
+]
+
+var likert_qs = {
+    type: jsPsychSurveyLikert,
+    questions: [
+	{prompt: S.q1, name: "q_natural", labels: likert_scale},
+	{prompt: S.q2, name: "q_accent", labels: likert_scale},
+	{prompt: S.q3, name: "q_fluent", labels: likert_scale},
+	{prompt: S.q4, name: "q_interact", labels: likert_scale},
+    ],
+    preamble: S.q_preamble
+};
+
+
 
 //INITIAL CALIBRATION AND VALIDATION
 
@@ -636,6 +662,8 @@ const experiment_timeline = {
 	       calibration_first_time,
 	       calibration_loop,
 	       stimulus_timeline,
+	       after_instructions,
+	       likert_qs,
 	       off_screen
 	      ]
 };
