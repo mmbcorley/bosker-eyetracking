@@ -119,9 +119,18 @@ const translations = {
 	q1: 'This person sounded natural',
 	q2: 'This person had an accent',
 	q3: 'This person sounded fluent',
-	q4: 'In daily life, I often interact with non-native speakers of LANG (i.e., with speakers who leanred LANG as a foreign language'
+	q4: 'In daily life, I often interact with non-native speakers of LANG (i.e., with speakers who leanred LANG as a foreign language',
+
+
+	qp1: 'What is your age in years?',
+	qp2: 'What is your gender (e.g., male, female, nonbinary)?',
+	qp3: 'What is/are the languages you first spoke?',
+	qp4: 'Please list any other languages you speak fluently'
     },
 
+
+
+    
     // German translations (placeholder)
     de: {
 	title: "Worterkennung",
