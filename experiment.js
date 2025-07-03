@@ -283,7 +283,7 @@ var CALIBRATION_MAX;
 
 const pre_calibration = {
     type: jsPsychHtmlButtonResponse,
-    stimulus: `${S.pre_calibration.replace('{img}', lang == 'sk' ? 'img/eye-tracking instructions sk.jpg' : 'img/eye-tracking instructions de.jpg')}`,
+    stimulus: `${S.pre_calibration.replace('{img}', lang == 'sk' ? 'img/et_sk.jpg' : 'img/et_de.jpg')}`,
     choices: [S.continue]
 };
 
