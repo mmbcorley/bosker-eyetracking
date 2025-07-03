@@ -107,22 +107,19 @@ const translations = {
             <p>&nbsp;</p>
             <p><b>Ready?</b></p>`,
 
-	// Questionnaire
-	questionnaire_preamble: "<h2>About You</h2>",
-	q_age: "What is your age in years?&nbsp;*",
-	q_country: "Which country do you normally live in?&nbsp;*",
-	q_native_lang: "What is/are the languages you first spoke?&nbsp;*",
-	q_other_lang: "Please list any other languages you speak fluently",
-	q_gender: "What is your gender (e.g., male, female, nonbinary)?",
+	after_instructions: `<p>You've now finished the eyetracking part of the experiment. Thank you, and relax!</p>
+          <p>We have a couple of questions for you to finish up with.</p>`,
 
-	// Debriefing
-	debrief_button: "CLICK TO RETURN TO PROLIFIC AND COMPLETE STUDY",
-	debrief_heading: "The experiment has now concluded.",
-	debrief_text_1: `This experiment was all about attention and speaker disfluency ("uncomfortable pauses"). We believe that when a speaker is disfluent, listeners automatically pay more attention to what they are saying (perhaps because they know something's "gone wrong"). In this experiment, that means that as a listner you should have been less likely to accept some of the carefully-manipulated words (like "giss") as a real word ("kiss") following a silence.`,
-	debrief_text_2: "We'll report our findings at <a href=\"https://osf.io/rvp48/\">osf.io/rvp48/</a>.",
-	debrief_text_3: "Thanks for your help! If you know anyone else who's taking part, we'd appreciate it if you didn't explain the purpose to them before they've done the experiment, as it might affect the results.",
-	debrief_text_4: "If you have any questions, please contact",
-	contact_subject_line: "Disfluency Experiment"
+
+	strongly_agree: 'strongly agree',
+	strongly_disagree: 'strongly disagree',
+
+	q_preamble: "About the person you just heard in the experiment",
+
+	q1: 'This person sounded natural',
+	q2: 'This person had an accent',
+	q3: 'This person sounded fluent',
+	q4: 'In daily life, I often interact with non-native speakers of LANG (i.e., with speakers who leanred LANG as a foreign language'
     },
 
     // German translations (placeholder)
