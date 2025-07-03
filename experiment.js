@@ -310,6 +310,8 @@ const calibration_recalibrate = {
     post_trial_gap: 1000,
     on_finish: () => {
 	CALIBRATION_MAX=2;
+    }
+};
     
 //Define head positioning trial
 const position_head = {
