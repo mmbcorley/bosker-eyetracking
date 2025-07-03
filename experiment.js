@@ -278,7 +278,18 @@ const check_audio = {
 
 //INITIAL CALIBRATION AND VALIDATION
 
+var cal_img;
 var CALIBRATION_MAX;
+
+const pre_calibration = {
+    type: jsPsychInstructions,
+    stimulus: `${S.pre_calibration.replace('{img}', cal_img)}`,
+    show_clickable_nav: true,
+    allow_backward: false,
+    button_label_next: S.continue,
+    allow_keys: false,
+    on_start: () => { cal_img = (lang == 'sk' ? 'img/eye-tracking instructions sk.jpg' : 'img/eye-tracking instructions de.jpg' )}
+}
 
 //Define initial calibration instructions
 const calibration_first_time = {
@@ -299,10 +310,7 @@ const calibration_recalibrate = {
     post_trial_gap: 1000,
     on_finish: () => {
 	CALIBRATION_MAX=2;
-    }
-};
-
-
+    
 //Define head positioning trial
 const position_head = {
     type: jsPsychWebgazerInitCamera,
@@ -626,6 +634,7 @@ const experiment_timeline = {
 	       full_screen,
 	       instructions,
 	       practice_timeline,
+	       pre_calibration,
 	       calibration_first_time,
 	       calibration_loop,
 	       stimulus_timeline,

@@ -68,10 +68,17 @@ const translations = {
             <p>Position your head so that the webcam has a good view of your eyes.<br/>
             <strong>Adjust your seating so that it is comfortable to maintain this position.</strong></p><p>When you can comfortably keep your face centred in the box and the box is green, you can click to continue.</p>`,
 
+	pre_calibration: `
+            <p>Great! Now we need to set the eytracker up.  Throughout the experiment:</p>
+            <img align="center" width=90vw src={img}>
+        `,
+            
+
+	
 	// First Calibration
 	calibration_instructions: `
-            <p>Great! Now the eye tracker will be calibrated to translate the image of your eyes from the webcam to a location on your screen.</p>
-            <p>To do this, you need to click a series of dots.</p>
+            <p><b>Calibration</b></p>
+            <p>To do the calibration, you need to click a series of dots.</p>
             <p>Keep your head still, and click on each dot as it appears. Look at the dot as you click it.</p>
             `,
 
