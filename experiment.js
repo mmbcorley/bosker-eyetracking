@@ -132,6 +132,7 @@ var preload = {
     images: image_files,
     show_progress_bar: true,
     message: S.loading
+    show_detailed_errors: true
 }
 
 
@@ -228,11 +229,14 @@ const consent = {
 
 const welcome = {
     type: jsPsychInstructions,
-    pages: [`<h1>${S.welcome_heading_1}</h1><p>${S.welcome_text_1}</p><p>${S.welcome_text_2.replace('{short_id}', short_id)}</p>`,
+    pages: [`<h1>${S.welcome_heading_1}</h1><p>${S.welcome_text_2.replace('{short_id}', short_id)}</p>`,
         `<h1>${S.welcome_heading_2}</h1>${S.welcome_text_3}`,
         `<p>${S.welcome_text_4}</p>`
 	   ],
     show_clickable_nav: true,
+    allow_backward: false,
+    button_label_next: S.continue,
+    allow_keys: false,
     // on_start: () => {
     // 	jsPsych.progressBar.progress = 0;
     // }
@@ -618,7 +622,7 @@ const experiment_timeline = {
 	       consent,
 	       preload,
 	       welcome,
-	       //check_audio,
+	       check_audio,
 	       full_screen,
 	       instructions,
 	       practice_timeline,
