@@ -250,7 +250,7 @@ const audioStim = addLang("audio/adjust_volume.wav",lang);
 
 
 
-const adjust_volume = {
+obnconst adjust_volume = {
     type: jsPsychAudioButtonResponse,
     stimulus: audioStim,
     choices: volumeChoices,
@@ -302,7 +302,7 @@ var likert_qs = {
 
 const qp1 = {
 	type: jsPsychSurveyText,
-	preamble: '<h2>About You</h2>',
+	preamble: '<h2>About You</h2>', /* FIXME */
 	questions: [
 	    {prompt: S.qp1,
 	     columns: 3,
