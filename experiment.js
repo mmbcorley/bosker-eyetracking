@@ -1,4 +1,4 @@
-var num_trials = -2;
+var num_trials = 0;
 
 const jsPsych = initJsPsych({
     show_progress_bar: false,
@@ -566,9 +566,6 @@ const part_a = {
 	speaker: jsPsych.timelineVariable('speaker'),
 	language: lang,
 	target_onset: jsPsych.timelineVariable('target_onset')
-    },
-    on_finish: function(data) {
-	num_trials++;
     }
 };
 
@@ -660,6 +657,9 @@ const stimulus_timeline = {
     sample: {
 	type: 'without-replacement',
 	size: 5
+    },
+    on_finish: function(data) {
+	num_trials++;
     }
 };
 
