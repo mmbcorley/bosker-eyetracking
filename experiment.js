@@ -302,7 +302,7 @@ var likert_qs = {
 
 const qp1 = {
 	type: jsPsychSurveyText,
-	preamble: '<h2>About You</h2>', /* FIXME */
+	preamble: S.qpp, /* FIXME */
 	questions: [
 	    {prompt: S.qp1,
 	     columns: 3,
