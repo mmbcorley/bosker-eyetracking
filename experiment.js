@@ -145,16 +145,17 @@ var preload = {
     show_detailed_errors: true
 }
 
+// NOT USED
 
 // function to save data (works in conjunction with write_data.php)
-function saveData(name, data){
-    let xhr = new XMLHttpRequest();
-    xhr.open('POST', 'write_data.php'); // 'write_data.php' is the
-					// path to the php file
-					// described above.
-    xhr.setRequestHeader('Content-Type', 'application/json');
-    xhr.send(JSON.stringify({filename: name, filedata: data}));
-}
+// function saveData(name, data){
+//     let xhr = new XMLHttpRequest();
+//     xhr.open('POST', 'write_data.php'); // 'write_data.php' is the
+// 					// path to the php file
+// 					// described above.
+//     xhr.setRequestHeader('Content-Type', 'application/json');
+//     xhr.send(JSON.stringify({filename: name, filedata: data}));
+// }
 
 // set up random ppt ID (4 char)
 const short_id = jsPsych.randomization.randomID(4);
@@ -266,7 +267,8 @@ const adjust_volume = {
     response_ends_trial: true,
     trial_ends_after_audio: true,
     response_allowed_while_playing: true,
-    prompt: S.volume_adjust_prompt
+    prompt: S.volume_adjust_prompt,
+    record_data: false
 }
 
 const check_audio = {
@@ -278,14 +280,13 @@ const check_audio = {
 	} else {
 	    return false;
 	}
-    }
+    },
+    record_data: false
 }
 
 const audio_setup = {
     timeline: [adjust_volume, check_audio]
 }
-
-// NB., might be something wrong with looping above.
 
 const after_instructions = {
     type: jsPsychHtmlButtonResponse,
@@ -509,11 +510,12 @@ const recalibration = {
 // =================
 
 var instructions = {
-        type: jsPsychHtmlButtonResponse,
-        css_classes: ['instructions'],
-        stimulus: S.instructions,
-        choices: [S.click_begin]
-    };
+    type: jsPsychHtmlButtonResponse,
+    css_classes: ['instructions'],
+    stimulus: S.instructions,
+    choices: [S.click_begin],
+    record_data: false
+};
 
 const fixation = {
     type: jsPsychHtmlButtonResponse,
@@ -521,7 +523,8 @@ const fixation = {
     choices: ["start_trial"],
     button_html: () => `<div style="font-size:60px;">+</div>`,
     button_layout: 'flex',
-    response_ends_trial: true    
+    response_ends_trial: true,
+    record_data: false
 };
 
 
@@ -612,45 +615,6 @@ const conditional_part_b = {
     }
 };
 
-////////////////////////
-
-// const stimulus = {
-//     type: jsPsychAudioButtonResponse,
-//     stimulus: jsPsych.timelineVariable('audio'),
-    
-//     // Use simple string identifiers for choices
-//     choices: () => { return [jsPsych.evaluateTimelineVariable('left'),jsPsych.evaluateTimelineVariable('right')]; },
-//     prompt: "",
-//     response_ends_trial: false,
-//     button_html: (choice, choice_index) => {
-// 	console.log(choice,choice_index);
-// 	let button_style=`
-//           position: absolute;
-//           width: 30vw;
-//           height: auto;
-//           top: 50%;
-//           transform: translate(-50%, -50%);
-//           background: transparent;
-//           border: none;
-//           padding: 0;
-//           `;
-// 	let image_id='';
-// 	if (choice_index === 0) {
-// 	    button_style += ' left: 20%;';
-// 	    image_id='img_left';
-// 	} else {
-// 	    button_style += ' left: 80%;';
-// 	    image_id='img_right';
-// 	}
-// 	return `<img 
-//                 id="${image_id}" 
-//                 style="${button_style}" 
-//                 src="${choice}" 
-//                 onclick="this.classList.toggle('clicked-style')"
-//             />`;
-//     }
-	
-// };
 
 const practice_timeline = {
     timeline: [fixation,part_a,conditional_part_b],
@@ -658,7 +622,9 @@ const practice_timeline = {
 }
 
 const one_stimulus = {
-    timeline: [part_a,conditional_part_b]
+    timeline: [part_a,conditional_part_b],
+    post_trial_gap: 500,
+
 ///// EYETRACKING GOES HERE
 
 }
@@ -688,9 +654,9 @@ const experiment_timeline = {
 	       preload,
 	       welcome,
 	       audio_setup,
-	       // full_screen,
-	       // instructions,
-	       // practice_timeline,
+	       full_screen,
+	       instructions,
+	       practice_timeline,
 	       // pre_calibration,
 	       // calibration_first_time,
 	       // calibration_loop,
