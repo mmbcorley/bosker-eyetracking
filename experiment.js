@@ -1,4 +1,4 @@
-var num_trials = 0;
+var num_trials = -2; // takes practise into account
 
 const jsPsych = initJsPsych({
     show_progress_bar: false,
@@ -304,16 +304,13 @@ const after_instructions = {
     stimulus: S.after_instructions,
     choices: [S.continue],
     record_data: false,
-    on_finish: () => {
-	num_trials = 0;
-    }
 };
 
 
 const debrief = {
     type: jsPsychHtmlButtonResponse,
     stimulus: S.debrief,
-    choices: [(subject_id.startsWith("NP:") ? S.end1 : S.end2)],
+    choices: () => {(subject_id.startsWith("NP:") ? [S.end1] : [S.end2])},
     record_data: false
 };
 
