@@ -243,8 +243,7 @@ const welcome = {
     type: jsPsychInstructions,
     pages: [`<h1>${S.welcome_heading_1}</h1><p>${S.welcome_text_2.replace('{short_id}', short_id)}</p>`,
 	    `<h1>${S.welcome_heading_2}</h1>${S.cover_story}`,
-        `<h1>${S.welcome_heading_3}</h1>${S.welcome_text_3}`,
-        `<p>${S.welcome_text_4}</p>`
+        `<h1>${S.welcome_heading_3}</h1>${S.welcome_text_3}`
 	   ],
     show_clickable_nav: true,
     allow_backward: false,
@@ -264,7 +263,7 @@ const adjust_volume = {
     stimulus: audioStim,
     choices: [S.continue],
     margin_vertical: "12px",
-    response_ends_trial: true,
+//    response_ends_trial: true,
     trial_ends_after_audio: true,
     response_allowed_while_playing: true,
     prompt: S.volume_adjust_prompt,
