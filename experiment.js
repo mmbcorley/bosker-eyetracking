@@ -284,7 +284,7 @@ const check_audio = {
 }
 
 const audio_setup = {
-    timeline: [check_audio]
+    timeline: [adjust_volume,check_audio]
 }
 
 const after_instructions = {
