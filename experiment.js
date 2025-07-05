@@ -21,11 +21,15 @@ const group = jsPsych.randomization.sampleWithoutReplacement(['groupA','groupB',
 const speaker = (jsPsych.randomization.sampleBernoulli(.5) ? 'native' : 'non-native');
 console.log(`language ${lang}; speaker ${speaker}; group ${group}`);
 
+// set up random ppt ID (4 char)
+const short_id = jsPsych.randomization.randomID(4);
+const long_id = 'NP:' + jsPsych.randomization.randomID(10);
+
 
 // pick up PROLIFIC INFO
-const subject_id = jsPsych.data.getURLVariable('PROLIFIC_PID') || 'LOCAL';
-const study_id = jsPsych.data.getURLVariable('STUDY_ID') || 'LOCAL';
-const session_id = jsPsych.data.getURLVariable('SESSION_ID') || 'LOCAL';
+const subject_id = jsPsych.data.getURLVariable('PROLIFIC_PID') || long_id;
+//const study_id = jsPsych.data.getURLVariable('STUDY_ID') || 'LOCAL';
+//const session_id = jsPsych.data.getURLVariable('SESSION_ID') || 'LOCAL';
 
 // set language of experiment
 const S = translations[lang]; // a shorthand for selected language's strings
@@ -116,7 +120,14 @@ $.ajax({
     dataType: "text",
     success: function (data) {
 	console.log('SUCCESS');
-        parseData(data, 'de', speaker, group);
+	var lmatch;
+	if (lang == 'en') {
+	    lmatch = (jsPsych.randomization.sampleBernoulli(.5) ? 'de' : 'sk');
+	} else {
+	    lmatch = lang;
+	}
+
+	parseData(data, lang, speaker, group);
     },
     async: false
 });
@@ -157,13 +168,10 @@ var preload = {
 //     xhr.send(JSON.stringify({filename: name, filedata: data}));
 // }
 
-// set up random ppt ID (4 char)
-const short_id = jsPsych.randomization.randomID(4);
-
 // add the ID variables to the dataset
 jsPsych.data.addProperties({subject: subject_id,
-			    session_id: session_id,
-			    study_id: study_id,
+//			    session_id: session_id,
+//			    study_id: study_id,
 			    shortID: short_id,
 			    language: lang
 			   });
@@ -300,7 +308,7 @@ const after_instructions = {
 const debrief = {
     type: jsPsychHtmlButtonResponse,
     stimulus: S.debrief,
-    choices: [S.continue],
+    choices: () => {(subject_id.startsWith("NP:") : [S.end1] : [S.end2])},
     record_data: false
 };
 
@@ -377,7 +385,7 @@ const calibration_first_time = {
     choices: [S.click_begin],
     post_trial_gap: 1000,
     on_finish: () => {
-	CALIBRATION_MAX=1;
+	CALIBRATION_MAX=3;
     }
 };
 
@@ -684,10 +692,10 @@ const experiment_timeline = {
 	       full_screen,
 	       instructions,
 	       practice_timeline,
-	       // pre_calibration,
-	       // calibration_first_time,
-	       // calibration_loop,
-	       // stimulus_timeline,
+	       pre_calibration,
+	       calibration_first_time,
+	       calibration_loop,
+	       stimulus_timeline,
 	       after_instructions,
 	       likert_qs,
 	       text_qs,
