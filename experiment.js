@@ -310,7 +310,7 @@ const after_instructions = {
 const debrief = {
     type: jsPsychHtmlButtonResponse,
     stimulus: S.debrief,
-    choices: () => {(subject_id.startsWith("NP:") ? [S.end1] : [S.end2])},
+    choices: () => (subject_id.startsWith("NP:") ? [S.end1] : [S.end2]),
     record_data: false
 };
 
@@ -532,7 +532,7 @@ const check_calibration = {
 const recalibration = {
     timeline: [calibration_recalibrate,calibration_loop],
     conditional_function: function () {
-	if (num_trials % 3 == 2) {
+	if (num_trials  == 16 || num_trials == 32 || num_trials == 48) {
 	    return true;
 	} else {
 	    return false;
