@@ -269,72 +269,26 @@ const S = {
 */
 
 const adjust_volume_loop = {
-    // This timeline will contain the trial that we want to repeat.
     timeline: [{
         type: jsPsychAudioButtonResponse,
         stimulus: audioStim,
         choices: [S.continue],
         prompt: S.volume_adjust_prompt,
-        // We need the trial to end when the button is clicked.
         response_ends_trial: true,
-        // This allows the loop to repeat if the audio finishes without a response.
         trial_ends_after_audio: true
     }],
-    // The loop_function is evaluated after each run of the timeline.
     loop_function: function(data) {
-        // data.values()[0] gets the data from the most recent trial.
         const last_trial_data = data.values()[0];
-        
-        // If the 'response' is null, it means the audio ended without a click.
-        // In this case, we want to loop again, so we return true.
         if (last_trial_data.response == null) {
             return true; // Keep looping
         } else {
             // A response was made, so we stop the loop.
             return false; // End the loop
         }
-    }
+    },
+    record_data: false
 };
 
-// // You can then add 'adjust_volume_loop' to your main experiment timeline.
-// // For example:
-// // const timeline = [adjust_volume_loop];
-
-// const adjust_volume = {
-//     type: jsPsychAudioButtonResponse,
-//     stimulus: audioStim,
-//     choices: [S.continue],
-//     margin_vertical: "12px",
-//     response_ends_trial: false,
-//     trial_ends_after_audio: true,
-//     response_allowed_while_playing: true,
-//     prompt: S.volume_adjust_prompt,
-//     record_data: false,
-//     on_finish: function(data) {
-// 	if (typeof data.response === 'undefined') {
-// 	    data.has_response = false;
-// 	} else {
-// 	    data.has_response = true;
-// 	}
-//     }
-// }
-
-// const check_audio = {
-//     timeline: [adjust_volume],
-//     loop_function: function(data) {
-// 	var last_trial_data = data.last(1)[0];
-// 	if (last_trial_data.has_response) {
-// 	    return false;
-// 	} else {
-// 	    return true;
-// 	}
-//     },
-//     record_data: false
-// }
-
-// const audio_setup = {
-//     timeline: [adjust_volume,check_audio]
-// }
 
 const after_instructions = {
     type: jsPsychHtmlButtonResponse,
@@ -342,6 +296,15 @@ const after_instructions = {
     choices: [S.continue],
     record_data: false
 };
+
+
+const debrief = {
+    type: jsPsychHtmlButtonResponse,
+    stimulus: S.debrief,
+    choices: [S.continue],
+    record_data: false
+};
+
 
 ///QUESTIONNAIRE
 
@@ -580,6 +543,7 @@ var instructions = {
     record_data: false
 };
 
+
 const fixation = {
     type: jsPsychHtmlButtonResponse,
     stimulus: '',
@@ -701,6 +665,7 @@ const stimulus_timeline = {
     },
     on_finish: function(data) {
 	num_trials++;
+	console.log(`trials: ${num_trials}`);
     }
 };
 
@@ -729,7 +694,7 @@ const experiment_timeline = {
 	       text_qs,
 	       qp1,
 	       off_screen,
-	       //debrief
+	       debrief
 	      ]
 };
 

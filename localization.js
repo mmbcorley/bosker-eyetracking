@@ -127,8 +127,19 @@ const translations = {
 	qp1: 'What is your age in years?',
 	qp2: 'What is your gender (e.g., male, female, nonbinary)?',
 	qp3: 'What is/are the languages you first spoke?',
-	qp4: 'Please list any other languages you speak fluently'
+	qp4: 'Please list any other languages you speak fluently',
+
+
+	debrief: `<p><b>Thank you for your participation in our study.</b></p>
+<p>This study investigates how listeners process speech disfluencies, like "uh" or pauses, from native and non-native speakers. Previous research shows that when a native speaker hesitates, listeners often expect them to say a less common word. This effect, however, vanishes when listening to a non-native speaker.</p>
+
+<p>Our goal was to see if these findings hold true for Slovak and German listeners. While you were told you would hear one of 20 different speakers, you actually listened to one of only two speakers: one native and one non-native. We tracked your eye movements to see how you anticipated words when hearing disfluent speech. By comparing the results from Slovakia and Germany—countries with different levels of exposure to non-native speakers—we can explore how our everyday interactions shape language processing.</p>
+
+<p>All data we have collected is anonymous and cannot be traced back to you. If you are happy to proceed, please click the "SUBMIT RESPONSES" button below. If you wish to withdraw, you can simply close your browser, and your data will be deleted. Should you have any questions, please contact Haerim Lee (<a href="mailto:h.lee-49@sms.ed.ac.uk">h.lee-49@sms.ed.ac.uk</a>), Júlia Stasová (<a href="mailto:j.stasova@sms.ed.ac.uk">j.stasova@sms.ed.ac.uk</a>), or Professor Martin Corley (<a href="mailto:martin.corley@ed.ac.uk">martin.corley@ed.ac.uk</a>).</p>`
+
     },
+
+    
 
 
 
