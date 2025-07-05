@@ -42,6 +42,11 @@ const translations = {
 	welcome_heading_1: "Important",
 	welcome_text_2: "Please note down the ID <strong>{short_id}</strong> which you can use to correspond with us about the experiment",
 	welcome_heading_2: "Welcome",
+        cover_story: `<p>The aim of this study is to test the extent to which you can correctly follow up instructions from different kinds of speakers. We made recordings of 20 speakers including both native and non-native LANG speakers. That is, we recorded people who learned LANG as their first language after birth and people who acquired LANG later in life as a foreign language. These speakers were presented with pictures just like the ones you are about to see and engaged in a conversational task. The speakers' task was to give instructions to their conversational partner to click on one of the two objects on the screen.</p>
+<p>In this experiment, you will be listening to one of the native or non-native LANG speakers. Your task is to listen to the speaker and follow the instructions they provide by clicking on the object that they will mention. During this task, we will also be recording your eye movements, using your webcam.</p>`,
+
+
+	welcome_heading_3: "Setup",
 	welcome_text_3: `<p>This is an eye tracking experiment.</p>
                          <p>To help us get good quality data, we'd appreciate it if you could ensure that you are free from distractions for the next 15 minutes.</p>
                         <p>First, we will check your audio, and show you how the experiment works..</p>
@@ -114,14 +119,17 @@ const translations = {
 	strongly_agree: 'strongly agree',
 	strongly_disagree: 'strongly disagree',
 
-	q_preamble: "About the person you just heard in the experiment",
+	q_preamble: "<h3>About the person you just heard in the experiment</h3>",
 
 	q1: 'This person sounded natural',
 	q2: 'This person had an accent',
 	q3: 'This person sounded fluent',
 	q4: 'In daily life, I often interact with non-native speakers of LANG (i.e., with speakers who leanred LANG as a foreign language',
 
-	qpp: '<h2>About You</h2>',
+	q5: 'Can you guess the native language of the speaker you just heard (i.e., what is the language they learnt first?)',
+	q6: 'Is there anything else you noticed about the person you listened to, or that you would like to tell us about the experiment in general?',
+
+	qpp: '<h3>About You</h3>',
 	qp1: 'What is your age in years?',
 	qp2: 'What is your gender (e.g., male, female, nonbinary)?',
 	qp3: 'What is/are the languages you first spoke?',

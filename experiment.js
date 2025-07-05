@@ -11,13 +11,24 @@ const jsPsych = initJsPsych({
     override_safe_mode: true
 });
 
+
+// WHICH CONDITION ARE WE RUNNING?
+// "lang" is set by a "LANG" url parameter (de or sk, or en for testing)
+const lang = jsPsych.data.getURLVariable('LANG') || 'en';
+// we choose groupA through groupD with equal probability
+const group = jsPsych.randomization.sampleWithoutReplacement(['groupA','groupB','groupC','groupD'],1)[0];
+console.log(group);
+// 50% probability of native or non-native
+const speaker = (jsPsych.randomization.sampleBernoulli(.5) ? 'native' : 'non-native');
+
+
+
 // pick up PROLIFIC INFO
-const subject_id = jsPsych.data.getURLVariable('PROLIFIC_PID');
-const study_id = jsPsych.data.getURLVariable('STUDY_ID');
-const session_id = jsPsych.data.getURLVariable('SESSION_ID');
+const subject_id = jsPsych.data.getURLVariable('PROLIFIC_PID') || 'LOCAL';
+const study_id = jsPsych.data.getURLVariable('STUDY_ID') || 'LOCAL';
+const session_id = jsPsych.data.getURLVariable('SESSION_ID') || 'LOCAL';
 
 // set language of experiment
-const lang = jsPsych.data.getURLVariable('LANG') || 'en';
 const S = translations[lang]; // a shorthand for selected language's strings
 
 document.title = S.title;
@@ -106,7 +117,7 @@ $.ajax({
     dataType: "text",
     success: function (data) {
 	console.log('SUCCESS');
-        parseData(data, 'de', 'native', 'groupA');
+        parseData(data, 'de', speaker, group);
     },
     async: false
 });
@@ -223,24 +234,25 @@ const consent = {
     type: jsPsychExternalHtml,
     url: addLang('consent.html',lang),
     cont_btn: S.consent_button,
-    check_fn: check_consent
+    check_fn: check_consent,
+    record_data: false
 };
 
 
 const welcome = {
     type: jsPsychInstructions,
     pages: [`<h1>${S.welcome_heading_1}</h1><p>${S.welcome_text_2.replace('{short_id}', short_id)}</p>`,
-        `<h1>${S.welcome_heading_2}</h1>${S.welcome_text_3}`,
+	    `<h1>${S.welcome_heading_2}$</h1>${S.cover_story}`,
+        `<h1>${S.welcome_heading_3}</h1>${S.welcome_text_3}`,
         `<p>${S.welcome_text_4}</p>`
 	   ],
     show_clickable_nav: true,
     allow_backward: false,
     button_label_next: S.continue,
-    allow_keys: false,
-    // on_start: () => {
-    // 	jsPsych.progressBar.progress = 0;
-    // }
-}
+    allow_keys: false
+    // we'll record data here, so we can check whether people
+    // actually read the instructions
+};
 
 
 /* provide a random array of choices for volume check */
@@ -676,16 +688,16 @@ const experiment_timeline = {
 	       preload,
 	       welcome,
 //	       check_audio,
-	       full_screen,
-	       instructions,
-	       practice_timeline,
-	       pre_calibration,
-	       calibration_first_time,
-	       calibration_loop,
-	       stimulus_timeline,
-	       after_instructions,
-	       likert_qs,
-	       qp1,
+	       // full_screen,
+	       // instructions,
+	       // practice_timeline,
+	       // pre_calibration,
+	       // calibration_first_time,
+	       // calibration_loop,
+	       // stimulus_timeline,
+	       // after_instructions,
+	       // likert_qs,
+	       // qp1,
 	       off_screen
 	      ]
 };
