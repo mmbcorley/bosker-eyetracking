@@ -137,8 +137,8 @@ const translations = {
 
 <p>All data we have collected is anonymous and cannot be traced back to you. If you are happy to proceed, please click the "SUBMIT RESPONSES" button below. If you wish to withdraw, you can simply close your browser, and your data will be deleted. Should you have any questions, please contact Haerim Lee (<a href="mailto:h.lee-49@sms.ed.ac.uk">h.lee-49@sms.ed.ac.uk</a>), Júlia Stasová (<a href="mailto:j.stasova@sms.ed.ac.uk">j.stasova@sms.ed.ac.uk</a>), or Professor Martin Corley (<a href="mailto:martin.corley@ed.ac.uk">martin.corley@ed.ac.uk</a>).</p>`,
 
-	S.end1: `CLICK HERE TO SUBMIT DATA AND END EXPERIMENT`,
-	S.end2: `CLICK TO SUBMIT DATA AND RETURN TO PROLIFIC` 
+	end1: `CLICK HERE TO SUBMIT DATA AND END EXPERIMENT`,
+	end2: `CLICK TO SUBMIT DATA AND RETURN TO PROLIFIC` 
 
     },
     
@@ -260,8 +260,8 @@ const translations = {
 <p>Unser Ziel war es zu sehen, ob diese Ergebnisse auch für slowakische und deutsche Zuhörer gelten. Obwohl Ihnen gesagt wurde, dass Sie einen von 20 verschiedenen Sprechern hören würden, haben Sie tatsächlich nur einen von zwei Sprechern gehört: einen muttersprachlichen und einen nicht-muttersprachlichen. Wir haben Ihre Augenbewegungen verfolgt, um zu sehen, wie Sie Wörter bei unflüssiger Sprache antizipierten. Durch den Vergleich der Ergebnisse aus der Slowakei und Deutschland – Ländern mit unterschiedlicher Exposition gegenüber nicht-muttersprachlichen Sprechern – können wir untersuchen, wie unsere alltäglichen Interaktionen die Sprachverarbeitung formen.</p>
 <p>Alle von uns gesammelten Daten sind anonym und können nicht auf Sie zurückgeführt werden. Wenn Sie damit einverstanden sind fortzufahren, klicken Sie bitte unten auf die Schaltfläche "ANTWORTEN SENDEN". Wenn Sie Ihre Teilnahme zurückziehen möchten, können Sie einfach Ihren Browser schließen, und Ihre Daten werden gelöscht. Sollten Sie Fragen haben, kontaktieren Sie bitte Haerim Lee (<a href="mailto:h.lee-49@sms.ed.ac.uk">h.lee-49@sms.ed.ac.uk</a>), Júlia Stasová (<a href="mailto:j.stasova@sms.ed.ac.uk">j.stasova@sms.ed.ac.uk</a>) oder Professor Martin Corley (<a href="mailto:martin.corley@ed.ac.uk">martin.corley@ed.ac.uk</a>).</p>`,
 
-        S.end1: `HIER KLICKEN, UM DATEN ZU SENDEN UND DAS EXPERIMENT ZU BEENDEN`,
-        S.end2: `KLICKEN, UM DATEN ZU SENDEN UND ZU PROLIFIC ZURÜCKzukehren`
+        end1: `HIER KLICKEN, UM DATEN ZU SENDEN UND DAS EXPERIMENT ZU BEENDEN`,
+        end2: `KLICKEN, UM DATEN ZU SENDEN UND ZU PROLIFIC ZURÜCKzukehren`
     },
 
     // Slovak translations
@@ -382,7 +382,7 @@ const translations = {
 <p>Naším cieľom bolo zistiť, či tieto zistenia platia aj pre slovenských a nemeckých poslucháčov. Hoci Vám bolo povedané, že budete počuť jedného z 20 rôznych hovoriacich, v skutočnosti ste počúvali jedného z iba dvoch hovoriacich: jedného rodeného a jedného nerodeného. Sledovali sme Vaše očné pohyby, aby sme videli, ako ste predvídali slová pri počúvaní disfluentnej reči. Porovnaním výsledkov zo Slovenska a Nemecka – krajín s rôznou mierou vystavenia nerodeným hovoriacim – môžeme preskúmať, ako naše každodenné interakcie formujú spracovanie jazyka.</p>
 <p>Všetky údaje, ktoré sme zhromaždili, sú anonymné a nemožno ich spätne vystopovať. Ak súhlasíte s pokračovaním, kliknite, prosím, na tlačidlo „ODOSLAŤ ODPOVEDE“ nižšie. Ak si želáte odstúpiť, môžete jednoducho zavrieť prehliadač a Vaše údaje budú vymazané. V prípade akýchkoľvek otázok sa, prosím, obráťte na Haerim Lee (<a href="mailto:h.lee-49@sms.ed.ac.uk">h.lee-49@sms.ed.ac.uk</a>), Júliu Stasovú (<a href="mailto:j.stasova@sms.ed.ac.uk">j.stasova@sms.ed.ac.uk</a>) alebo profesora Martina Corleyho (<a href="mailto:martin.corley@ed.ac.uk">martin.corley@ed.ac.uk</a>).</p>`,
 
-        S.end1: `KLIKNITE SEM PRE ODOSLANIE DÁT A UKONČENIE EXPERIMENTU`,
-        S.end2: `KLIKNITE PRE ODOSLANIE DÁT A NÁVRAT NA PROLIFIC`
+        end1: `KLIKNITE SEM PRE ODOSLANIE DÁT A UKONČENIE EXPERIMENTU`,
+        end2: `KLIKNITE PRE ODOSLANIE DÁT A NÁVRAT NA PROLIFIC`
     },
 };
