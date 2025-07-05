@@ -291,7 +291,8 @@ const audio_setup = {
 const after_instructions = {
     type: jsPsychHtmlButtonResponse,
     stimulus: S.after_instructions,
-    choices: [S.continue]
+    choices: [S.continue],
+    record_data: false
 };
 
 ///QUESTIONNAIRE
@@ -313,6 +314,20 @@ var likert_qs = {
     preamble: S.q_preamble
 };
 
+const text_qs = {
+    type: jsPsychSurveyText,
+    preamble: S.q_preamble,
+    questions: [
+	{prompt: S.q5,
+	 name: 'q_speaker_guess',
+	},
+	{prompt: S.q6,
+	 name: 'q_comments',
+	 rows: 4
+	}
+    ]
+};
+    
 const qp1 = {
 	type: jsPsychSurveyText,
 	preamble: S.qpp, /* FIXME */
@@ -661,10 +676,12 @@ const experiment_timeline = {
 	       // calibration_first_time,
 	       // calibration_loop,
 	       // stimulus_timeline,
-	       // after_instructions,
-	       // likert_qs,
-	       // qp1,
-	       off_screen
+	       after_instructions,
+	       likert_qs,
+	       text_qs,
+	       qp1,
+	       off_screen,
+	       //debrief
 	      ]
 };
 
