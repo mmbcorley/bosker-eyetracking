@@ -17,10 +17,9 @@ const jsPsych = initJsPsych({
 const lang = jsPsych.data.getURLVariable('LANG') || 'en';
 // we choose groupA through groupD with equal probability
 const group = jsPsych.randomization.sampleWithoutReplacement(['groupA','groupB','groupC','groupD'],1)[0];
-console.log(group);
 // 50% probability of native or non-native
 const speaker = (jsPsych.randomization.sampleBernoulli(.5) ? 'native' : 'non-native');
-
+console.log(`language ${lang}; speaker ${speaker}; group ${group}`);
 
 
 // pick up PROLIFIC INFO
@@ -262,7 +261,7 @@ const audioStim = "audio/sound_check.ogg";
 const adjust_volume = {
     type: jsPsychAudioButtonResponse,
     stimulus: audioStim,
-    choices: S.continue,
+    choices: [S.continue],
     margin_vertical: "12px",
     response_ends_trial: true,
     trial_ends_after_audio: true,
