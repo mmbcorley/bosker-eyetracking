@@ -183,6 +183,7 @@ const full_screen =  {
     type: jsPsychFullscreen,
     message: S.fullscreen_message,
     fullscreen_mode: true,
+    button_label: S.continue
     // on_finish: () => {
     // 	jsPsych.progressBar.progress = 2/exp_length;
     // }
