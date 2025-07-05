@@ -267,17 +267,24 @@ const adjust_volume = {
     trial_ends_after_audio: true,
     response_allowed_while_playing: true,
     prompt: S.volume_adjust_prompt,
-    record_data: false
+    record_data: false,
+    on_finish: function(data) {
+	if (typeof data.response === 'undefined') {
+	    data.has_response = false;
+	} else {
+	    data.has_response = true;
+	}
+    }
 }
 
 const check_audio = {
     timeline: [adjust_volume],
-    loop_function: () => {
-	const last_trial_data = jsPsych.data.get().last(1).values()[0];
-	if (last_trial_data.response === null) {
-	    return true;
-	} else {
+    loop_function: function(data) {
+	var last_trial_data = data.last(1)[0];
+	if (last_trial_data.has_response) {
 	    return false;
+	} else {
+	    return true;
 	}
     },
     record_data: false
