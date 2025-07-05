@@ -445,7 +445,7 @@ const validation = {
     roi_radius: 250,
     time_to_saccade: 500, //1000 is the default value; change?
     validation_duration: 3000,
-    show_validation_data: true, //set false for the actual experiment run?
+   show_validation_data: false, //set false for the actual experiment run?
     on_finish: function (data) {
         if (data.samples_per_sec < 5) {
             data.calibration_quality = "BADCAL";
