@@ -303,7 +303,10 @@ const after_instructions = {
     type: jsPsychHtmlButtonResponse,
     stimulus: S.after_instructions,
     choices: [S.continue],
-    record_data: false
+    record_data: false,
+    on_finish: {
+	num_trials = 0;
+    }
 };
 
 
@@ -617,6 +620,10 @@ const part_a = {
 	speaker: jsPsych.timelineVariable('speaker'),
 	language: lang,
 	target_onset: jsPsych.timelineVariable('target_onset')
+    },
+        on_finish: function(data) {
+	num_trials++;
+	console.log(`trials: ${num_trials}`);
     }
 };
 
@@ -630,7 +637,7 @@ const part_b = {
     // Add data to identify this part of the trial
     data: {
         trial_part: 'part_b'
-    }
+    },
 };
 
 // --- Conditional Logic for Trial B ---
@@ -654,12 +661,11 @@ const conditional_part_b = {
 
 const practice_timeline = {
     timeline: [fixation,part_a,conditional_part_b],
-    timeline_variables: prac_data
+    timeline_variables: prac_data,
 }
 
 const one_stimulus = {
     timeline: [part_a,conditional_part_b],
-    post_trial_gap: 500,
 
 ///// EYETRACKING GOES HERE
 
@@ -672,10 +678,6 @@ const stimulus_timeline = {
 	type: 'without-replacement',
 	size: 5
     },
-    on_finish: function(data) {
-	num_trials++;
-	console.log(`trials: ${num_trials}`);
-    }
 };
 
 
