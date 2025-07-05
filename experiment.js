@@ -242,7 +242,7 @@ const consent = {
 const welcome = {
     type: jsPsychInstructions,
     pages: [`<h1>${S.welcome_heading_1}</h1><p>${S.welcome_text_2.replace('{short_id}', short_id)}</p>`,
-	    `<h1>${S.welcome_heading_2}$</h1>${S.cover_story}`,
+	    `<h1>${S.welcome_heading_2}</h1>${S.cover_story}`,
         `<h1>${S.welcome_heading_3}</h1>${S.welcome_text_3}`,
         `<p>${S.welcome_text_4}</p>`
 	   ],
@@ -256,16 +256,13 @@ const welcome = {
 
 
 /* provide a random array of choices for volume check */
-const volumeChoices = jsPsych.randomization.repeat(['T','H','X','Q','P','S','W','M'],1);
-const volumeIndex = volumeChoices.findIndex(letter => letter === 'Q');
-const audioStim = addLang("audio/adjust_volume.wav",lang);
-
+const audioStim = "audio/sound_check.ogg";
 
 
 const adjust_volume = {
     type: jsPsychAudioButtonResponse,
     stimulus: audioStim,
-    choices: volumeChoices,
+    choices: continue,
     margin_vertical: "12px",
     response_ends_trial: true,
     trial_ends_after_audio: true,
@@ -275,14 +272,18 @@ const adjust_volume = {
 
 const check_audio = {
     timeline: [adjust_volume],
-    loop_function: function(data){
-	if (data.values()[0].response==volumeIndex){
-	    
-	    return false;
-	} else {
+    loop_function: () => {
+	const last_trial_data = jsPsych.data.get().last(1).values()[0];
+	if (last_trial_data.response === null) {
 	    return true;
+	} else {
+	    return false;
 	}
     }
+}
+
+const audio_setup = {
+    timeline: [adjust_volume, check_audio]
 }
 
 // NB., might be something wrong with looping above.
@@ -687,7 +688,7 @@ const experiment_timeline = {
 	       consent,
 	       preload,
 	       welcome,
-//	       check_audio,
+	       audio_setup,
 	       // full_screen,
 	       // instructions,
 	       // practice_timeline,

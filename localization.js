@@ -30,11 +30,6 @@ const translations = {
 	consent_check_alert: "If you wish to participate, you must check the box next to the statement 'I agree to participate in this study.'",
 	consent_button: "start",
 	
-	// Audio device question
-	audio_device_preamble: `<p>Thanks for pressing "Q".</p><p>One quick question which may help us analyse the data:</p>`,
-	audio_device_prompt: "How are you listening to audio?",
-	audio_device_options: ['Headphones', 'Earbuds', 'Speakers'],
-
 	// Fullscreen message
 	fullscreen_message: `<p>We will now switch to fullscreen mode, after which you will be able to read detailed instructions for the experiment.</p>`,
 
@@ -54,7 +49,7 @@ const translations = {
 	welcome_text_4: "<p>On the following page we will check that you can hear the audio for this experiment clearly.</p><p>Please follow the spoken instructions that you will hear to continue.</p>",
 
 	// Volume adjustment
-	volume_adjust_prompt: "please adjust your volume and follow the audio instruction",
+	volume_adjust_prompt: "please adjust your volume to a comfortable level, before continuing",
 
 	calibration_first_time: `<p>Now we will calibrate your eye movements, using your webcam.</p>
                                  <p>First we will set up the webcam and help you get your head into a good position.</p>
