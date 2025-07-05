@@ -11,7 +11,6 @@ const jsPsych = initJsPsych({
     override_safe_mode: true
 });
 
-
 // WHICH CONDITION ARE WE RUNNING?
 // "lang" is set by a "LANG" url parameter (de or sk, or en for testing)
 const lang = jsPsych.data.getURLVariable('LANG') || 'en';
@@ -665,8 +664,15 @@ const practice_timeline = {
 const one_stimulus = {
     timeline: [part_a,conditional_part_b],
 
-///// EYETRACKING GOES HERE
-
+    // THIS IS TURNING THE TRACKER ON FOR THE TRIAL
+    extensions: [
+    {
+      type: jsPsychExtensionWebgazer, 
+      params: { 
+          targets: ['#img_left','#img_right']
+      }
+    }
+  ]
 }
 
 const stimulus_timeline = {
