@@ -263,7 +263,7 @@ const adjust_volume = {
     stimulus: audioStim,
     choices: [S.continue],
     margin_vertical: "12px",
-//    response_ends_trial: true,
+    response_ends_trial: false,
     trial_ends_after_audio: true,
     response_allowed_while_playing: true,
     prompt: S.volume_adjust_prompt,
