@@ -262,7 +262,7 @@ const audioStim = "audio/sound_check.ogg";
 const adjust_volume = {
     type: jsPsychAudioButtonResponse,
     stimulus: audioStim,
-    choices: continue,
+    choices: S.continue,
     margin_vertical: "12px",
     response_ends_trial: true,
     trial_ends_after_audio: true,
