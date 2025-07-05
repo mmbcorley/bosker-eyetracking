@@ -308,7 +308,7 @@ const after_instructions = {
 const debrief = {
     type: jsPsychHtmlButtonResponse,
     stimulus: S.debrief,
-    choices: () => {(subject_id.startsWith("NP:") : [S.end1] : [S.end2])},
+    choices: [(subject_id.startsWith("NP:") ? S.end1 : S.end2)],
     record_data: false
 };
 
