@@ -257,42 +257,84 @@ const welcome = {
 /* provide a random array of choices for volume check */
 const audioStim = "audio/sound_check.ogg";
 
+/*
+This code assumes you have defined 'audioStim', and 'S.continue' 
+and 'S.volume_adjust_prompt' elsewhere in your script.
+For example:
+const audioStim = 'path/to/your/audio.mp3';
+const S = {
+    continue: 'Continue',
+    volume_adjust_prompt: '<p>Please adjust your volume to a comfortable level.</p>'
+};
+*/
 
-const adjust_volume = {
-    type: jsPsychAudioButtonResponse,
-    stimulus: audioStim,
-    choices: [S.continue],
-    margin_vertical: "12px",
-    response_ends_trial: false,
-    trial_ends_after_audio: true,
-    response_allowed_while_playing: true,
-    prompt: S.volume_adjust_prompt,
-    record_data: false,
-    on_finish: function(data) {
-	if (typeof data.response === 'undefined') {
-	    data.has_response = false;
-	} else {
-	    data.has_response = true;
-	}
-    }
-}
-
-const check_audio = {
-    timeline: [adjust_volume],
+const adjust_volume_loop = {
+    // This timeline will contain the trial that we want to repeat.
+    timeline: [{
+        type: jsPsychAudioButtonResponse,
+        stimulus: audioStim,
+        choices: [S.continue],
+        prompt: S.volume_adjust_prompt,
+        // We need the trial to end when the button is clicked.
+        response_ends_trial: true,
+        // This allows the loop to repeat if the audio finishes without a response.
+        trial_ends_after_audio: true
+    }],
+    // The loop_function is evaluated after each run of the timeline.
     loop_function: function(data) {
-	var last_trial_data = data.last(1)[0];
-	if (last_trial_data.has_response) {
-	    return false;
-	} else {
-	    return true;
-	}
-    },
-    record_data: false
-}
+        // data.values()[0] gets the data from the most recent trial.
+        const last_trial_data = data.values()[0];
+        
+        // If the 'response' is null, it means the audio ended without a click.
+        // In this case, we want to loop again, so we return true.
+        if (last_trial_data.response == null) {
+            return true; // Keep looping
+        } else {
+            // A response was made, so we stop the loop.
+            return false; // End the loop
+        }
+    }
+};
 
-const audio_setup = {
-    timeline: [adjust_volume,check_audio]
-}
+// // You can then add 'adjust_volume_loop' to your main experiment timeline.
+// // For example:
+// // const timeline = [adjust_volume_loop];
+
+// const adjust_volume = {
+//     type: jsPsychAudioButtonResponse,
+//     stimulus: audioStim,
+//     choices: [S.continue],
+//     margin_vertical: "12px",
+//     response_ends_trial: false,
+//     trial_ends_after_audio: true,
+//     response_allowed_while_playing: true,
+//     prompt: S.volume_adjust_prompt,
+//     record_data: false,
+//     on_finish: function(data) {
+// 	if (typeof data.response === 'undefined') {
+// 	    data.has_response = false;
+// 	} else {
+// 	    data.has_response = true;
+// 	}
+//     }
+// }
+
+// const check_audio = {
+//     timeline: [adjust_volume],
+//     loop_function: function(data) {
+// 	var last_trial_data = data.last(1)[0];
+// 	if (last_trial_data.has_response) {
+// 	    return false;
+// 	} else {
+// 	    return true;
+// 	}
+//     },
+//     record_data: false
+// }
+
+// const audio_setup = {
+//     timeline: [adjust_volume,check_audio]
+// }
 
 const after_instructions = {
     type: jsPsychHtmlButtonResponse,
@@ -674,7 +716,7 @@ const experiment_timeline = {
 	       consent,
 	       preload,
 	       welcome,
-	       audio_setup,
+	       adjust_volume_loop,
 	       full_screen,
 	       instructions,
 	       practice_timeline,

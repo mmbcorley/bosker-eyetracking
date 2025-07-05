@@ -46,7 +46,6 @@ const translations = {
                          <p>To help us get good quality data, we'd appreciate it if you could ensure that you are free from distractions for the next 15 minutes.</p>
                         <p>First, we will check your audio, and show you how the experiment works..</p>
                         <p>Then we will <em>calibrate</em> your eye movements, teaching our software to predict where on the screen you are looking.</p>`,
-	welcome_text_4: "<p>On the following page we will check that you can hear the audio for this experiment clearly.</p><p>Please follow the spoken instructions that you will hear to continue.</p>",
 
 	// Volume adjustment
 	volume_adjust_prompt: "please adjust your volume to a comfortable level, before continuing",
