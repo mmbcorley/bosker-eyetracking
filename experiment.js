@@ -243,7 +243,7 @@ const check_consent = function(elem) {
 const consent = {
     type: jsPsychExternalHtml,
     url: addLang('consent.html',lang),
-    cont_btn: S.consent_button,
+    cont_btn: 'start',
     check_fn: check_consent,
     record_data: false
 };
