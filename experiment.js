@@ -286,7 +286,6 @@ const adjust_volume_loop = {
             return false; // End the loop
         }
     },
-    record_data: false
 };
 
 
