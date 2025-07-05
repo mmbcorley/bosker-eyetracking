@@ -304,7 +304,7 @@ const after_instructions = {
     stimulus: S.after_instructions,
     choices: [S.continue],
     record_data: false,
-    on_finish: {
+    on_finish () => {
 	num_trials = 0;
     }
 };
