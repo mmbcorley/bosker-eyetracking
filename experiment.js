@@ -262,7 +262,7 @@ const audioStim = addLang("audio/adjust_volume.wav",lang);
 
 
 
-obnconst adjust_volume = {
+const adjust_volume = {
     type: jsPsychAudioButtonResponse,
     stimulus: audioStim,
     choices: volumeChoices,
