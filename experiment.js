@@ -114,20 +114,22 @@ function parseData(data,language,speaker,group) {
 }
 
 
+var lmatch;
+if (lang == 'en') {
+    lmatch = (jsPsych.randomization.sampleBernoulli(.5) ? 'de' : 'sk');
+} else {
+    lmatch = lang;
+}
+
+
+
 $.ajax({
     type: "GET",
     url: './experimental_trials2.csv',
     dataType: "text",
     success: function (data) {
 	console.log('SUCCESS');
-	var lmatch;
-	if (lang == 'en') {
-	    lmatch = (jsPsych.randomization.sampleBernoulli(.5) ? 'de' : 'sk');
-	} else {
-	    lmatch = lang;
-	}
-
-	parseData(data, lang, speaker, group);
+	parseData(data, lmatch, speaker, group);
     },
     async: false
 });
