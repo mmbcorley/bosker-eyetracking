@@ -27,8 +27,8 @@ const long_id = 'NP:' + jsPsych.randomization.randomID(10);
 
 // pick up PROLIFIC INFO
 const subject_id = jsPsych.data.getURLVariable('PROLIFIC_PID') || long_id;
-//const study_id = jsPsych.data.getURLVariable('STUDY_ID') || 'LOCAL';
-//const session_id = jsPsych.data.getURLVariable('SESSION_ID') || 'LOCAL';
+const study_id = jsPsych.data.getURLVariable('STUDY_ID') || 'LOCAL';
+const session_id = jsPsych.data.getURLVariable('SESSION_ID') || 'LOCAL';
 
 // set language of experiment
 const S = translations[lang]; // a shorthand for selected language's strings
@@ -171,8 +171,8 @@ var preload = {
 
 // add the ID variables to the dataset
 jsPsych.data.addProperties({subject: subject_id,
-//			    session_id: session_id,
-//			    study_id: study_id,
+			    session_id: session_id,
+			    study_id: study_id,
 			    shortID: short_id,
 			    language: lang
 			   });
@@ -481,6 +481,11 @@ const validation_feedback = {
 	} else {
 	    data.subpar = true;
 	}
+    },
+    data: {
+	calibration_tries: calibration_tries,
+	calibration_quality: quality,
+	calibration_subpar: subpar
     }
 };
 
