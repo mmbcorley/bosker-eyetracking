@@ -405,7 +405,8 @@ const calibration_recalibrate = {
 //Define head positioning trial
 const position_head = {
     type: jsPsychWebgazerInitCamera,
-    instructions: S.position_head_instructions
+    instructions: S.position_head_instructions,    
+    button_text: S.continue
 };
 
 //Define component trials to the initial c/v procedure
