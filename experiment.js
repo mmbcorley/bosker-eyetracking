@@ -484,7 +484,6 @@ const validation_feedback = {
     },
     data: {
 	calibration_tries: calibration_tries,
-	calibration_subpar: data.subpar
     }
 };
 
