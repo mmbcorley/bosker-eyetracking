@@ -82,7 +82,7 @@ function parseData(data,language,speaker,group) {
 		"left": 'img/stimuli/' + ( target_side == 'L' ? trial.target_image : trial.pair_image),
 		"right": 'img/stimuli/' + ( target_side == 'R' ? trial.target_image : trial.pair_image),
 		"target_side": target_side,
-		"audio": 'audio/stimuli/' + trial.audio.replace(".wav",".ogg"),
+		"audio": 'audio/stimuli/' + trial.audio.replace(".wav",".mp3"),
 		"stimulus_type": trial.stimulus_type,
 		"condition": trial.condition,
 		"sentence_template": trial.sentence_template,
@@ -97,7 +97,7 @@ function parseData(data,language,speaker,group) {
 		"left": 'img/stimuli/' + ( target_side == 'L' ? trial.target_image : trial.pair_image),
 		"right": 'img/stimuli/' + ( target_side == 'R' ? trial.target_image : trial.pair_image),
 		"target_side": target_side,
-		"audio": 'audio/stimuli/' + trial.audio.replace(".wav",".ogg"),
+		"audio": 'audio/stimuli/' + trial.audio.replace(".wav",".mp3"),
 		"stimulus_type": trial.stimulus_type,
 		"condition": trial.condition,
 		"sentence_template": trial.sentence_template,
@@ -265,7 +265,7 @@ const welcome = {
 
 
 /* provide a random array of choices for volume check */
-const audioStim = "audio/sound_check.ogg";
+const audioStim = "audio/sound_check.mp3";
 
 /*
 This code assumes you have defined 'audioStim', and 'S.continue' 
