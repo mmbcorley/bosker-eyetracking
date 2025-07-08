@@ -33,6 +33,8 @@ const session_id = jsPsych.data.getURLVariable('SESSION_ID') || 'LOCAL';
 // set language of experiment
 const S = translations[lang]; // a shorthand for selected language's strings
 
+console.log(`S.vision = ${S.vision}`);
+
 document.title = S.title;
 
 // EARLY SETUP AND UTILITY FUNCTIONS
@@ -337,7 +339,6 @@ const init_qs = {
 	    horizontal: true
 	}
     ],
-    on_start: () => console.log(`vision = ${S.vision}`),
 };
 
 const likert_scale = [
