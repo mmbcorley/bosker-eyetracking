@@ -538,7 +538,7 @@ const recalibration = {
     timeline: [calibration_recalibrate,calibration_loop],
     conditional_function: function () {
 	num_trials++;
-	if (num_trials  == 16 || num_trials == 32 || num_trials == 48) {
+	if (num_trials  == 2 || num_trials == 32 || num_trials == 48) {
 	    return true;
 	} else {
 	    return false;
