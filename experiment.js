@@ -154,7 +154,8 @@ var preload = {
     images: image_files,
     show_progress_bar: true,
     message: S.loading,
-    show_detailed_errors: true
+    show_detailed_errors: true,
+    max_load_time: 60000 // 1 minute
 }
 
 // NOT USED
@@ -607,7 +608,8 @@ const part_a = {
     
     // --- Key Logic ---
     // The trial runs for a fixed duration
-    trial_duration: jsPsych.timelineVariable('audio_duration'),
+    //trial_duration: jsPsych.timelineVariable('audio_duration'),
+    trial_ends_after_audio: true,
     // A response does NOT end the trial early
     response_ends_trial: false,
 
