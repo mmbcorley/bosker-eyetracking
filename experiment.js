@@ -714,10 +714,10 @@ const one_stimulus = {
 const stimulus_timeline = {
     timeline: [fixation,one_stimulus,recalibration],
     timeline_variables: all_data,
-    sample: {
-	type: 'without-replacement',
-	size: 5
-    },
+    // sample: {
+    // 	type: 'without-replacement',
+    // 	size: 5
+    // },
 };
 
 
