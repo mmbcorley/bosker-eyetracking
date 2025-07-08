@@ -20,7 +20,7 @@ const translations = {
 	
 	loading: `<p>the experiment is loading...</p>`,
 
-	vision: `I have <b>normal vision</b> or <b>corrected to normal>/b> vision (e.g., with glasses or contact lenses).`,
+	vision: `I have <b>normal vision</b> or <b>corrected to normal</b> vision (e.g., with glasses or contact lenses).`,
 	language: `Do you have any language or hearing disorder?`,
 	yes: `yes`,
 	no: `no`,
