@@ -318,6 +318,27 @@ const debrief = {
 
 ///QUESTIONNAIRE
 
+const init_qs = {
+    type: jsPsychSurveyMultiChoice,
+    preamble: `<h2>S.important</h2>`,
+    questions: [
+	{
+	    prompt: S.vision,
+	    name: 'q_vision',
+	    options: [S.yes, S.no],
+	    required: true,
+	    horizontal: true
+	},
+	{
+	    prompt: S.language,
+	    name: 'q_language',
+	    options: [S.yes, S.no], 
+	    required: true,
+	    horizontal: true
+	}
+    ],
+};
+
 const likert_scale = [
     S.strongly_disagree,
     '','','','','','','',
@@ -698,6 +719,7 @@ const experiment_timeline = {
     timeline: [browser_check,
 	       consent,
 	       preload,
+	       init_qs,
 	       welcome,
 	       adjust_volume_loop,
 	       full_screen,

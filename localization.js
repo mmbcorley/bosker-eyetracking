@@ -19,6 +19,12 @@ const translations = {
 	click_begin: "click to begin",
 	
 	loading: `<p>the experiment is loading...</p>`,
+
+	important: 'Important!',
+	vision: `I have <b>normal vision</b> or <b>corrected to normal>/b> vision (e.g., with glasses or contact lenses).`,
+	language: `Do you have any language or hearing disorder?`,
+	yes: `yes`,
+	no: `no`,
 	
 	
 	// Browser check messages
@@ -145,38 +151,45 @@ const translations = {
     // German translations
     de: {
         // Title of the page
-        title: "Bilder anklicken",
+        title: "Eye-tracking Sprachstudie",
 
         // generic buttons
-        continue: "weiter",
-        click_begin: "klicken Sie, um zu beginnen",
+        continue: "Weiter",
+        click_begin: "Klicken Sie, um zu beginnen",
 
         loading: `<p>Das Experiment wird geladen...</p>`,
 
         // Browser check messages
-        browser_check_chrome: "<p>Sie müssen Chrome als Ihren Browser verwenden, um dieses Experiment abzuschließen.</p>",
-        browser_check_webcam: "<p>Sie benötigen eine Webcam, um dieses Experiment abzuschließen.</p>",
-        browser_check_audio: "<p>Ihr Browser muss Audio abspielen können, um dieses Experiment abzuschließen.</p>",
+        browser_check_chrome: "<p>Sie müssen Chrome als Ihren Browser verwenden, um dieses Experiment durchzuführen.</p>",
+        browser_check_webcam: "<p>Sie benötigen eine Webcam, um dieses Experiment durchzuführen.</p>",
+        browser_check_audio: "<p>Ihr Browser muss Audio abspielen können, um dieses Experiment durchzuführen.</p>",
 
         // Consent check message
         consent_check_alert: "Wenn Sie teilnehmen möchten, müssen Sie das Kästchen neben der Aussage 'Ich stimme der Teilnahme an dieser Studie zu' ankreuzen.",
-        consent_button: "starten",
+        consent_button: "Starten",
+
+	important: 'Wichtig!',
+	vision: `Ich habe <b>normale Sehkraft<b/> oder <b>normal korrigierte Sehkraft</b> (z.B. mit einer Brille oder Kontraktlinsen).`,
+	language: `Haben Sie eine Sprach- oder Hörstörung?`,
+	yes: `Ja`,
+	no: `Nein`
+
 
         // Fullscreen message
-        fullscreen_message: `<p>Wir werden nun in den Vollbildmodus wechseln, danach können Sie die detaillierten Anweisungen für das Experiment lesen.</p>`,
+        fullscreen_message: `<p>Wir werden nun ins Vollbildmodus wechseln, danach können Sie die detaillierten Anweisungen für das Experiment lesen.</p>`,
 
         // Welcome instructions
         welcome_heading_1: "Wichtig",
-        welcome_text_2: "Bitte notieren Sie sich die ID <strong>{short_id}</strong>, mit der Sie mit uns über das Experiment korrespondieren können",
+        welcome_text_2: "Bitte notieren Sie sich Ihre anonyme ID <strong>{short_id}</strong>, womit Sie mit uns über das Experiment korrespondieren können",
         welcome_heading_2: "Willkommen",
-        cover_story: `<p>Der Zweck dieser Studie ist es zu testen, inwieweit Sie Anweisungen von verschiedenen Arten von Sprechern korrekt befolgen können. Wir haben Aufnahmen von 20 Sprechern gemacht, darunter sowohl muttersprachliche als auch nicht-muttersprachliche Deutsch-Sprecher. Das heißt, wir haben Personen aufgenommen, die Deutsch als ihre erste Sprache nach der Geburt gelernt haben, und Personen, die Deutsch später im Leben als Fremdsprache erworben haben. Diesen Sprechern wurden Bilder wie die gezeigt, die Sie gleich sehen werden, und sie nahmen an einer Konversationsaufgabe teil. Die Aufgabe der Sprecher war es, ihrem Gesprächspartner Anweisungen zu geben, auf eines der beiden Objekte auf dem Bildschirm zu klicken.</p>
-<p>In diesem Experiment werden Sie einen der muttersprachlichen oder nicht-muttersprachlichen Deutsch-Sprecher hören. Ihre Aufgabe ist es, dem Sprecher zuzuhören und den Anweisungen zu folgen, indem Sie auf das Objekt klicken, das er erwähnen wird. Während dieser Aufgabe werden wir auch Ihre Augenbewegungen mit Ihrer Webcam aufzeichnen.</p>`,
+        cover_story: `<p>Ziel dieser Studie ist es, zu untersuchen, inwieweit Anweisungen von verschiedenen Arten von Sprecher*innen korrekt befolgt werden können. Wir haben Aufnahmen von 20 Personen gemacht, darunter Deutsch muttersprachliche als auch nicht-muttersprachliche Sprecher*innen. Das heißt, dass wir Personen aufgenommen haben, die Deutsch entweder als Muttersprache, oder erst später im Leben als Fremdsprache gelernt haben. Diese Sprecher*innen sahen verschiedene Bilder, die Sie gleich auch sehen werden, und nahmen an einer Gesprächsaufgabe teil. Dessen Aufgabe war es, ihrem Gesprächspartner Anweisungen zu geben, auf eines von jeweils zwei Objekten auf dem Bildschirm zu klicken.</p>
+<p>In diesem Experiment werden Sie solche Anweisungen von einem dieser muttersprachlichen oder nicht-muttersprachlichen Sprecher*innen hören. Ihre Aufgabe ist es, den Anweisungen aufmerksam zu folgen und auf das Objekt zu klicken, das erwähnt wird. Während dieser Aufgabe zeichnen wir Ihre Augenbewegungen für unsere Auswertung auf.</p>`,
 
-        welcome_heading_3: "Einrichtung",
+        welcome_heading_3: "Eye-tracking Einrichtung",
         welcome_text_3: `<p>Dies ist ein Eye-Tracking-Experiment.</p>
                          <p>Um uns zu helfen, qualitativ hochwertige Daten zu erhalten, würden wir es begrüßen, wenn Sie sicherstellen könnten, dass Sie für die nächsten 15 Minuten frei von Ablenkungen sind.</p>
-                        <p>Zuerst werden wir Ihr Audio überprüfen und Ihnen zeigen, wie das Experiment funktioniert.</p>
-                        <p>Dann werden wir Ihre Augenbewegungen <em>kalibrieren</em>, indem wir unserer Software beibringen, vorherzusagen, wohin auf dem Bildschirm Sie schauen.</p>`,
+                        <p>Zuerst werden wir Ihre Tonwiedergabe überprüfen und Ihnen zeigen, wie das Experiment funktioniert.</p>
+                        <p>Dann werden wir Ihre Augenbewegungen <em>kalibrieren</em>, indem wir unserer Software es beibringen, vorherzusagen, wohin Sie auf dem Bildschirm schauen.</p>`,
 
         // Volume adjustment
         volume_adjust_prompt: "Bitte stellen Sie Ihre Lautstärke auf ein angenehmes Niveau ein, bevor Sie fortfahren",
@@ -184,7 +197,7 @@ const translations = {
         calibration_first_time: `<p>Jetzt werden wir Ihre Augenbewegungen mit Ihrer Webcam kalibrieren.</p>
                                  <p>Zuerst werden wir die Webcam einrichten und Ihnen helfen, Ihren Kopf in eine gute Position zu bringen.</p>
                                  <p>Sobald wir das getan haben, werden wir Sie bitten, eine Reihe von Punkten auf dem Bildschirm anzusehen und darauf zu klicken.</p>
-                                 <p>Soweit es für Sie angenehm ist, sollten Sie versuchen, Ihren Kopf während der Kalibrierung, Validierung und des Experiments ziemlich still zu halten.</p>`,
+                                 <p>Soweit es für Sie angenehm ist, versuchen Sie bitte, Ihren Kopf während der Kalibrierung, Validierung und des Experiments ziemlich still zu halten.</p>`,
 
         calibration_recalibrate: `<p>Wir müssen Ihre Augenbewegungen jetzt neu kalibrieren.</p>
                                   <p>Wie zuvor werden wir die Webcam einrichten, bevor Sie auf eine Reihe von Punkten klicken.</p>`,
@@ -216,24 +229,24 @@ const translations = {
         // Validation
         validation_instructions: `
             <p>Jetzt müssen wir überprüfen, wie genau das Eye-Tracking ist.</p>
-            <p>Halten Sie Ihren Kopf still und bewegen Sie Ihre Augen, um sich auf jeden Punkt zu konzentrieren, sobald er erscheint.</p>
+            <p>Halten Sie Ihren Kopf still und bewegen Sie nur Ihre Augen, um auf die Punkte zu schauen, sobald sie erscheinen.</p>
             <p><b>Sie müssen nicht auf die Punkte klicken.</b> Bewegen Sie einfach Ihre Augen, um auf die Punkte zu schauen.</p>
             `,
 
         // Validation_feedback
         validation_feedback_badcal: `
-<p>OK, das ist das Beste, was wir tun können. Das Experiment wird nun wie zuvor fortgesetzt.<br/>Klicken Sie auf das Plus, um jede Runde zu starten.</p>`,
+<p>OK, das ist das Beste, das wir schaffen können. Das Experiment wird nun wie zuvor fortgesetzt.<br/>Klicken Sie auf das Kreuz, um jede Versuchsrunde zu starten.</p>`,
         validation_feedback_goodcal: `<p>Erfolg! Das Experiment wird nun wie zuvor fortgesetzt.</p>
-                                      <p>Klicken Sie auf das Plus, um jede Runde zu starten.</p>`,
+                                      <p>Klicken Sie auf das Kreuz, um jede Versuchsrunde zu starten.</p>`,
         
         // Instructions
         instructions: `<p style="text-align: center;"><b>ANWEISUNGEN</b></p>
-            <p>In jeder Runde dieses Experiments sehen Sie zuerst ein Plus in der Mitte des Bildschirms. <br/><b>Klicken Sie auf das Plus, um fortzufahren.</b><br/>Sie sehen zwei Bilder und hören einen Satz.<br><b>Klicken Sie auf das Bild, das am besten zu diesem Satz passt.</b></p>
-            <p>Sie können normal blinzeln, aber versuchen Sie, Ihren Kopf nicht zu bewegen!</p>
+            <p>In jeder Runde dieses Experiments sehen Sie zuerst ein Kreuz in der Mitte des Bildschirms. <br/><b>Klicken Sie auf das Kreuz, um fortzufahren.</b><br/>Sie werden zwei Bilder sehen und einen Satz hören.<br><b>Klicken Sie auf das Bild, das am besten zu diesem Satz passt.</b></p>
+            <p>Sie können wie normal blinzeln, aber versuchen Sie, Ihren Kopf nicht zu bewegen!</p>
             <p>&nbsp;</p>
             <p><b>Bereit?</b></p>`,
 
-        after_instructions: `<p>Sie haben den Eye-Tracking-Teil des Experiments nun abgeschlossen. Vielen Dank und entspannen Sie sich!</p>
+        after_instructions: `<p>Sie haben den Eye-Tracking-Teil des Experiments nun abgeschlossen. Vielen Dank! Sie können sich jetzt entspannen.</p>
           <p>Wir haben noch ein paar Fragen zum Abschluss.</p>`,
 
         strongly_agree: 'stimme voll und ganz zu',
@@ -243,27 +256,28 @@ const translations = {
 
         q1: 'Diese Person klang natürlich',
         q2: 'Diese Person hatte einen Akzent',
-        q3: 'Diese Person klang fließend',
-        q4: 'Im Alltag interagiere ich oft mit nicht-muttersprachlichen Sprechern des Deutschen (d.h. mit Sprechern, die Deutsch als Fremdsprache gelernt haben)',
+        q3: 'Diese Person klang flüssig',
+        q4: 'Im Alltag interagiere ich häufig mit Personen die Deutsch als Fremdsprache gelernt haben.',
 
-        q5: 'Können Sie die Muttersprache des Sprechers erraten, den Sie gerade gehört haben (d.h. welche Sprache hat er/sie zuerst gelernt?)',
-        q6: 'Ist Ihnen sonst noch etwas an der Person aufgefallen, die Sie gehört haben, oder möchten Sie uns allgemein etwas zum Experiment sagen?',
+        q5: 'Können Sie erraten, was die Muttersprache der Person ist, die Sie gerade gehört haben (d.h. welche Sprache sie nach der Geburt zuerst gelernt hat)?',
+        q6: 'Ist Ihnen sonst noch etwas an der Person aufgefallen, der Sie zugehört haben? Oder möchten Sie uns sonst etwas Allgemeines über das Experiment mitteilen?',
 
         qpp: '<h3>Über Sie</h3>',
         qp1: 'Wie alt sind Sie in Jahren?',
-        qp2: 'Was ist Ihr Geschlecht (z.B. männlich, weiblich, nicht-binär)?',
-        qp3: 'Welche Sprache(n) haben Sie zuerst gesprochen?',
+        qp2: 'Mit welchem Geschlecht identifizieren Sie sich (z.B. männlich, weiblich, nicht-binär, divers)?',
+        qp3: 'Was ist Ihre Muttersprache?',
         qp4: 'Bitte listen Sie alle weiteren Sprachen auf, die Sie fließend sprechen',
 
         debrief: `<p><b>Vielen Dank für Ihre Teilnahme an unserer Studie.</b></p>
-<p>Diese Studie untersucht, wie Zuhörer Sprechunflüssigkeiten wie "äh" oder Pausen von muttersprachlichen und nicht-muttersprachlichen Sprechern verarbeiten. Frühere Forschungen zeigen, dass Zuhörer, wenn ein muttersprachlicher Sprecher zögert, oft erwarten, dass er ein weniger gebräuchliches Wort sagt. Dieser Effekt verschwindet jedoch, wenn man einem nicht-muttersprachlichen Sprecher zuhört.</p>
-<p>Unser Ziel war es zu sehen, ob diese Ergebnisse auch für slowakische und deutsche Zuhörer gelten. Obwohl Ihnen gesagt wurde, dass Sie einen von 20 verschiedenen Sprechern hören würden, haben Sie tatsächlich nur einen von zwei Sprechern gehört: einen muttersprachlichen und einen nicht-muttersprachlichen. Wir haben Ihre Augenbewegungen verfolgt, um zu sehen, wie Sie Wörter bei unflüssiger Sprache antizipierten. Durch den Vergleich der Ergebnisse aus der Slowakei und Deutschland – Ländern mit unterschiedlicher Exposition gegenüber nicht-muttersprachlichen Sprechern – können wir untersuchen, wie unsere alltäglichen Interaktionen die Sprachverarbeitung formen.</p>
-<p>Alle von uns gesammelten Daten sind anonym und können nicht auf Sie zurückgeführt werden. Wenn Sie damit einverstanden sind fortzufahren, klicken Sie bitte unten auf die Schaltfläche "ANTWORTEN SENDEN". Wenn Sie Ihre Teilnahme zurückziehen möchten, können Sie einfach Ihren Browser schließen, und Ihre Daten werden gelöscht. Sollten Sie Fragen haben, kontaktieren Sie bitte Haerim Lee (<a href="mailto:h.lee-49@sms.ed.ac.uk">h.lee-49@sms.ed.ac.uk</a>), Júlia Stasová (<a href="mailto:j.stasova@sms.ed.ac.uk">j.stasova@sms.ed.ac.uk</a>) oder Professor Martin Corley (<a href="mailto:martin.corley@ed.ac.uk">martin.corley@ed.ac.uk</a>).</p>`,
+<p>Diese Studie untersucht, wie Zuhörer*innen Sprechunflüssigkeiten wie "ähm" oder Pausen von muttersprachlichen und nicht-muttersprachlichen Sprechern verarbeiten. Frühere Forschungen zeigen, dass Zuhörer, wenn ein muttersprachlicher Sprecher zögert, oft erwarten, dass er ein weniger gebräuchliches Wort sagen wird, als ein häufiger verwendetes Wort. Dieser Effekt verschwindet jedoch, wenn man einem nicht-muttersprachlichen Sprecher zuhört.</p>
+<p>Unser Ziel war es zu erkunden, ob diese Ergebnisse auch für slowakische und deutsche Zuhörer gelten. Obwohl Ihnen gesagt wurde, dass Sie einen von 20 verschiedenen Sprechern hören würden, haben Sie tatsächlich nur einem von zwei Sprechern zugehört: entweder einem muttersprachlichen oder einem nicht-muttersprachlichen Sprecher. Wir haben Ihre Augenbewegungen verfolgt, um zu sehen, welche Wörter Sie bei unflüssiger Sprache erwarten würden. Durch den Vergleich der Ergebnisse aus der Slowakei und Deutschland – Ländern mit unterschiedlicher Aussetzung zu nicht-muttersprachlichen Sprecher*innen von Slowakisch oder Deutsch – können wir untersuchen, wie unsere alltäglichen Interaktionen die Sprachverarbeitung formen.</p>
+<p>Alle von uns gesammelten Daten sind anonym und können nicht auf Sie zurückgeführt werden. Wenn Sie damit einverstanden sind, und fortfahren möchten, klicken Sie bitte unten auf die Schaltfläche "ANTWORTEN SENDEN". Wenn Sie Ihre Teilnahme zurückziehen möchten, können Sie einfach Ihren Browser schließen, und Ihre Daten werden gelöscht. Sollten Sie Fragen haben, kontaktieren Sie bitte Haerim Lee (<a href="mailto:h.lee-49@sms.ed.ac.uk">h.lee-49@sms.ed.ac.uk</a>), Júlia Stasová (<a href="mailto:j.stasova@sms.ed.ac.uk">j.stasova@sms.ed.ac.uk</a>) oder Prof. Martin Corley (<a href="mailto:martin.corley@ed.ac.uk">martin.corley@ed.ac.uk</a>).</p>`,
 
         end1: `HIER KLICKEN, UM DATEN ZU SENDEN UND DAS EXPERIMENT ZU BEENDEN`,
-        end2: `KLICKEN, UM DATEN ZU SENDEN UND ZU PROLIFIC ZURÜCKzukehren`
+        end2: `KLICKEN, UM DATEN ZU SENDEN UND ZU PROLIFIC ZURÜCKZUKEHREN`
     },
 
+    
     // Slovak translations
     sk: {
         // Title of the page
@@ -271,55 +285,64 @@ const translations = {
 
         // generic buttons
         continue: "pokračovať",
-        click_begin: "kliknite pre začiatok",
+        click_begin: "kliknite a začnite",
 
         loading: `<p>experiment sa načítava...</p>`,
 
+	important: 'Dôležité!"',
+	vision: `Mám <b>normálny</b> zrak alebo <b>korigovaný</b> na normálny zrak (napr. s okuliarmi alebo kontaktnými šošovkami).`,
+	language: `Máte nejakú poruchu reči alebo sluchu?`,
+	yes: `áno`,
+	no: `nie`,
+
+
         // Browser check messages
-        browser_check_chrome: "<p>Na dokončenie tohto experimentu musíte použiť prehliadač Chrome.</p>",
+        browser_check_chrome: "<p>Na dokončenie tohto experimentu musíte použiť prehliadač Google Chrome.</p>",
         browser_check_webcam: "<p>Na dokončenie tohto experimentu potrebujete webkameru.</p>",
-        browser_check_audio: "<p>Váš prehliadač musí byť schopný prehrávať zvuk, aby ste mohli dokončiť tento experiment.</p>",
+        browser_check_audio: "<p>Aby ste mohli dokončiť tento experiment, Váš prehliadač musí byť schopný prehrávať zvuk.</p>",
 
         // Consent check message
-        consent_check_alert: "Ak sa chcete zúčastniť, musíte zaškrtnúť políčko vedľa vyhlásenia 'Súhlasím s účasťou na tejto štúdii.'",
+        consent_check_alert: "Ak sa chcete zúčastniť tejto štúdie, musíte zaškrtnúť políčko vedľa vyhlásenia 'Súhlasím s účasťou na tejto štúdii.'",
         consent_button: "štart",
 
         // Fullscreen message
-        fullscreen_message: `<p>Teraz prepneme do režimu celej obrazovky, po ktorom si budete môcť prečítať podrobné pokyny k experimentu.</p>`,
+        fullscreen_message: `<p>Teraz prepneme do režimu celej obrazovky, a potom si budete môcť prečítať podrobné inštrukcie k experimentu.</p>`,
 
         // Welcome instructions
         welcome_heading_1: "Dôležité",
         welcome_text_2: "Poznačte si, prosím, ID <strong>{short_id}</strong>, ktoré môžete použiť na korešpondenciu s nami ohľadom experimentu",
         welcome_heading_2: "Vitajte",
-        cover_story: `<p>Cieľom tejto štúdie je zistiť, do akej miery dokážete správne nasledovať pokyny od rôznych typov hovoriacich. Nahrali sme 20 hovoriacich, vrátane rodených aj nerodených hovoriacich slovenčiny. To znamená, že sme nahrávali ľudí, ktorí sa naučili slovenčinu ako svoj prvý jazyk po narodení, a ľudí, ktorí si slovenčinu osvojili neskôr v živote ako cudzí jazyk. Týmto hovoriacim boli ukázané obrázky, podobné tým, ktoré uvidíte, a zapojili sa do konverzačnej úlohy. Úlohou hovoriacich bolo dať svojmu konverzačnému partnerovi pokyny, aby klikol na jeden z dvoch objektov na obrazovke.</p>
-<p>V tomto experimente budete počúvať jedného z rodených alebo nerodených hovoriacich slovenčiny. Vašou úlohou je počúvať hovoriaceho a nasledovať pokyny, ktoré poskytne, kliknutím na objekt, ktorý spomenie. Počas tejto úlohy budeme tiež zaznamenávať Vaše očné pohyby pomocou Vašej webkamery.</p>`,
+        cover_story: `<p>Cieľom tejto štúdie je zistiť, do akej miery dokážete správne nasledovať inštrukcie od rôznych typov rečníkov. Nahrali sme 20 osôb, ktoré rozprávajú slovenčinou buď ako materinským alebo ako nematerinským (cudzím) jazykom. To znamená, že sme nahrávali ľudí, ktorí sa naučili slovenčinu ako svoj prvý jazyk po narodení, a ľudí, ktorí sa naučili slovenčinu až neskôr v živote ako cudzí jazyk. Títo ľudia sa zúčastnili konverzačnej úlohy, v ktorej sme im ukázali rovnaké obrázky, aké uvidíte o chvíľu aj vy. Ich úlohou bolo dať svojmu konverzačnému partnerovi pokyn, aby klikol na jeden z dvoch objektov na obrazovke.</p>
+<p>V tomto experimente budete počúvať jednu z osôb, ktorá rozpráva slovenčinou buď ako materinským alebo ako nematerinským (cudzím) jazykom. Vašou úlohou je túto osobu pozorne počúvať, nasledovať inštrukcie a kliknúť na objekt, ktorý spomenie. Počas tejto úlohy budeme zároveň zaznamenávať pohyby Vašich očí pomocou Vašej webkamery. 
+
+</p>`,
 
         welcome_heading_3: "Nastavenie",
-        welcome_text_3: `<p>Toto je experiment so sledovaním očí (eye tracking).</p>
-                         <p>Aby sme získali kvalitné dáta, ocenili by sme, ak by ste si na nasledujúcich 15 minút zabezpečili prostredie bez rušivých vplyvov.</p>
+        welcome_text_3: `<p>Toto je experiment, v ktorom budeme sledovať pohyb Vašich očí.</p>
+                         <p>Aby sme získali kvalitné dáta, ocenili by sme, ak by ste si na nasledujúcich 15 minút zabezpečili, že budete sedieť v tichom prostredí bez rušivých vplyvov.</p>
                         <p>Najprv skontrolujeme Váš zvuk a ukážeme Vám, ako experiment funguje.</p>
-                        <p>Potom <em>skalibrujeme</em> Vaše očné pohyby, čím naučíme náš softvér predpovedať, kam sa na obrazovke pozeráte.</p>`,
+                        <p>Potom <em>skalibrujeme</em> pohyby Vašich očí, čím naučíme náš softvér predpovedať, kam sa na obrazovke pozeráte.</p>`,
 
         // Volume adjustment
-        volume_adjust_prompt: "pred pokračovaním si, prosím, nastavte hlasitosť na pohodlnú úroveň",
+        volume_adjust_prompt: "pred pokračovaním si, prosím, nastavte hlasitosť tak, aby ste zreteľne počuli tento zvuk",
 
-        calibration_first_time: `<p>Teraz skalibrujeme Vaše očné pohyby pomocou Vašej webkamery.</p>
-                                 <p>Najprv nastavíme webkameru a pomôžeme Vám dostať hlavu do správnej polohy.</p>
+        calibration_first_time: `<p>Teraz skalibrujeme pohyby Vašich očí pomocou Vašej webkamery.</p>
+                                 <p>Najprv nastavíme webkameru a pomôžeme Vám uložiť si hlavu do správnej a pohodlnej polohy.</p>
                                  <p>Keď to urobíme, požiadame Vás, aby ste sa pozreli na sériu bodiek na obrazovke a klikli na ne.</p>
-                                 <p>Pokiaľ je to pre Vás pohodlné, mali by ste sa snažiť udržať hlavu počas kalibrácie, validácie a experimentu pomerne nehybnú.</p>`,
+                                 <p>Pokiaľ je to pre Vás pohodlné, mali by ste sa snažiť udržať si hlavu v rovnakej polohe a príliš ňou nehýbať počas kalibrácie, validácie a experimentu.</p>`,
 
-        calibration_recalibrate: `<p>Potrebujeme teraz prekalibrovať Vaše očné pohyby.</p>
-                                  <p>Ako predtým, najprv nastavíme webkameru, a potom budete klikať na sériu bodiek.</p>`,
+        calibration_recalibrate: `<p>Teraz potrebujeme prekalibrovať pohyby Vašich očí.</p>
+                                  <p>Tak, ako predtým, najprv nastavíme Vašu webkameru, a potom budete klikať na sériu bodiek.</p>`,
 
         // Head positioning
         position_head_instructions: `<p>(Zobrazenie videa môže trvať niekoľko sekúnd)</p>
-            <p>Uistite sa, že Vaša tvár je dobre osvetlená (možno zhora).</p>
-            <p>Vycentrujte svoju tvár v rámčeku a pozerajte sa priamo do kamery.</p>
-            <p>Umiestnite hlavu tak, aby mala webkamera dobrý výhľad na Vaše oči.<br/>
-            <strong>Upravte si sedenie tak, aby bolo udržanie tejto polohy pohodlné.</strong></p><p>Keď dokážete pohodlne udržať tvár vycentrovanú v rámčeku a rámček je zelený, môžete kliknúť pre pokračovanie.</p>`,
+            <p>Uistite sa, že Vaša tvár je dobre osvetlená (napríklad svetlom zhora).</p>
+            <p>Vycentrujte svoju tvár do rámčeku a pozerajte sa priamo do kamery.</p>
+            <p>Umiestnite si hlavu tak, aby mala webkamera dobrý výhľad na Vaše oči.<br/>
+            <strong>Nájdite si pohodlnú polohu na sedenie tak, aby ste v tejto polohe vydržali počas experimentu.</strong></p><p>Keď dokážete pohodlne udržať tvár vycentrovanú v rámčeku a rámček svieti na zeleno, môžete kliknúť na tlačidlo pre pokračovanie.</p>`,
 
         pre_calibration: `
-            <p>Skvelé! Teraz musíme nastaviť eye-tracker. Počas celého experimentu:</p>
+            <p>Super! Teraz nastavíme sledovanie pohybu Vašich očí. Počas celého experimentu:</p>
             <img src="{img}" align="center" width="60%">
         `,
         
@@ -327,25 +350,25 @@ const translations = {
         calibration_instructions: `
             <p><b>Kalibrácia</b></p>
             <p>Pre vykonanie kalibrácie musíte kliknúť na sériu bodiek.</p>
-            <p>Držte hlavu nehybne a klikajte na každú bodku, keď sa objaví. Pozerajte sa na bodku, keď na ňu klikáte.</p>
+            <p>Držte hlavu rovno a snažte sa ňou nehýbať. Kliknite na každú bodku, keď sa objaví. Pozerajte sa na bodku, keď na ňu klikáte.</p>
             `,
 
         // Repeat Calibration
         repeat_calibration_instructions: `
             <p>Hmm, kalibrácia nebola veľmi presná. Skúsme to znova.</p>
-            <p>Najprv znova nastavíme webkameru.<br/>Potom držte hlavu nehybne a klikajte na každú bodku, keď sa objaví. Pozerajte sa na bodku, keď na ňu klikáte.</p>`,
+            <p>Najprv znova nastavíme Vašu webkameru.<br/>Potom držte hlavu nehybne a kliknite na každú bodku, keď sa objaví. Pozerajte sa na bodku, keď na ňu klikáte.</p>`,
 
         // Validation
         validation_instructions: `
-            <p>Teraz musíme skontrolovať presnosť sledovania očí.</p>
-            <p>Držte hlavu nehybne a pohybujte očami tak, aby ste sa zamerali na každú bodku, keď sa objaví.</p>
-            <p><b>Nemusíte klikať na bodky.</b> Stačí pohybovať očami a pozerať sa na ne.</p>
+            <p>Teraz musíme skontrolovať presnosť sledovania pohybu očí.</p>
+            <p>Držte hlavu nehybne a pohybujte očami tak, aby ste zamerali pohľad na každú bodku, ktorá sa objaví.</p>
+            <p><b>Nemusíte klikať na bodky.</b> Stačí, keď budete pohybovať očami a pozerať sa na ne.</p>
             `,
 
         // Validation_feedback
         validation_feedback_badcal: `
-<p>OK, toto je to najlepšie, čo môžeme dosiahnuť. Experiment bude teraz pokračovať ako predtým.<br/>Kliknite na plus pre začatie každého kola.</p>`,
-        validation_feedback_goodcal: `<p>Úspech! Experiment bude teraz pokračovať ako predtým.</p>
+<p>OK, toto je to najlepšie, čo môžeme dosiahnuť. Experiment bude teraz pokračovať tak, ako predtým.<br/>Kliknite na plus pre začatie každého kola.</p>`,
+        validation_feedback_goodcal: `<p>Super! Experiment bude teraz pokračovať tak, ako predtým.</p>
                                       <p>Kliknite na plus pre začatie každého kola.</p>`,
         
         // Instructions
@@ -366,21 +389,21 @@ const translations = {
         q1: 'Táto osoba znela prirodzene',
         q2: 'Táto osoba mala prízvuk',
         q3: 'Táto osoba znela plynulo',
-        q4: 'V každodennom živote často komunikujem s nerodenými hovoriacimi slovenčiny (t.j. s hovoriacimi, ktorí sa naučili slovenčinu ako cudzí jazyk)',
+        q4: 'V každodennom živote často komunikujem s osobami, ktoré rozprávajú slovenčinou ako nematerinským jazykom (t.j., s osobami, ktoré sa naučili slovenčinu ako cudzí jazyk)',
 
-        q5: 'Viete uhádnuť materinský jazyk hovoriaceho, ktorého ste práve počuli (t.j. aký jazyk sa naučil/a ako prvý?)',
-        q6: 'Všimli ste si ešte niečo iné na osobe, ktorú ste počúvali, alebo by ste nám chceli povedať niečo o experimente vo všeobecnosti?',
+        q5: 'Viete uhádnuť, aký je materinský jazyk osoby, ktorú ste práve počuli (t.j. aký jazyk sa naučil/a ako prvý?)',
+        q6: 'Všimli ste si ešte niečo iné na osobe, ktorú ste počúvali? Prípadne, chceli by ste nám povedať niečo o našom experimente vo všeobecnosti?',
 
         qpp: '<h3>O Vás</h3>',
-        qp1: 'Aký je Váš vek v rokoch?',
-        qp2: 'Aké je Vaše pohlavie (napr. muž, žena, nebinárne)?',
+        qp1: 'Aký je Váš vek (v rokoch)?',
+        qp2: 'Aké je Vaše pohlavie (napr. muž, žena, nebinárna osoba)?',
         qp3: 'Aký/é je/sú Váš/Vaše materinský/é jazyk/y?',
         qp4: 'Uveďte, prosím, všetky ďalšie jazyky, ktorými hovoríte plynulo',
 
         debrief: `<p><b>Ďakujeme Vám za účasť na našej štúdii.</b></p>
-<p>Táto štúdia skúma, ako poslucháči spracúvajú rečové disfluencie, ako „hm“ alebo pauzy, od rodených a nerodených hovoriacich. Predchádzajúci výskum ukazuje, že keď rodený hovoriaci váha, poslucháči často očakávajú, že povie menej bežné slovo. Tento efekt sa však stráca pri počúvaní nerodeného hovoriaceho.</p>
-<p>Naším cieľom bolo zistiť, či tieto zistenia platia aj pre slovenských a nemeckých poslucháčov. Hoci Vám bolo povedané, že budete počuť jedného z 20 rôznych hovoriacich, v skutočnosti ste počúvali jedného z iba dvoch hovoriacich: jedného rodeného a jedného nerodeného. Sledovali sme Vaše očné pohyby, aby sme videli, ako ste predvídali slová pri počúvaní disfluentnej reči. Porovnaním výsledkov zo Slovenska a Nemecka – krajín s rôznou mierou vystavenia nerodeným hovoriacim – môžeme preskúmať, ako naše každodenné interakcie formujú spracovanie jazyka.</p>
-<p>Všetky údaje, ktoré sme zhromaždili, sú anonymné a nemožno ich spätne vystopovať. Ak súhlasíte s pokračovaním, kliknite, prosím, na tlačidlo „ODOSLAŤ ODPOVEDE“ nižšie. Ak si želáte odstúpiť, môžete jednoducho zavrieť prehliadač a Vaše údaje budú vymazané. V prípade akýchkoľvek otázok sa, prosím, obráťte na Haerim Lee (<a href="mailto:h.lee-49@sms.ed.ac.uk">h.lee-49@sms.ed.ac.uk</a>), Júliu Stasovú (<a href="mailto:j.stasova@sms.ed.ac.uk">j.stasova@sms.ed.ac.uk</a>) alebo profesora Martina Corleyho (<a href="mailto:martin.corley@ed.ac.uk">martin.corley@ed.ac.uk</a>).</p>`,
+<p>V tejto štúdii skúmame, ako poslucháči spracúvajú rečové disfluencie, napríklad „ehm“ alebo pauzy, od osôb, ktoré rozprávajú slovenčinou ako materinským a nematerinským (cudzím) jazykom. Predchádzajúci výskum ukázal, že keď osoba, ktorá rozpráva materinským jazykom zaváha a je disfluentná, poslucháči často očakávajú, že povie slovo, ktoré je v jazyku menej bežné. Tento efekt sa však stráca, keď ľudia počúvajú niekoho, kto hovorí nematerinským (cudzím) jazykom.</p>
+<p>Naším cieľom bolo zistiť, či tieto zistenia platia aj pre slovenských a nemeckých poslucháčov. Hoci sme Vám na začiatku povedali, že budete počuť jednu z 20 rôznych osôb, v skutočnosti ste počúvali iba jednu z dvoch osôb: buď osobu, ktorá rozpráva slovenčinou ako materinským jazykom, alebo osobu, ktorá rozpráva slovenčinou ako nematerinským (cudzím) jazykom. Sledovali sme pohyby Vašich očí, aby sme videli, ako ste predvídali slová pri počúvaní disfluentnej reči. Porovnaním výsledkov zo Slovenska a Nemecka – krajín, ktoré sa líšia v tom, ako často ich obyvatelia interagujú s osobami, ktoré rozprávajú nematerinským jazykom  – chceme preskúmať, ako naše každodenné interakcie formujú spracovanie jazyka.</p>
+<p>Všetky dáta, ktoré sme zhromaždili, sú anonymné a nemožno ich spätne vystopovať k Vašej osobe. Ak súhlasíte s pokračovaním, kliknite, prosím, na tlačidlo „ODOSLAŤ ODPOVEDE“ nižšie. Ak si želáte odstúpiť zo štúdie, môžete jednoducho zavrieť prehliadač a Vaše dáta budú vymazané. V prípade akýchkoľvek otázok sa, prosím, obráťte na Haerim Lee (<a href="mailto:h.lee-49@sms.ed.ac.uk">h.lee-49@sms.ed.ac.uk</a>), Júliu Stasovú (<a href="mailto:j.stasova@sms.ed.ac.uk">j.stasova@sms.ed.ac.uk</a>) alebo profesora Martina Corleyho (<a href="mailto:martin.corley@ed.ac.uk">martin.corley@ed.ac.uk</a>).</p>`,
 
         end1: `KLIKNITE SEM PRE ODOSLANIE DÁT A UKONČENIE EXPERIMENTU`,
         end2: `KLIKNITE PRE ODOSLANIE DÁT A NÁVRAT NA PROLIFIC`
