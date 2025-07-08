@@ -337,6 +337,7 @@ const init_qs = {
 	    horizontal: true
 	}
     ],
+    on_start: () => console.log(`vision = ${S.vision}`),
 };
 
 const likert_scale = [
