@@ -6,14 +6,19 @@ const jsPsych = initJsPsych({
           {type: jsPsychExtensionWebgazer}
     ],
     on_finish: function() {
-	//window.location = "https://app.prolific.co/submissions/complete?cc=CPHGKUII"
+	if (subject_id.startsWith("NP:") {
+	    jatos.endStudy(jsPsych.gata.get().json());
+	} else {
+	    jatos.endStudyAndRedirect("https://app.prolific.co/submissions/complete?cc=1234ABCD",
+				      jsPsych.gata.get().json());
+	}
     },
     override_safe_mode: true
 });
 
 // WHICH CONDITION ARE WE RUNNING?
 // "lang" is set by a "LANG" url parameter (de or sk, or en for testing)
-const lang = jsPsych.data.getURLVariable('LANG') || 'en';
+const lang = jatos.urlQueryParameters.LANG || 'en';
 // we choose groupA through groupD with equal probability
 const group = jsPsych.randomization.sampleWithoutReplacement(['groupA','groupB','groupC','groupD'],1)[0];
 // 50% probability of native or non-native
@@ -26,9 +31,9 @@ const long_id = 'NP:' + jsPsych.randomization.randomID(10);
 
 
 // pick up PROLIFIC INFO
-const subject_id = jsPsych.data.getURLVariable('PROLIFIC_PID') || long_id;
-const study_id = jsPsych.data.getURLVariable('STUDY_ID') || 'LOCAL';
-const session_id = jsPsych.data.getURLVariable('SESSION_ID') || 'LOCAL';
+const subject_id = jatos.urlQueryParameters.PROLIFIC_PID || long_id;
+const study_id = jatos.urlQueryParameters.STUDY_ID || 'LOCAL';
+const session_id = jatos.urlQueryParameters.SESSION_ID || 'LOCAL';
 
 // set language of experiment
 const S = translations[lang]; // a shorthand for selected language's strings
@@ -316,6 +321,8 @@ const debrief = {
     choices: () => (subject_id.startsWith("NP:") ? [S.end1] : [S.end2]),
     record_data: false
 };
+
+
 
 
 ///QUESTIONNAIRE
@@ -743,5 +750,6 @@ const experiment_timeline = {
 
 
 
-
-jsPsych.run([experiment_timeline]);
+jatos.onLoad(() => {
+    jsPsych.run(experiment_timeline);
+});
