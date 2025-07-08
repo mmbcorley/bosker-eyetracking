@@ -167,7 +167,7 @@ const translations = {
         consent_check_alert: "Wenn Sie teilnehmen möchten, müssen Sie das Kästchen neben der Aussage 'Ich stimme der Teilnahme an dieser Studie zu' ankreuzen.",
         consent_button: "Starten",
 
-	vision: `Ich habe <b>normale Sehkraft<b/> oder <b>normal korrigierte Sehkraft</b> (z.B. mit einer Brille oder Kontraktlinsen).`,
+	vision: `Ich habe <b>normale Sehkraft</b> oder <b>normal korrigierte Sehkraft</b> (z.B. mit einer Brille oder Kontraktlinsen).`,
 	language: `Haben Sie eine Sprach- oder Hörstörung?`,
 	yes: `Ja`,
 	no: `Nein`,
