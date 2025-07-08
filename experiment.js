@@ -1,4 +1,4 @@
-var num_trials = -2; // takes practise into account
+var num_trials = 0; // takes practise into account
 
 const jsPsych = initJsPsych({
     show_progress_bar: false,
@@ -537,6 +537,7 @@ const check_calibration = {
 const recalibration = {
     timeline: [calibration_recalibrate,calibration_loop],
     conditional_function: function () {
+	num_trials++;
 	if (num_trials  == 16 || num_trials == 32 || num_trials == 48) {
 	    return true;
 	} else {
@@ -623,10 +624,6 @@ const part_a = {
 	speaker: jsPsych.timelineVariable('speaker'),
 	language: lang,
 	target_onset: jsPsych.timelineVariable('target_onset')
-    },
-        on_finish: function(data) {
-	num_trials++;
-	console.log(`trials: ${num_trials}`);
     }
 };
 
