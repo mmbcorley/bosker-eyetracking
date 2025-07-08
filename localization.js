@@ -20,7 +20,6 @@ const translations = {
 	
 	loading: `<p>the experiment is loading...</p>`,
 
-	important: 'Important!',
 	vision: `I have <b>normal vision</b> or <b>corrected to normal>/b> vision (e.g., with glasses or contact lenses).`,
 	language: `Do you have any language or hearing disorder?`,
 	yes: `yes`,
@@ -168,11 +167,10 @@ const translations = {
         consent_check_alert: "Wenn Sie teilnehmen möchten, müssen Sie das Kästchen neben der Aussage 'Ich stimme der Teilnahme an dieser Studie zu' ankreuzen.",
         consent_button: "Starten",
 
-	important: 'Wichtig!',
 	vision: `Ich habe <b>normale Sehkraft<b/> oder <b>normal korrigierte Sehkraft</b> (z.B. mit einer Brille oder Kontraktlinsen).`,
 	language: `Haben Sie eine Sprach- oder Hörstörung?`,
 	yes: `Ja`,
-	no: `Nein`
+	no: `Nein`,
 
 
         // Fullscreen message
@@ -289,7 +287,6 @@ const translations = {
 
         loading: `<p>experiment sa načítava...</p>`,
 
-	important: 'Dôležité!"',
 	vision: `Mám <b>normálny</b> zrak alebo <b>korigovaný</b> na normálny zrak (napr. s okuliarmi alebo kontaktnými šošovkami).`,
 	language: `Máte nejakú poruchu reči alebo sluchu?`,
 	yes: `áno`,

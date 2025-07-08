@@ -320,7 +320,7 @@ const debrief = {
 
 const init_qs = {
     type: jsPsychSurveyMultiChoice,
-    preamble: `<h2>S.important</h2>`,
+    preamble: S.welcome_heading_1,
     questions: [
 	{
 	    prompt: S.vision,
