@@ -388,7 +388,7 @@ const calibration_first_time = {
     choices: [S.click_begin],
     post_trial_gap: 1000,
     on_finish: () => {
-	CALIBRATION_MAX=3;
+	CALIBRATION_MAX=5;
     }
 };
 
@@ -399,7 +399,7 @@ const calibration_recalibrate = {
     choices: [S.click_begin],
     post_trial_gap: 1000,
     on_finish: () => {
-	CALIBRATION_MAX=2;
+	CALIBRATION_MAX=3;
     }
 };
     
