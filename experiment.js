@@ -333,6 +333,7 @@ const debrief = {
 const init_qs = {
     type: jsPsychSurveyMultiChoice,
     preamble: S.welcome_heading_1,
+    button_label: S.continue,
     questions: [
 	{
 	    prompt: S.vision,
@@ -718,6 +719,7 @@ const stimulus_timeline = {
     // 	type: 'without-replacement',
     // 	size: 5
     // },
+    randomize_order: true
 };
 
 
