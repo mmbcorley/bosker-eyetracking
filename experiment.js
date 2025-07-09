@@ -12,7 +12,7 @@ const jsPsych = initJsPsych({
 	if (subject_id.startsWith("NP:")) {
 	    jatos.endStudy(jsPsych.data.get().json());
 	} else {
-	    if (LANG == 'sk') {
+	    if (lang == 'sk') {
 		// Júlia Prolific
 		jatos.endStudyAndRedirect("https://app.prolific.co/submissions/complete?cc=1234ABCD",
 					  jsPsych.data.get().json());
