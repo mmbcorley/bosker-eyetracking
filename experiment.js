@@ -12,8 +12,15 @@ const jsPsych = initJsPsych({
 	if (subject_id.startsWith("NP:")) {
 	    jatos.endStudy(jsPsych.data.get().json());
 	} else {
-	    jatos.endStudyAndRedirect("https://app.prolific.co/submissions/complete?cc=1234ABCD",
-				      jsPsych.data.get().json());
+	    if (LANG == 'sk') {
+		# Júlia Prolific
+		jatos.endStudyAndRedirect("https://app.prolific.co/submissions/complete?cc=1234ABCD",
+					  jsPsych.data.get().json());
+	    } else {
+		# Haerim Prolific
+		jatos.endStudyAndRedirect("https://app.prolific.co/submissions/complete?cc=1234ABCD",
+					  jsPsych.data.get().json());
+	    }
 	}
     },
     override_safe_mode: true
@@ -366,12 +373,14 @@ var likert_qs = {
 	{prompt: S.q3, name: "q_fluent", labels: likert_scale},
 	{prompt: S.q4, name: "q_interact", labels: likert_scale},
     ],
-    preamble: S.q_preamble
+    preamble: S.q_preamble,
+    button_label: S.continue
 };
 
 const text_qs = {
     type: jsPsychSurveyText,
     preamble: S.q_preamble,
+    button_label: S.continue,
     questions: [
 	{prompt: S.q5,
 	 name: 'q_speaker_guess',
@@ -385,7 +394,8 @@ const text_qs = {
     
 const qp1 = {
 	type: jsPsychSurveyText,
-	preamble: S.qpp, /* FIXME */
+        preamble: S.qpp,
+    button_label: S.continue,
 	questions: [
 	    {prompt: S.qp1,
 	     columns: 3,
@@ -715,10 +725,10 @@ const one_stimulus = {
 const stimulus_timeline = {
     timeline: [fixation,one_stimulus,recalibration],
     timeline_variables: all_data,
-    // sample: {
-    // 	type: 'without-replacement',
-    // 	size: 5
-    // },
+    sample: {
+	type: 'without-replacement',
+	size: 5
+    },
     randomize_order: true
 };
 
