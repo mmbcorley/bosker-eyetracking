@@ -13,11 +13,11 @@ const jsPsych = initJsPsych({
 	    jatos.endStudy(jsPsych.data.get().json());
 	} else {
 	    if (LANG == 'sk') {
-		# Júlia Prolific
+		// Júlia Prolific
 		jatos.endStudyAndRedirect("https://app.prolific.co/submissions/complete?cc=1234ABCD",
 					  jsPsych.data.get().json());
 	    } else {
-		# Haerim Prolific
+		// Haerim Prolific
 		jatos.endStudyAndRedirect("https://app.prolific.co/submissions/complete?cc=1234ABCD",
 					  jsPsych.data.get().json());
 	    }
